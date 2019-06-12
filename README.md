@@ -32,28 +32,28 @@ Hardware
 
 **Razer Blade Advanced early 2019**
 
- | Spec
----:|:---
-Chipset | Mobile Intel HM370
-CPU | Intel Core i7-8750H processor, 6 Cores / 12 Threads, 2.2GHz / 4.1GHz, 9MB Cache
-Memory | 16GB dual-channel DDR4-2667MHz, up to 64GB
-GPU | Intel UHD 630
-dGPU | NVidia 2070 Max-Q (8GB GDDR6 VRAM)
-Storage | Samsung PM981 256GB NVMe M.2
-Screen | 15.6" Full HD 144Hz, 1920 x 1080 IPS
-Webcam | Windows Hello built-in IR HD webcam (1MP / 720P)
-WiFi | Intel Wireless-AC 9560NGW
-Input & Output | USB 3.1 Gen 1 (USB-A) x3
- | Thunderbolt 3 (USB-C)
- | HDMI 2.0B
- | Mini DisplayPort 1.4
-Soundboard | Realtek ALC298
-Battery | 80Wh
-Keyboard | Per-key RGB powered by Razer Chroma™ N-Key rollover backlit
-Touchpad | Precision Glass
-Dimensions | 17.8mm x 235mm x 355mm
-Weight | 2.21 kg
-Power | 230W power adapter
+| | Spec |
+| ---:|:--- |
+| Chipset | Mobile Intel HM370 |
+| CPU | Intel Core i7-8750H processor, 6 Cores / 12 Threads, 2.2GHz / 4.1GHz, 9MB Cache |
+| Memory | 16GB dual-channel DDR4-2667MHz, up to 64GB |
+| GPU | Intel UHD 630 |
+| dGPU | NVidia 2070 Max-Q (8GB GDDR6 VRAM) |
+| Storage | Samsung PM981 256GB NVMe M.2 |
+| Screen | 15.6" Full HD 144Hz, 1920 x 1080 IPS |
+| Webcam | Windows Hello built-in IR HD webcam (1MP / 720P) |
+| WiFi | Intel Wireless-AC 9560NGW |
+| Input & Output | USB 3.1 Gen 1 (USB-A) x3 |
+|  | Thunderbolt 3 (USB-C) |
+|  | HDMI 2.0B |
+|  | Mini DisplayPort 1.4 |
+| Soundboard | Realtek ALC298 |
+| Battery | 80Wh |
+| Keyboard | Per-key RGB powered by Razer Chroma™ N-Key rollover backlit |
+| Touchpad | Precision Glass |
+| Dimensions | 17.8mm x 235mm x 355mm |
+| Weight | 2.21 kg |
+| Power | 230W power adapter |
 
 
 Hardware Compatibility
