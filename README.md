@@ -20,7 +20,11 @@ So finally I make decision to switch to dark side and hackintosh good enough not
 * ML development (requires CUDA and Nvidia GPU).
 * Embedded software and hardware development (IoT).
 * Cloud and DevOps.
-* Once per month gaming. Usually 3A titles like [Tomb Rider](https://tombraider.square-enix-games.com/en-gb), [Deus Ex](https://square-enix-games.com/en_US/games/deus-ex-mankind-divided/), [Tom Clancy's The Division](https://tomclancy-thedivision.ubisoft.com/game/en-us/home), [Mass Effect](https://www.ea.com/games/mass-effect), etc.
+* Once per month gaming. Usually 3A titles like
+	* [Tomb Rider](https://tombraider.square-enix-games.com/en-gb)
+	* [Deus Ex](https://square-enix-games.com/en_US/games/deus-ex-mankind-divided/)
+	* [Tom Clancy's The Division 1/2](https://tomclancy-thedivision.ubisoft.com/game/en-us/home)
+	* [Mass Effect](https://www.ea.com/games/mass-effect), etc.
 
 
 Hardware
@@ -28,21 +32,34 @@ Hardware
 
 **Razer Blade Advanced early 2019**
 
-* CPU: Intel Core i7-8750H 2.21GHz
-* RAM: 16GB dual-channel LPDDR3-2133
-* GPU: Intel UHD 630
-* dGPU: NVidia 2070 Max-Q
-* Storage: Samsung PM981 256GB NVMe M.2
-* Screen: 15.6" 1920x1080 FHD 144Hz
-* WiFi: Intel 9560NGW
-* Soundboard: Realtek ALC298
-* Battery: 80Wh
+ | Spec
+---:|:---
+Chipset | Mobile Intel HM370
+CPU | Intel Core i7-8750H processor, 6 Cores / 12 Threads, 2.2GHz / 4.1GHz, 9MB Cache
+Memory | 16GB dual-channel DDR4-2667MHz, up to 64GB
+GPU | Intel UHD 630
+dGPU | NVidia 2070 Max-Q (8GB GDDR6 VRAM)
+Storage | Samsung PM981 256GB NVMe M.2
+Screen | 15.6" Full HD 144Hz, 1920 x 1080 IPS
+Webcam | Windows Hello built-in IR HD webcam (1MP / 720P)
+WiFi | Intel Wireless-AC 9560NGW
+Input & Output | USB 3.1 Gen 1 (USB-A) x3
+ | Thunderbolt 3 (USB-C)
+ | HDMI 2.0B
+ | Mini DisplayPort 1.4
+Soundboard | Realtek ALC298
+Battery | 80Wh
+Keyboard | Per-key RGB powered by Razer Chroma™ N-Key rollover backlit
+Touchpad | Precision Glass
+Dimensions | 17.8mm x 235mm x 355mm
+Weight | 2.21 kg
+Power | 230W power adapter
 
 
 Hardware Compatibility
 ---
 
-The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be replaced. Please find below replacement parts already tested for compatibility. Usually I need to deploy for testing 4-5 node Kubernetes cluster with at least 4Gb per node. So 32GB is necessary upgrade for me.
+The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be replaced. Please find below recommended replacement parts already tested for compatibility. Usually I need to deploy for testing 4-5 node Kubernetes cluster with at least 4Gb per node. So 32GB is necessary upgrade for me.
 
 
 **Accessories**
@@ -74,7 +91,7 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 
 **Recommended Upgrades**
 
-* Advancing Gene NVMe M.2 Heatsink. Decreased temperature for about 10-12° C [Amazon](https://www.amazon.com/gp/product/B074Y5DZ4N/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1)
+* Advancing Gene NVMe M.2 Heatsink. Decreased temperature for about 10-12° C on heave load [Amazon](https://www.amazon.com/gp/product/B074Y5DZ4N/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1)
 
 
 **Recommended Tools**
@@ -339,7 +356,6 @@ Use you own OR borrow some friend Mac computer.
 * Run ``UniBeast`` OR ``TINU`` application.
 * Follow instruction and build macOS installation media macOS 10.14 Mojave. Very important to build media with latest available version of Mojave.
 
-
 **Useful information**
 
 * [UniBeast: Install macOS Mojave on Any Supported Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-mojave-on-any-supported-intel-based-pc.259381/)
@@ -348,6 +364,7 @@ Use you own OR borrow some friend Mac computer.
 
 ### WiFi and NVMe replacement
 
+WiFi and NVMe replacement easy enough for this model. Just unscrew bottom case.
 
 **Useful information**
 
@@ -357,10 +374,9 @@ Use you own OR borrow some friend Mac computer.
 
 ### Liquid Metal re-paste
 
-
 <span style="color:red">**Be very careful and do this at your OWN RISK!**</span>
 
-This step is not necessary and can be recommended only for hardcore gamers with experience building own rigs. Razer already using very good thermal paste so re-paste thermal paste is not very useful until liquid metal will be used. And Grizzly maybe the best one. Read more about liquid metal thermal paste and all issues he can cause before make decision and go forward.
+This step is not necessary and can be recommended only for hardcore gamers with experience building own rigs. Razer already using very good thermal paste so re-paste thermal paste is not very useful until liquid metal will be used. And Grizzly Conductonaut Thermal Grease Paste maybe the best one. Read more about liquid metal thermal paste and all issues he can cause before make decision and go forward.
 
 **Useful information**
 
@@ -418,6 +434,12 @@ Undervolting
 ---
 
 TODO
+
+**Useful information**
+
+* [Razer Blade 2017 Ultimate CPU GPU Optimization - Unleashed Performance - BIOS Unlock](https://www.youtube.com/watch?v=O5CvK7i9a_Y)
+* [Razer Blade 2018 Thermal Testing - Overclocking and Undervolting](https://www.youtube.com/watch?v=rJSeG_Pb3bs)
+* [Razer blade 15 undervolting with ThrottleStop](https://www.youtube.com/watch?v=ooET-Nk62VY)
 
 
 Know Issues and Limitations
