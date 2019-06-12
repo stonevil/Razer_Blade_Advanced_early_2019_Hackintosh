@@ -1,6 +1,5 @@
 # Razer Blade Advanced early 2019 macOS 10.14 hackintosh
 
-
 <span style="color:red">**Note: I am not responsible if you mess up your computer with this guide!**</span>
 
 
@@ -9,16 +8,17 @@ Intro
 
 I'm long time Apple hardware and software user. Since 1996. And still macOS is best OS for my requirements.
 My first computer is PowerBook 150 I bough in 1996 during my studying in Berkley. Since then I used only Apple mobile computers. PowerBook G3, PowerBook Titanium, bunch of MacBook Pro 13" and 15".
-But I'm really unhappy with my latest MacBook Pro 2017. Useless keyboard with arrow keys designed for Tinker Bell? Zero ability to upgrade up to 32Gb RAM back to 2017.
-So finally I make decision to switch dark side and hackintosh good enough notebook. And RBA serves this purpose very well.
+But I'm really unhappy with my latest MacBook Pro 2017. Useless keyboard with arrow keys designed for Tinker Bell? Zero ability to upgrade up to 32Gb RAM back then in 2017. Yes. I know this is 100% Intel fail. Just like performance and termal Intel CPU issues for last 6 years. Intel just do not care anymore about mobile CPU.
+
+So finally I make decision to switch to dark side and hackintosh good enough notebook. After some research I choose Razer Blade Advanced for this purpose.
 
 **Purpose**
 
-* Backend software development
-* ML development (requires CUDA and Nvidia GPU)
-* Embedded software and hardware development (IoT)
-* Cloud and DevOps
-* Once per month gaming. Usually 3A titles like Tomb Rider, Deus Ex, Tom Clancy's The Division, Mass Effect, etc.
+* Backend software development.
+* ML development (requires CUDA and Nvidia GPU).
+* Embedded software and hardware development (IoT).
+* Cloud and DevOps.
+* Once per month gaming. Usually 3A titles like [Tomb Rider](https://tombraider.square-enix-games.com/en-gb), [Deus Ex](https://square-enix-games.com/en_US/games/deus-ex-mankind-divided/), [Tom Clancy's The Division](https://tomclancy-thedivision.ubisoft.com/game/en-us/home), [Mass Effect](https://www.ea.com/games/mass-effect), etc.
 
 
 Hardware
@@ -43,9 +43,16 @@ Hardware Compatibility
 The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be replaced. Please find below replacement parts already tested for compatibility. Usually I need to deploy for testing 4-5 node Kubernetes cluster with at least 4Gb per node. So 32GB is necessary upgrade for me.
 
 
+**Accessories**
+
+* USB mouse. Trackpad will be unavailable during macOS installation procedure.
+* USB stick with at least 16Gb storage.
+
+
 **WiFi**
 
 * BCM94352Z (DW-1560). I can easily find for $24-30 on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1)
+
 
 **Storage**
 
@@ -53,7 +60,6 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 * Samsung EVO 970 Pro NVMe [Amazon](https://www.amazon.com/Samsung-PCI-Express-Solid-State-V-NAND/dp/B07DFJ3YQR/ref=sr_1_4?keywords=Samsung+970+EVO+Pro&qid=1560233808&s=electronics&sr=1-4)
 * Sabrent Rocket NVMe [Amazon](https://www.amazon.com/gp/product/B07LGF54XR/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 * WD Black SN750 NVMe [Amazon](https://www.amazon.com/BLACK-SN750-500GB-Internal-Gaming/dp/B07MQ468S8/ref=sxin_3_ac_d_rm?keywords=wd%2Bblack%2Bnvme&pd_rd_i=B07MH2P5ZD&pd_rd_r=0be71a8a-a79d-4ce3-ad47-102a5ee16a25&pd_rd_w=9ZCWD&pd_rd_wg=dlFxu&pf_rd_p=0bc35c17-1e0d-4808-b361-20ab11b00973&pf_rd_r=0CKT4MYE9A5QZ8AJYEVK&qid=1560233421&s=gateway&th=1)
-
 
 <span style="color:red">Note: I do recommend to use at least 1Tb NVMe for dual boot with Windows 10.</span>
 
@@ -127,7 +133,7 @@ Required Tools
 Guide
 ---
 
-#### BIOS update
+### BIOS update
 
 Very important to make all updates fot BIOS before starting any macOS deployment. ACPI sources will be different after BIOS update and this will require to dump ACPI sources and patch them again.
 
@@ -146,24 +152,42 @@ Download BIOS, EC, ME Firmware and apply them from stock Windows partition.
 * [Razer Support Website](https://support.razer.com)
 
 
-#### BIOS unlock
+### BIOS unlock
 
-Tools from this repository will be required for next step.
+Some changes for BIOS configuration should be done to make macOS bootable on Razer Blade Advanced.
 
-**Export BIOS**
+* Disable VT-d. Apple droped support long time ago and will not boot in some cases with enabled VT-d. Do not mistake VT-d for VMX.
+* Increase memore pre-alocated for DVMT. Usually DVMT Pre-Allocated for 32Mb. macOS requires 64Mb minimum.
+* Deactivate CFG-Lock. Required by macOS Power Management.
+* Disable Secure Boot.
+
+Some of this confgurations can be overrided of fixed one or another way in Clover configuration file. But better to play safe and change configuration in BIOS. And deactivation of CFG-Lock can help with power management.
+
+In case if BIOS upgraded to latest version and
+
+* System BIOS Version is 1.04
+* EC FW Version is 1.03
+* MCU FW Version is 1.00.00.00
+
+safely to use already modded dump from ``BIOS\_mod`` folder and go to step **Flash BIOS**.
+
+Otherwise follow to next step.
+
+
+#### Export BIOS
 
 * Boot into Windows.
 * Download this repository.
 * Open ``Tools\AfuWin64`` folder.
 * Run ``AFUWINGUIx64.EXE`` application.
-* In ``AFUWINGUI`` application click ``Save`` button to export curent BIOS.
+* In ``AFUWINGUI`` application click ``Save`` button to export current BIOS.
 * Save BIOS to ``Desktop`` folder.
 * Close ``AFUWINGUI`` application.
 
 
-**Modding BIOS**
+#### Modding BIOS
 
-Most of this options required for next undervolting and overclocking. But part of them is necessery for macOS. This like options marked with <span style="color:red">**!**</span>
+Most of this options required for next undervolting and overclocking. But part of them is necessary for macOS. This like options marked with <span style="color:red">**!**</span>
 
 * Open ``Tools\AMIBCP64`` folder.
 * Run ``AMIBCP64.exe`` application.
@@ -215,7 +239,7 @@ Most of this options required for next undervolting and overclocking. But part o
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
 			* ``Memory Profile`` (second row from top) <span style="color:red">**RAM XMP Profile**</span>
 			* ``Memory Profile`` (another one somewhere in the middle of the list) <span style="color:red">**RAM XMP profile**</span>
-			* ``Memeory Reference Clock`` <span style="color:red">**RAM XMP Profile**</span>
+			* ``Memory Reference Clock`` <span style="color:red">**RAM XMP Profile**</span>
 			* ``Memory Ratio`` <span style="color:red">**RAM XMP Profile**</span>
 			* ``Memory Voltage`` <span style="color:red">**RAM XMP Profile**</span>
 	* Click ``Chipset`` folder in left pane
@@ -247,7 +271,7 @@ Most of this options required for next undervolting and overclocking. But part o
 * Close ``AMIBCP`` application.
 
 
-**Flash BIOS**
+#### Flash BIOS
 
 * Open ``Tools\AfuWin64`` folder.
 * Run ``AFUWINGUIx64.EXE`` application.
@@ -264,19 +288,48 @@ Most of this options required for next undervolting and overclocking. But part o
 * [Razer Blade 2017 Ultimate CPU GPU Optimization - Unleashed Performance - BIOS Unlock](https://www.youtube.com/watch?v=O5CvK7i9a_Y)
 
 
-#### BIOS configuration
+### BIOS configuration
 
 There are few changes in BIOS is vital to make macOS happy and bootable on RBA. Undervolting and Overclocking will explained in last dedicated chapter.
 
 * Reboot computer.
 * Repeatedly press ``DEL`` key to enter BIOS configuration menu.
 * In BIOS navigate to menu
+	* ``Advanced``
+		* ``Power & Performance``
+			* ``CPU - Power Management Control``
+				* ``CPU Lock Configuration``
+					* Disable ``CFG Lock``
+					* Disable ``Overclocking Lock``
+	* ``Advanced``
+		* ``Overclocking Performance Menu``
+			* Disable ``XTU Interface``
+	* ``Advanced``
+		* ``Thunderbolt(TM) Configuration``
+			* Switch ``Security Level`` to ``No Security``
 	* ``Chipset``
-		*
+		* ``System Agent (SA) Configuration``
+			* ``Graphics Configuration``
+				* Set ``DVMT Pre-Allocated`` to ``64``
+				* Set ``DVMT Total Gfx Mem`` to ``MAX``
+	* ``Chipset``
+		* ``System Agent (SA) Configuration``
+		* Disable ``VT-d``
+	* ``Chipset``
+		* ``SATA And RST Configuration``
+		* Check ``SATA Mode Selection`` set to ``AHCI``
+	* ``Security``
+		* Set ``Secure Boot`` to ``Disabled``
+	* ``Boot``
+		* Set ``Fast Boot`` to ``Disabled``
+		* ``CSM Configuration``
+			* Set ``CSM Support`` to ``Disabled``
+	* ``Save and Exit``
+		* Hit ``Save Changes``
+		* Hit ``Save Changes and Reset``
 
 
-
-#### macOS install media preparation
+### macOS install media preparation
 
 Use you own OR borrow some friend Mac computer.
 
@@ -291,7 +344,7 @@ Use you own OR borrow some friend Mac computer.
 * [TINU](https://github.com/ITzTravelInTime/TINU)
 
 
-#### WiFi and NVMe replacement
+### WiFi and NVMe replacement
 
 
 **Useful information**
@@ -300,11 +353,12 @@ Use you own OR borrow some friend Mac computer.
 * [Razer Blade Advanced RTX 2070 SSD Replacement](https://www.youtube.com/watch?v=9-ZfDNdj2WU)
 
 
-#### Luqid Metal repaste
+### Liquid Metal re-paste
+
 
 <span style="color:red">**Be very careful and do this at your OWN RISK!**</span>
 
-This step is not necessary and can be recommended only for hardcore gamers with expirence building own rigs.
+This step is not necessary and can be recommended only for hardcore gamers with experience building own rigs.
 
 **Useful information**
 
@@ -312,10 +366,17 @@ This step is not necessary and can be recommended only for hardcore gamers with 
 * [Grizzly Liquid Metal'd my 2018 Razer Blade 15 1060](https://www.youtube.com/watch?v=7xK4SjOra1E)
 
 
-#### macOS installation
+### macOS installation
 
-* Boot/Reboot computer
-* Press repeatedly F12
+* Insert macOS USB install media.
+* Boot/Reboot computer.
+* Press repeatedly ``F12`` until you Boot Menu will show.
+* Select macOS USB install media.
+* Open Disk Utility from Tools menu.
+* Format NVMe to APFS.
+* Follow usual macOS installation procedure.
+* After reboot repeatedly tap ``F12`` again until get Boot Menu.
+* Select macOS USB install media again.
 
 TODO
 
@@ -343,6 +404,14 @@ TODO
 * [An iDiot's Guide To iMessage](https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/)
 
 
+Razer Chroma
+---
+
+Razer Chroma support for Razer Blade notebooks and most latest Razer devices is not implemented yet. And suppose will never will be implemented.
+
+Thanks to [osx-razer-blade](https://github.com/boo-dev/osx-razer-blade) project I'm already have enough information and working already on cli tool to control Razer Blade keyboard and logo.
+
+
 Undervolting
 ---
 
@@ -355,13 +424,25 @@ Know Issues and Limitations
 **Limitations**
 
 * Nidia Web Driver is absent for macOS 10.14 Mojave. Nvidia do not want to implement support for Apple new 2D/3D rendering framework Metal and do not want to share access for Nvidia drivers for Apple. So, currently no support for Nvidia GPU for macOS 10.14 Mojave. It's not a problem for me because I'm using Windows 10 partition for gaming and Debian Linux partition to run ML tasks over night.
-	* Laptop have a HDMI port. HDMI port connected directly to Nvidia GPU and will not work in macOS 10.14 Mojave.
+	* HDMI port connected directly to Nvidia GPU and will not work in macOS 10.14 Mojave.
 	* No idea about DisplayPort. Maybe I will borrow some monitor with DisplayPort support in office for testing.
 	* USB-C to HDMI should work without any issues.
+
 
 **Issues**
 
 * Sometimes screen do not wake up after first lid open from sleep. You need to close and open lid again. This issue introduced after latest BIOS update. Annoying but not important.
+
+
+Conclusion
+---
+
+It's a pretty good laptop with far better keyboard than 2016-2019y MacBook Pro. Solid workstation and extremely good gaming machine. And easy to upgrade storage and RAM and WiFi. This model supports NVMe up to 2Tb and up to 64Gb RAM.
+
+Major disadvantages is
+
+* PC trackpads still cannot match with MacBook Pro. It's good. Much better than most PC notebook have. But still not even close to MBP.
+* Screen rather mediocre compare to MacBook Pro. But 144Hz is good for gaming.
 
 
 Additional Information
@@ -377,6 +458,7 @@ Additional Information
 
 * [InsanelyMac](https://www.insanelymac.com)
 * [tonymacx86](https://www.tonymacx86.com)
+* [Reddit Hackintosh](https://www.reddit.com/r/hackintosh/)
 
 
 Special Thanks
