@@ -10,7 +10,7 @@ Intro
 
 I'm long time Apple hardware and software user. Since 1996. And still macOS is best OS for my requirements.
 My first computer is PowerBook 150 I bough in 1996 during my studying in Berkley. Since then I used only Apple mobile computers. PowerBook G3, PowerBook Titanium, bunch of MacBook Pro 13" and 15".
-But I'm really unhappy with my latest MacBook Pro 2017. Useless keyboard with arrow keys designed for Tinker Bell? Zero ability to upgrade up to 32Gb RAM back then in 2017. This 100% Intel fail. Just like performance and thermal Intel CPU issues for last 6 years. Intel just don't care anymore about mobile CPU market.
+But I'm really unhappy with my latest MacBook Pro 2017. Useless keyboard with arrow keys designed for Tinker Bell? Zero ability to upgrade up to 32Gb RAM back then in 2017. This 100% Intel failure. Just like performance and thermal Intel CPU issues for last 6 years. Intel just don't care anymore about mobile CPU market.
 
 So finally I make decision to switch to dark side and hackintosh good enough notebook. After some research I selected Razer Blade Advanced for this purpose.
 
@@ -143,7 +143,7 @@ Required Tools
 * ``UniBeast`` OR ``TINU`` to build macOS installation media.
 	* [UniBeast download URL](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/)
 	* [TINU download URL](https://github.com/ITzTravelInTime/TINU)
-* Clover Configurator, an easy to use macOS application designed to help you create custom configuration files for the Clover EFI bootloader via a streamlined graphical interface.
+* ``Clover Configurator``, an easy to use macOS application designed to help you create custom configuration files for the Clover EFI bootloader via a streamlined graphical interface.
 	* [Clover Configurator download URL](https://mackie100projects.altervista.org/download-clover-configurator/)
 * ``KextBeast`` is a quick installer for .kext, .bundle, and .plugin files.
 	* [KextBeast download URL](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/)
@@ -359,6 +359,8 @@ There are few changes in BIOS is vital to make macOS happy and bootable on RBA. 
 		* Hit ``Save Changes``
 		* Hit ``Save Changes and Reset``
 
+<span style="color:red">**Note: If some of this options is not available in BIOS, please boot in Windows and check modded BIOS for missing changes.**</span>
+
 
 ### macOS install media preparation
 
@@ -459,10 +461,11 @@ Know Issues and Limitations
 
 **Limitations**
 
-* Nidia Web Driver is absent for macOS 10.14 Mojave. Nvidia do not want to implement support for Apple new 2D/3D rendering framework Metal and do not want to share access for Nvidia drivers for Apple. So, currently no support for Nvidia GPU for macOS 10.14 Mojave. It's not a problem for me because I'm using Windows 10 partition for gaming and Debian Linux partition to run ML tasks over night.
+* Nvidia Web Driver is not available for macOS 10.14 Mojave. Nvidia do not want to implement support for Apple 2D/3D rendering framework Metal and do not want to share access for Nvidia drivers source code for Apple. So, currently no support for Nvidia GPU for macOS 10.14 Mojave. It's not a problem for me because I'm using Windows 10 partition for gaming and Debian Linux partition to run ML tasks overnight.
 	* HDMI port connected directly to Nvidia GPU and will not work in macOS 10.14 Mojave.
 	* No idea about DisplayPort. Maybe I will borrow some monitor with DisplayPort support in office for testing.
 	* USB-C to HDMI should work without any issues.
+* Windows Hello camera not supported in macOS.
 
 
 **Issues**
