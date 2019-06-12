@@ -359,7 +359,7 @@ There are few changes in BIOS is vital to make macOS happy and bootable on RBA. 
 		* Hit ``Save Changes``
 		* Hit ``Save Changes and Reset``
 
-<span style="color:red">**Note: If some of this options is not available in BIOS, please boot in Windows and check modded BIOS for missing changes.**</span>
+<span style="color:red">**Note: If some of this options is not available in BIOS, please boot back in Windows and check modded BIOS dump for missing changes.**</span>
 
 
 ### macOS install media preparation
@@ -441,7 +441,7 @@ Razer Chroma
 
 Razer Chroma support for Razer Blade notebooks and most latest Razer devices is not implemented yet. And suppose will never will be implemented.
 
-Thanks to [osx-razer-blade](https://github.com/boo-dev/osx-razer-blade) project I'm already have enough information and working already on cli tool to control Razer Blade keyboard and logo.
+Thanks to [osx-razer-blade](https://github.com/boo-dev/osx-razer-blade) project I'm already have enough information and working already on cli tool to control Razer Blade keyboard and logo Chroma lighting.
 
 
 Undervolting
