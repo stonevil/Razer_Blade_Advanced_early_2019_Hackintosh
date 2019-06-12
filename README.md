@@ -109,7 +109,7 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 Repository
 ---
 
-``BIOS_mod`` folder. This folder contains latest BIOS mod with all required unlocked options.
+``BIOS_mod/`` folder. This folder contains latest BIOS mod with all required unlocked options.
 
 This BIOS mod actual only for Razer Blade Advanced early 2019 with
 
@@ -120,7 +120,7 @@ This BIOS mod actual only for Razer Blade Advanced early 2019 with
 Do not use this mod if your system is different! Please check in BIOS.
 
 
-``EFI`` folder basically full copy of my working copy of EFI folder from EFI drive with removed machine serial number.
+``EFI/`` folder is basically full copy of my EFI folder from EFI drive with removed machine serial number.
 
 Patches
 
@@ -131,10 +131,13 @@ Patches
 can be different for your computer.
 
 
-``Extensions`` folder with all required macOS extensions (kext's).
+``Extensions/`` folder with all required macOS extensions (kext's).
 
 
-``Tools`` folder with AMI BIOS flashing and modding tools. Also macOS IORegistryExplorer v2.1 included with this repository. This tool is necessary for debugging USB, etc. configuration.
+``Tools/`` folder with AMI BIOS flashing and modding tools. Also macOS IORegistryExplorer v2.1 included with this repository. This tool is necessary for debugging USB, etc. configuration.
+
+
+``Development/ACPI_patches/`` folder has the uncompiled versions of the SSDT's created for various ACPI hot patches.
 
 
 Required Tools
@@ -209,7 +212,7 @@ Otherwise follow to next step.
 
 * Boot into Windows.
 * Download this repository.
-* Open ``Tools\AfuWin64`` folder.
+* Open ``Tools\AfuWin64\`` folder.
 * Run ``AFUWINGUIx64.EXE`` application.
 * In ``AFUWINGUI`` application click ``Save`` button to export current BIOS.
 * Save BIOS to ``Desktop`` folder.
@@ -220,7 +223,7 @@ Otherwise follow to next step.
 
 Most of this options required for next undervolting and overclocking. But part of them is necessary for macOS. This like options marked with <span style="color:red">**!**</span>
 
-* Open ``Tools\AMIBCP64`` folder.
+* Open ``Tools\AMIBCP64\`` folder.
 * Run ``AMIBCP64.exe`` application.
 * In ``AMIBCP`` application click ``Open``, navigate to ``Desktop`` and open BIOS saved in previous steps.
 * In ``AMIBCP`` application
@@ -304,7 +307,7 @@ Most of this options required for next undervolting and overclocking. But part o
 
 #### Flash BIOS
 
-* Open ``Tools\AfuWin64`` folder.
+* Open ``Tools\AfuWin64\`` folder.
 * Run ``AFUWINGUIx64.EXE`` application.
 * In ``AFUWINGUI`` application click ``Open`` button.
 * Choose new modded BIOS from ``Desktop`` folder.
