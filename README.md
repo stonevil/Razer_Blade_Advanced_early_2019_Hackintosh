@@ -109,20 +109,32 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 Repository
 ---
 
-**BIOS\_mod**
+``BIOS_mod`` folder. This folder contains latest BIOS mod with all required unlocked options.
 
-BIOS custom updates
+This BIOS mod actual only for Razer Blade Advanced early 2019 with
 
+* System BIOS Version is 1.04
+* EC FW Version is 1.03
+* MCU FW Version is 1.00.00.00
 
-**EFI**
-
-The EFI folder should be a minimal but complete EFI partition with Clover and all my kexts, config, and ACPI patches.
-
-
-**Extensions**
+Do not use this mod if your system is different! Please check in BIOS.
 
 
-**Tools**
+``EFI`` folder basically full copy of my working copy of EFI folder from EFI drive with removed machine serial number.
+
+Patches
+
+* ``EFI/CLOVER/ACPI/patched/DSDT.aml``
+* ``EFI/CLOVER/ACPI/patched/SSDT-12-OptTabl.aml``
+* ``EFI/CLOVER/ACPI/patched/SSDT-USBX.aml``
+
+can be different for your computer.
+
+
+``Extensions`` folder with all required macOS extensions (kext's).
+
+
+``Tools`` folder with AMI BIOS flashing and modding tools. Also macOS IORegistryExplorer v2.1 included with this repository. This tool is necessary for debugging USB, etc. configuration.
 
 
 Required Tools
