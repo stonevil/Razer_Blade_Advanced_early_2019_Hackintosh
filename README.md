@@ -6,11 +6,13 @@
 Intro
 ---
 
+![About this Mac](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/about.png)
+
 I'm long time Apple hardware and software user. Since 1996. And still macOS is best OS for my requirements.
 My first computer is PowerBook 150 I bough in 1996 during my studying in Berkley. Since then I used only Apple mobile computers. PowerBook G3, PowerBook Titanium, bunch of MacBook Pro 13" and 15".
-But I'm really unhappy with my latest MacBook Pro 2017. Useless keyboard with arrow keys designed for Tinker Bell? Zero ability to upgrade up to 32Gb RAM back then in 2017. Yes. I know this is 100% Intel fail. Just like performance and termal Intel CPU issues for last 6 years. Intel just do not care anymore about mobile CPU.
+But I'm really unhappy with my latest MacBook Pro 2017. Useless keyboard with arrow keys designed for Tinker Bell? Zero ability to upgrade up to 32Gb RAM back then in 2017. This 100% Intel fail. Just like performance and thermal Intel CPU issues for last 6 years. Intel just don't care anymore about mobile CPU market.
 
-So finally I make decision to switch to dark side and hackintosh good enough notebook. After some research I choose Razer Blade Advanced for this purpose.
+So finally I make decision to switch to dark side and hackintosh good enough notebook. After some research I selected Razer Blade Advanced for this purpose.
 
 **Purpose**
 
@@ -161,7 +163,7 @@ Some changes for BIOS configuration should be done to make macOS bootable on Raz
 * Deactivate CFG-Lock. Required by macOS Power Management.
 * Disable Secure Boot.
 
-Some of this confgurations can be overrided of fixed one or another way in Clover configuration file. But better to play safe and change configuration in BIOS. And deactivation of CFG-Lock can help with power management.
+Some of this configurations can be fixed one or another way in Clover configuration file. But better to play safe and change configuration in BIOS. And deactivation of CFG-Lock can help with power management.
 
 In case if BIOS upgraded to latest version and
 
@@ -260,7 +262,7 @@ Most of this options required for next undervolting and overclocking. But part o
 			* ``Primary Display``
 			* ``Internal Graphics``
 			* ``DVMT Pre-Allocated`` <span style="color:red">**!**</span>
-			* ``DVMT Total Gfx Mem` <span style="color:red">**!**</span>
+			* ``DVMT Total Gfx Mem`` <span style="color:red">**!**</span>
 	* Click ``PEG Port Configuration`` folder in left pane
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
 			* ``PEG Port Configuration`` (second row from top)
@@ -358,7 +360,7 @@ Use you own OR borrow some friend Mac computer.
 
 <span style="color:red">**Be very careful and do this at your OWN RISK!**</span>
 
-This step is not necessary and can be recommended only for hardcore gamers with experience building own rigs.
+This step is not necessary and can be recommended only for hardcore gamers with experience building own rigs. Razer already using very good thermal paste so re-paste thermal paste is not very useful until liquid metal will be used. And Grizzly maybe the best one. Read more about liquid metal thermal paste and all issues he can cause before make decision and go forward.
 
 **Useful information**
 
@@ -370,12 +372,12 @@ This step is not necessary and can be recommended only for hardcore gamers with 
 
 * Insert macOS USB install media.
 * Boot/Reboot computer.
-* Press repeatedly ``F12`` until you Boot Menu will show.
+* Press repeatedly ``F12`` until you ``Boot Menu`` will show.
 * Select macOS USB install media.
 * Open Disk Utility from Tools menu.
 * Format NVMe to APFS.
 * Follow usual macOS installation procedure.
-* After reboot repeatedly tap ``F12`` again until get Boot Menu.
+* After reboot repeatedly tap ``F12`` again until get ``Boot Menu``.
 * Select macOS USB install media again.
 
 TODO
@@ -451,6 +453,10 @@ Additional Information
 * [Razer Blade Advanced (2019) trackpad issue](https://www.tonymacx86.com/threads/need-help-razer-blade-advanced-2019-trackpad-issue.273575/)
 * [Razer Blade 15 (2018) Detailed Install Guide High Sierra 10.13.6 (17G2208-17G5019)](https://www.tonymacx86.com/threads/guide-razer-blade-15-2018-detailed-install-guide-high-sierra-10-13-6-17g2208-17g5019.264017/)
 * [Native Power Management for Laptops](https://www.tonymacx86.com/threads/guide-native-power-management-for-laptops.175801/)
+* [A Beginner's Guide to Creating a Custom USB SSDT](https://www.tonymacx86.com/threads/a-beginners-guide-to-creating-a-custom-usb-ssdt.272505/)
+* [Quick Guide to Generate a SSDT for CPU Power Management](https://www.tonymacx86.com/threads/quick-guide-to-generate-a-ssdt-for-cpu-power-management.177456/)
+* [Creating a Custom SSDT for USBInjectAll.kext](https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311/)
+* [Generate SSDT For Coffee Lake CPU](https://www.tonymacx86.com/threads/guide-generate-ssdt-for-coffee-lake-cpu.238311/)
 * [UniBeast: Install macOS Mojave on Any Supported Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-mojave-on-any-supported-intel-based-pc.259381/)
 
 
