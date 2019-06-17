@@ -57,7 +57,7 @@ Hardware
 | Power | 230W power adapter | |
 
 
-Hardware Compatibility
+Hardware Upgrades and Tools
 ---
 
 The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be replaced. Please find below recommended replacement parts already tested for compatibility. Usually I need to deploy for testing 4-5 node Kubernetes cluster with at least 4Gb per node. So 32GB is necessary upgrade for me.
@@ -84,7 +84,7 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 | WD Black SN750 NVMe | - | [Amazon](https://www.amazon.com/BLACK-SN750-500GB-Internal-Gaming/dp/B07MQ468S8/ref=sxin_3_ac_d_rm?keywords=wd%2Bblack%2Bnvme&pd_rd_i=B07MH2P5ZD&pd_rd_r=0be71a8a-a79d-4ce3-ad47-102a5ee16a25&pd_rd_w=9ZCWD&pd_rd_wg=dlFxu&pf_rd_p=0bc35c17-1e0d-4808-b361-20ab11b00973&pf_rd_r=0CKT4MYE9A5QZ8AJYEVK&qid=1560233421&s=gateway&th=1) |
 
 macOS have native support and works better with 4k blocks. Check **NVMe format**.
-Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/app/blackmagic-disk-speed-test/id425264550?mt=12). Samsung EVO 970 1Tb NVMe and Sabrent Rocket 1Tb NMVe have the same Read/Write performance. But Samsung EVO stays about 10-12° C hotter. Even with additional passive cooling.
+Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/app/blackmagic-disk-speed-test/id425264550?mt=12). Samsung EVO 970 1Tb NVMe and Sabrent Rocket 1Tb NMVe have the same Read/Write performance. But Samsung EVO stays about 8-12° C hotter on heave load. Even with additional passive cooling.
 
 <span style="color:red">Note: I do recommend to use at least 1Tb NVMe for dual boot with Windows 10.</span>
 
@@ -145,7 +145,9 @@ can be different for your computer.
 ``Tools/`` folder with AMI BIOS flashing and modding tools. Also macOS IORegistryExplorer v2.1 included with this repository. This tool is necessary for debugging USB, etc. configuration.
 
 
-``Development/ACPI_patches/`` folder has the uncompiled versions of the SSDT's created for various ACPI hot patches.
+``Development/ACPI_patches/`` folder with uncompiled versions of the SSDT's created for various ACPI hot patches.
+
+``Drivers/Windows/Apple USB Ethernet drivers for Windows`` folder for Apple USB-A Ethernet drivers for Windows extracted from ``Apple BootCamp``.
 
 
 Required Tools
@@ -190,7 +192,6 @@ Download BIOS, EC, ME, etc. Firmware and apply them from stock Windows partition
 * Download latest BIOS, EC, ME, etc. Firmware updates.
 * Apply this updates in required order. This is very important! Read documentation carefully!
 
-
 **Useful information**
 
 * [Razer Support Website](https://support.razer.com)
@@ -216,9 +217,9 @@ In case if BIOS upgraded to latest version and
 | EC FW | 1.03 |
 | MCU FW | 1.00.00.00 |
 
-safely to use already modded dump from ``BIOS_mod/`` folder and safe jump to **BIOS flashing**.
+it's safely to use already modded dump from ``BIOS_mod/`` folder and jump to **BIOS flashing**.
 
-Otherwise follow to Export BIOS step.
+Otherwise follow to **BIOS export** step.
 
 
 #### BIOS export
@@ -329,7 +330,6 @@ Most of this options required for next undervolting and overclocking. But part o
 * Close ``AFUWINGUI`` application.
 * Reboot Windows.
 
-
 **Useful information**
 
 * [Razer Blade 2017 Ultimate CPU GPU Optimization - Unleashed Performance - BIOS Unlock](https://www.youtube.com/watch?v=O5CvK7i9a_Y)
@@ -375,6 +375,7 @@ There are few changes in BIOS is vital to make macOS happy and bootable on RBA. 
 		* Hit ``Save Changes``
 		* Hit ``Save Changes and Reset``
 
+
 <span style="color:red">**Note: If some of this options is not available in BIOS, please boot back in Windows and check modded BIOS dump for missing changes.**</span>
 
 
@@ -385,7 +386,6 @@ Hardware preparation
 ### WiFi and NVMe replacement
 
 WiFi and NVMe replacement is easy enough for this Model. Just unscrew bottom case. Check video provided below for more information.
-
 
 **Useful information**
 
@@ -425,7 +425,6 @@ one with data ``4K`` starting with ID ``1``.
 * Format the NVME with ``4K`` blocs with the command ``sudo nvme format -l 1 /dev/nvme0``. This command will erase all information on NVMe drive.
 * Re-type the smartctl command ``sudo smartctl -a /dev/nvme0`` to verify that the LBA 4K size is properly selected.
 
-
 **Useful information**
 
 * [nvme-cli](https://github.com/linux-nvme/nvme-cli)
@@ -439,7 +438,6 @@ one with data ``4K`` starting with ID ``1``.
 <span style="color:red">**Be very careful and do this at your OWN RISK!**</span>
 
 This step is not necessary and can be recommended only for hardcore gamers with experience building own rigs. Razer already using very good thermal paste so re-paste thermal paste is not very useful until liquid metal will be used. And Grizzly Conductonaut Thermal Grease Paste maybe the best one. Read more about liquid metal thermal paste and all issues he can cause before make decision and go forward.
-
 
 **Useful information**
 
@@ -457,7 +455,6 @@ Use you own OR borrow some friend Mac computer.
 * On macOS download ``UniBeast`` OR ``TINU`` up to your preferences.
 * Run ``UniBeast`` OR ``TINU`` application.
 * Follow instruction and build macOS installation media macOS 10.14 Mojave. Very important to build media with latest available version of Mojave.
-
 
 **Useful information**
 
@@ -482,7 +479,6 @@ Use you own OR borrow some friend Mac computer.
 
 
 <span style="color:red">**Note: Do not try connect computer with iCloud before you will generate proper SMBIOS! This step will explained in iMessages and FaceTime step.**</span>
-
 
 **Useful information**
 
@@ -548,7 +544,6 @@ TODO
 
 TODO
 
-
 **Useful information**
 
 * [USBMap](https://github.com/corpnewt/USBMap)
@@ -560,7 +555,6 @@ TODO
 
 
 Follow instruction in article [An iDiot's Guide To iMessage](https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/).
-
 
 **Useful information**
 
@@ -582,7 +576,58 @@ TODO
 Undervolting
 ---
 
-TODO
+There are several tools for Windows for undervolting and overclocking CPU and GPU. Just like
+* [Intel Extreme Tuning Utility](https://downloadcenter.intel.com/download/24075/Intel-Extreme-Tuning-Utility-Intel-XTU-)
+* [MSI Afterburner](https://www.msi.com/page/afterburner)
+* [ThrottleStop](https://www.techpowerup.com/download/techpowerup-throttlestop/)
+
+With macOS a different story. So I decide gone Rogue and do undervolt with BIOS.
+
+AMI BIOS provides a lot different tools for undervolting and overclocking.
+
+Most interesting and easy to use is
+
+* ``Processor``
+	* ``Core Voltage Offset``
+	* ``Offset Prefix``
+* ``GT``
+	* ``GT Voltage Offset``
+	* ``Offset Prefix``
+	* ``GTU Voltage Offset``
+	* ``Offset Prefix``
+* ``Uncore``
+	* ``Uncore Voltage Offset``
+	* ``Offset Prefix``
+
+To apply configuration
+
+* Reboot computer.
+* Repeatedly press ``DEL`` key to enter BIOS configuration menu.
+* In BIOS navigate to menu
+	* ``Advanced``
+		* ``Processor``
+			* Set ``Core Voltage Offset`` to 50. It's safe to start with 50 and increase every step for 5.
+			* Set ``Offset Prefix`` to ``-`` (!).
+		* ``GT``
+			* Set ``GT Voltage Offset`` to 50. It's safe to start with 50 and increase every step for 5.
+			* Set ``Offset Prefix`` to ``-`` (!).
+			* Set ``GTU Voltage Offset`` to 50. It's safe to start with 50 and increase every step for 5.
+			* Set ``Offset Prefix`` to ``-`` (!).
+		* ``Uncore``
+			* Set ``Uncore Voltage Offset`` to 20. It's safe to start with 50 and increase every step for 5.
+			* Set ``Offset Prefix`` to ``-`` (!).
+
+
+My stable working configuration
+
+| Options | Value |
+| ---:|:--- |
+| Processor Core Voltage Offset | -140 |
+| GT Core Voltage Offset | -140 |
+| GTU Core Voltage Offset | -140 |
+| Uncore Voltage Offset | -120 |
+
+CPU can be very different even in same series. So, do not use blindly my configuration.
 
 **Useful information**
 
@@ -603,7 +648,6 @@ Windows
 ---
 
 #### NVMe partition
-
 
 * Open ``Disk Utility``
 * Select ``Show All Devices`` from ``View`` menu.
@@ -630,7 +674,6 @@ Windows
 * Select the ``Diskimage`` radio button, click ``…`` to select a Windows 10 ISO image.
 * Choose ``Type`` as USB media and select the device name of USB media.
 * Click ``OK`` to start burning to the USB media.
-
 
 **Useful information**
 
@@ -688,7 +731,6 @@ If for some reason UEFI (drive_name) isn’t showing as an available boot device
 * Restart.
 * Now ``Windows Boot Manager`` will redirects to ``Clover`` instead of booting Windows.
 
-
 **Useful information**
 
 [Hackintosh Dual Boot Windows 10 and macOS High Sierra](https://hackintosher.com/guides/hackintosh-dual-boot-windows-10-and-macos-high-sierra/)
@@ -727,8 +769,10 @@ P.S. Apple, please fix keyboard and release real Pro MacBook. Just take a look o
 Additional Information
 ---
 
+* [An iDiot's Guide To Lilu and its Plug-ins](https://www.tonymacx86.com/threads/an-idiots-guide-to-lilu-and-its-plug-ins.260063/)
 * [Razer Blade Advanced (2019) trackpad issue](https://www.tonymacx86.com/threads/need-help-razer-blade-advanced-2019-trackpad-issue.273575/)
 * [Razer Blade 15 (2018) Detailed Install Guide High Sierra 10.13.6 (17G2208-17G5019)](https://www.tonymacx86.com/threads/guide-razer-blade-15-2018-detailed-install-guide-high-sierra-10-13-6-17g2208-17g5019.264017/)
+* [Razer Blade 2017](https://www.tonymacx86.com/threads/guide-razer-blade-2017.242627/)
 * [UniBeast: Install macOS Mojave on Any Supported Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-mojave-on-any-supported-intel-based-pc.259381/)
 
 
