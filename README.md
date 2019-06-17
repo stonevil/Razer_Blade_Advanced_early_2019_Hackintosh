@@ -539,7 +539,7 @@ TODO
 	* One by one insert and detach USB 2, USB 3 in every USB-A port and keep for 10-15s just to be sure devices is detected.
 	* Insert native USB-C device in USB-C port.
 	* Use USB-C to USB-A cable to connect USB 2, USB 3 devices to USB-C port.
-	* ``USBMap`` should detect
+	* ``USBMap`` should detect...
 
 TODO
 
@@ -613,11 +613,39 @@ Windows
 
 #### Windows installation media preparation
 
-TODO
+* Download Windows 10 ISO image.
+	* Open [Download Windows 10 Disc Image (ISO File) URL](https://www.microsoft.com/en-us/software-download/windows10ISO) in Safari. It better to download ISO image on macOS. Microsoft detects OS and prevent download ISO image on Windows machine. It can be override by browser ``User-Agent`` replacement but still easier todo this on macOS.
+	* From ``Select Edition`` menu select ``Windows 10 May 2019 Update`` (!). ``Windows 10 October 2019 Update`` ISO image have issues Microsoft still not fixed.
+	* Click ``Confirm``.
+* Download [UNetbootin](https://unetbootin.github.io) tool.
+* Plug a USB drive into Mac
+* Open ``Disk Utility``.
+* Select USB drive from the left panel and click on ``Info`` button. Write down the device name.
+* Run ``UNetbootin``
+* Select the ``Diskimage`` radio button, click ``…`` to select a Windows 10 ISO image.
+* Choose ``Type`` as USB Drive and select the device name of USB drive.
+* Click ``OK`` to start burning to the USB drive.
+
+
+**Useful information**
+
+* [Create Windows 10 bootable USB from ISO on Mac without BootCamp](https://www.top-password.com/blog/create-windows-10-bootable-usb-from-iso-on-mac/)
+
 
 #### Windows installation
 
-TODO
+* Insert Windows 10 USB installation media.
+* Reboot computer.
+* Press repeatedly ``F12`` until you ``Boot Menu`` will show.
+* Select USB installation media with Windows 10.
+* Follow usual Windows 10 installation procedure.
+
+<span style="color:red">**Note: Be careful and select right partition created before for Windows 10. Otherwise you can destroy macOS installation.**</span>
+
+**Useful information**
+
+* [How to Reinstall/Clean Install Windows 10](https://www.youtube.com/watch?v=OtHZueEZe9s)
+
 
 #### Clover Boot fix
 
