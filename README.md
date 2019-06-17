@@ -397,20 +397,20 @@ WiFi and NVMe replacement is easy enough for this Model. Just unscrew bottom cas
 
 This step optional. macOS works faster and better with NVMe with 4k blocks. Usually NVMe formatted for 512 or 512e block size for old Windows version compatibility. Windows 8.1 and later fully compatible with 4k block size.
 
-Best way to format NVMe drive is boot from Linux Live USB drive and use ``smartctl`` and ``nvme-cli`` tools.
+Best way to format NVMe drive is boot from Linux Live USB media and use ``smartctl`` and ``nvme-cli`` tools.
 
 * Download [balenaEtcher](https://www.balena.io/etcher/) on Windows or macOS machine.
 * Download [Ubuntu Desktop Live Image](https://ubuntu.com/download/desktop) on same Windows or macOS machine.
-* Insert USB drive with at least 16Gb. Drive will be formatted and all data will be erased.
+* Insert USB media with at least 16Gb. Drive will be formatted and all data will be erased.
 * Run ``balenaEtcher``
 * Select image ``Ubuntu Desktop Live Image`` downloaded before.
-* Select USB drive.
+* Select USB media.
 * And press ``Flash!``.
 * Install new NVMe drive in target Razer Blade.
-* Insert USB drive with ``Ubuntu Desktop``.
+* Insert USB media with ``Ubuntu Desktop``.
 * Press ``Power Button`` to start computer.
 * Press repeatedly ``F12`` until you ``Boot Menu`` will show.
-* Select USB drive with ``Ubuntu Desktop``.
+* Select USB media with ``Ubuntu Desktop``.
 * Select ``Try Ubuntu``
 * When ``Ubuntu`` starts connect computer to Internet. Can be done from WiFi menu in top right corner.
 * Click on bottom left button and type ``Terminal`` and press ``Enter``.
@@ -475,9 +475,14 @@ Use you own OR borrow some friend Mac computer.
 * Format NVMe to ``APFS``.
 * Follow usual macOS installation procedure.
 * After reboot repeatedly tap ``F12`` again until get ``Boot Menu``.
-* Select macOS USB install media again.
+* Select macOS USB install media again to boot in ``Clover``.
+* In ``Clover`` select NVMe drive to continue installation.
+* Repeat this procedure again when macOS will reboot computer.
+* Follow usual macOS installation procedure.
 
-TODO
+
+<span style="color:red">**Note: Do not try connect computer with iCloud before you will generate proper SMBIOS! This step will explained in iMessages and FaceTime step.**</span>
+
 
 **Useful information**
 
@@ -606,7 +611,7 @@ Windows
 * Click ``Partition`` button at the top toolbar.
 * Click continue with partition.
 * Add a new partition by clicking the ``[+]`` button under the circle.
-* Give it a name and desired size (minimum 50GB for Windows 10).
+* Give it a name and desired size (minimum 50GB required for Windows 10).
 * Set drive format to ``ExFat``.
 * Click ``Apply``.
 
@@ -618,13 +623,13 @@ Windows
 	* From ``Select Edition`` menu select ``Windows 10 May 2019 Update`` (!). ``Windows 10 October 2019 Update`` ISO image have issues Microsoft still not fixed.
 	* Click ``Confirm``.
 * Download [UNetbootin](https://unetbootin.github.io) tool.
-* Plug a USB drive into Mac
+* Plug a USB media into Mac
 * Open ``Disk Utility``.
-* Select USB drive from the left panel and click on ``Info`` button. Write down the device name.
+* Select USB media from the left panel and click on ``Info`` button. Write down the device name.
 * Run ``UNetbootin``
 * Select the ``Diskimage`` radio button, click ``…`` to select a Windows 10 ISO image.
-* Choose ``Type`` as USB Drive and select the device name of USB drive.
-* Click ``OK`` to start burning to the USB drive.
+* Choose ``Type`` as USB media and select the device name of USB media.
+* Click ``OK`` to start burning to the USB media.
 
 
 **Useful information**
@@ -662,12 +667,12 @@ To rename ``bootmgfw.efi``
 * Navigate to ``EFI/Microsoft/Boot/``.
 * Rename ``bootmgfw.efi`` to ``bootmgfw-orig.efi``.
 * Restart.
-* UEFI (your_drive_name) should be an available boot device.
+* UEFI (drive_name) should be an available boot device.
 
 
 ##### (Optional) Override Windows Boot Manager
 
-If for some reason UEFI (your_drive_name) isn’t showing as an available boot device there is a way to override Windows Boot Manager and have it redirect to Clover.
+If for some reason UEFI (drive_name) isn’t showing as an available boot device there is a way to override Windows Boot Manager and have it redirect to Clover.
 
 * Boot off macOS installation media.
 * Boot macOS.
@@ -694,7 +699,7 @@ Know Issues and Limitations
 
 **Limitations**
 
-* Nvidia Web Driver is not available for macOS 10.14 Mojave. Nvidia do not want to implement support for Apple 2D/3D rendering framework Metal and do not want to share access for Nvidia drivers source code for Apple. So, currently no support for Nvidia GPU for macOS 10.14 Mojave. It's not a problem for me because I'm using Windows 10 partition for gaming and Debian Linux partition to run ML tasks overnight.
+* Nvidia Web Drivers is not available for macOS 10.14 Mojave. Nvidia do not want to implement support for Apple 2D/3D rendering framework Metal and do not want to share access for Nvidia drivers source code for Apple. So, currently no support for Nvidia GPU for macOS 10.14 Mojave. It's not a problem for me because I'm using Windows 10 partition for gaming and Debian Linux partition to run ML tasks overnight.
 	* HDMI port connected directly to Nvidia GPU and will not work in macOS 10.14 Mojave.
 	* No idea about DisplayPort. Maybe I will borrow monitor with DisplayPort support in office for testing.
 	* USB-C to HDMI should work without any issues.
