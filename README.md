@@ -39,7 +39,7 @@ Hardware
 | CPU | Intel Core i7-8750H processor, 6 Cores / 12 Threads, 2.2GHz / 4.1GHz, 9MB Cache | No issues |
 | Memory | 16GB dual-channel DDR4-2667MHz, up to 64GB | No issues |
 | GPU | Intel UHD 630 | No issues |
-| dGPU | NVidia 2070 Max-Q (8GB GDDR6 VRAM) | Nvidia Drivers absent for Mojave |
+| dGPU | Nvidia 2070 Max-Q (8GB GDDR6 VRAM) | Nvidia Drivers absent for Mojave |
 | Storage | Samsung PM981 256GB NVMe M.2 | Incompatible firmware. You can try fix with [Lenovo NVMe Firmware Update Utility](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t470s/downloads/ds119265) but better to replace |
 | Screen | 15.6" Full HD 144Hz, 1920 x 1080 IPS |  No issues |
 | Webcam | Windows Hello built-in IR HD webcam (1MP / 720P) |  No issues. Windows Hello is not supported in macOS |
@@ -186,7 +186,7 @@ Download BIOS, EC, ME, etc. Firmware and apply them from stock Windows partition
 [Razer Hardware Drivers download URL](http://drivers.razersupport.com//index.php?_m=downloads&_a=view&parentcategoryid=864&pcid=860&nav=0,350,860)
 
 * Boot into Windows.
-* Open [Razer Hardware Drivers download URL](http://drivers.razersupport.com//index.php?_m=downloads&_a=view&parentcategoryid=864&pcid=860&nav=0,350,860) in prefered browser
+* Open [Razer Hardware Drivers download URL](http://drivers.razersupport.com//index.php?_m=downloads&_a=view&parentcategoryid=864&pcid=860&nav=0,350,860) in preferred browser.
 * Download latest BIOS, EC, ME, etc. Firmware updates.
 * Apply this updates in required order. This is very important! Read documentation carefully!
 
@@ -216,7 +216,7 @@ In case if BIOS upgraded to latest version and
 | EC FW | 1.03 |
 | MCU FW | 1.00.00.00 |
 
-safely to use already modded dump from ``BIOS_mod`` folder and safe jump to **BIOS flashing**.
+safely to use already modded dump from ``BIOS_mod/`` folder and safe jump to **BIOS flashing**.
 
 Otherwise follow to Export BIOS step.
 
@@ -399,9 +399,9 @@ This step optional. macOS works faster and better with NVMe with 4k blocks. Usua
 
 Best way to format NVMe drive is boot from Linux Live USB drive and use ``smartctl`` and ``nvme-cli`` tools.
 
-* Download [balenaEtcher](https://www.balena.io/etcher/) on Windows ot macOS machine.
+* Download [balenaEtcher](https://www.balena.io/etcher/) on Windows or macOS machine.
 * Download [Ubuntu Desktop Live Image](https://ubuntu.com/download/desktop) on same Windows or macOS machine.
-* Insert USB drive with at least 16Gb. Drive will be formated and all data will be erased.
+* Insert USB drive with at least 16Gb. Drive will be formatted and all data will be erased.
 * Run ``balenaEtcher``
 * Select image ``Ubuntu Desktop Live Image`` downloaded before.
 * Select USB drive.
@@ -413,10 +413,10 @@ Best way to format NVMe drive is boot from Linux Live USB drive and use ``smartc
 * Select USB drive with ``Ubuntu Desktop``.
 * Select ``Try Ubuntu``
 * When ``Ubuntu`` starts connect computer to Internet. Can be done from WiFi menu in top right corner.
-* Click on botton left button and type ``Terminal`` and press ``Enter``.
+* Click on bottom left button and type ``Terminal`` and press ``Enter``.
 * In ``Terminal`` application type ``sudo apt -y install smartmontools`` and press Enter.
 * In ``Terminal`` application type ``sudo apt -y install nvme-cli`` and press Enter.
-* If previous command fail use this URL [https://launchpad.net/ubuntu/+archive/primary/+files/nvme-cli-dbgsym_1.7-1_amd64.ddeb](https://launchpad.net/ubuntu/+archive/primary/+files/nvme-cli-dbgsym_1.7-1_amd64.ddeb) to install ``name-cli`` on Ubuntu.
+* If previous command fail use this URL [https://launchpad.net/ubuntu/+archive/primary/+files/nvme-cli-dbgsym_1.7-1_amd64.ddeb](https://launchpad.net/ubuntu/+archive/primary/+files/nvme-cli-dbgsym_1.7-1_amd64.ddeb) to install ``nvme-cli`` on Ubuntu.
 * Verify your NVMe is recognized and manage 4K blocs by typing ``sudo smartctl -a /dev/nvme0``.
 * You should have two lines under ``Supported LBA sizes`` one with data ``512B`` starting with ID ``0``
 one with data ``4K`` starting with ID ``1``.
@@ -613,9 +613,11 @@ Windows
 
 #### Windows installation media preparation
 
+TODO
 
 #### Windows installation
 
+TODO
 
 #### Clover Boot fix
 
