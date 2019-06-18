@@ -68,7 +68,8 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 **Accessories**
 
 * USB mouse. Trackpad will be unavailable during macOS installation procedure.
-* USB storage device with at least 16Gb storage.
+* USB storage device with at least 16Gb storage [Amazon](https://www.amazon.com/gp/product/B076GXJJRD/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1).
+* USB-A to USB-C cable [Amazon](https://www.amazon.com/AmazonBasics-Type-C-Gen1-Female-Adapter/dp/B01GGKYXVE/ref=pd_hpb_a2a_sims_6/130-2479265-2893400?_encoding=UTF8&pd_rd_i=B01GGKYYT0&pd_rd_r=54b9f737-919c-11e9-b9d7-6915ce2a8dc3&pd_rd_w=j9bw6&pd_rd_wg=IVvh1&pf_rd_p=bfc589eb-d865-496f-a10b-5e00902c2113&pf_rd_r=G68JVK6HBAFKEDA75MYY&refRID=G68JVK6HBAFKEDA75MYY&th=1).
 
 
 **WiFi**
@@ -624,7 +625,7 @@ Scope (_SB.PCI0.I2C0)
         Device (TPD0)
 ```
 
-* And paste copied code before. Result should looks like this
+* Above line ``Device (TPD0)`` paste code copied before. Result should looks like this
 
 ```
 Scope (_SB.PCI0.I2C0)
@@ -681,7 +682,7 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 * Click ``Compile`` button in ``toolbar``. ``DSDT`` should complied without any issues.
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
-* Copy new created file ``SSDT-12-OptTabl.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
+* Copy newly created file ``SSDT-12-OptTabl.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
 
 Next step is hot patch ACPI to disable Nvidia GPU in macOS for save battery and decrease overall heat.
@@ -726,7 +727,7 @@ end;
 
 * Close ``Patch`` window.
 * Click ``Compile`` button in ``toolbar``.
-* If ``SSDT-12-OptTabl.dsl`` compiled with any issues skip to next patch. If compilation failed with error
+* If ``SSDT-12-OptTabl.dsl`` compiled without any issues skip to next patch. If compilation failed with error
 
 ```
 [Unknown ASL Compiler exception ID] (TGPC [Integer])
@@ -743,10 +744,10 @@ External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 * In ``Patch`` window on left panel scroll and find ``[gfx0] Disable from _INI (DSDT)`` and click ``Apply``. Do not close window!
 * In ``Patch`` window on left panel scroll and find ``[igpu] Rename GFXO to IGPU`` and click ``Apply``. Usually this step is not required and ``Clover`` handles this rename without any issues. But for some reason after sleep iGPU have an issues. This patch solve this issue.
 * Click ``Close`` in ``Patch`` window.
-* Click ``Compile`` button in ``toolbar``. ``DSDT`` should complied without any issues.
+* Click ``Compile`` button in ``toolbar``. ``SSDT-12-OptTabl.dsl`` should complied without any issues.
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
-* Copy new created file ``SSDT-12-OptTabl.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
+* Copy newly created file ``SSDT-12-OptTabl.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
 **Useful information**
 
@@ -766,8 +767,7 @@ External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 | Any | 2.0 | USB-A |
 | Any | 3.0 | USB-A |
 | Any | 3.x | USB-C |
-| Cable |  USB-A to USB-C cable | USB-C |
-
+| Cable |  USB-A to USB-C cable [Amazon](https://www.amazon.com/AmazonBasics-Type-C-Gen1-Female-Adapter/dp/B01GGKYXVE/ref=pd_hpb_a2a_sims_6/130-2479265-2893400?_encoding=UTF8&pd_rd_i=B01GGKYYT0&pd_rd_r=54b9f737-919c-11e9-b9d7-6915ce2a8dc3&pd_rd_w=j9bw6&pd_rd_wg=IVvh1&pf_rd_p=bfc589eb-d865-496f-a10b-5e00902c2113&pf_rd_r=G68JVK6HBAFKEDA75MYY&refRID=G68JVK6HBAFKEDA75MYY&th=1) | USB-C |
 
 * Download ``USBMap`` repository.
 	* [USBMap repository URL](https://github.com/corpnewt/USBMap)
@@ -824,7 +824,23 @@ TODO
 Power Management
 ---
 
-TODO
+* Reboot computer.
+* Repeatedly press ``DEL`` key to enter BIOS configuration menu.
+* In BIOS navigate to menu
+	* ``Advanced``
+		* ``Power & Performance``
+		* Enable ``Intel(R) Speed Shift Technology``
+			* ``CPU - Power Management Control``
+				* Enable ``Intel(R) SpeedStep(tm)``
+				* Enable ``Intel(R) Speed Shift Technology``
+			* ``CPU Lock Configuration``
+					* Disable ``CFG Lock``
+					* Disable ``Overclocking Lock``
+		* ``Memory``
+			* Set ``Memory Profile`` to the best for installed memory. Usually something like ``XMP profile 1``. 
+	* ``Save and Exit``
+		* Hit ``Save Changes``
+		* Hit ``Save Changes and Reset``
 
 **Useful information**
 
@@ -873,6 +889,8 @@ To apply configuration
 		* ``Uncore``
 			* Set ``Uncore Voltage Offset`` to 60.
 			* Set ``Offset Prefix`` to ``-`` (!).
+		* ``Memory``
+			* Set ``Memory Profile`` to the best for installed memory. Usually something like ``XMP profile 1``. 
 	* ``Save and Exit``
 		* Hit ``Save Changes``
 		* Hit ``Save Changes and Reset``
@@ -919,7 +937,7 @@ Windows
 * Click ``Partition`` button at the top toolbar.
 * Click continue with partition.
 * Add a new partition by clicking the ``[+]`` button under the circle.
-* Give it a name and desired size (minimum 50GB required for Windows 10).
+* Give it a name and desired size (minimum 50Gb required for Windows 10).
 * Set drive format to ``ExFat``.
 * Click ``Apply``.
 
