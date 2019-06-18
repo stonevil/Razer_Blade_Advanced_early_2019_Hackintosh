@@ -11555,9 +11555,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
     })
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
-        External(\_SB.PCI0.PEG0.PEGP._ON, MethodObj)
-If (CondRefOf(\_SB.PCI0.PEG0.PEGP._ON)) { \_SB.PCI0.PEG0.PEGP._ON() }
-If (Arg0)
+        If (Arg0)
         {
             \_SB.TPM.TPTS (Arg0)
             RPTS (Arg0)
@@ -11571,9 +11569,7 @@ If (Arg0)
         \_SB.PCI0.NWAK (Arg0)
         \_SB.PCI0.LPCB.SWAK (Arg0)
         RWAK (Arg0)
-        External(\_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
-If (CondRefOf(\_SB.PCI0.PEG0.PEGP._OFF)) { \_SB.PCI0.PEG0.PEGP._OFF() }
-Return (AM00)
+        Return (AM00)
     }
 
     Scope (_SB)
@@ -48793,17 +48789,17 @@ Return (AM00)
             Store (SDS0, I2CN)
             Store (Zero, I2CX)
         }
-        
+
         Method (SSCN, 0, NotSerialized)
-            {
-                Return (PKG3 (SSH0, SSL0, SSD0))
-            }
+        {
+            Return (PKG3 (SSH0, SSL0, SSD0))
+        }
 
         Method (FMCN, 0, NotSerialized)
         {
-            Return (PKG3 (FMH1, FML1, FMD1))
+            Return (PKG3 (FMH0, FML0, FMD0))
         }
-
+        
         Device (TPD0)
         {
             Name (HID2, Zero)
@@ -48946,17 +48942,7 @@ Return (AM00)
 
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                If (LLess (OSYS, 0x07DC))
-                {
-                    Return (SBFI)
-                }
-
-                If (LEqual (TPDM, Zero))
-                {
-                    Return (ConcatenateResTemplate (I2CM (I2CX, BADR, SPED), SBFG))
-                }
-
-                Return (ConcatenateResTemplate (I2CM (I2CX, BADR, SPED), SBFI))
+                Return (ConcatenateResTemplate (I2CM (I2CX, BADR, SPED), SBFG))
             }
         }
 
@@ -51173,7 +51159,12 @@ Return (AM00)
     {
         Scope (_SB.PCI0.I2C0)
         {
-            Method (XMCN, 0, NotSerialized)
+            Method (_SCN, 0, NotSerialized)
+            {
+                Return (PKG3 (SSH0, SSL0, SSD0))
+            }
+
+            Method (_MCN, 0, NotSerialized)
             {
                 Return (PKG3 (FMH0, FML0, FMD0))
             }
@@ -60215,12 +60206,6 @@ Return (AM00)
                         }
                     }
                 }
-                //added to turn nvidia/radeon off
-                If (LAnd(LEqual(Arg0,3),LEqual(Arg1,1)))
-                {
-                    External(\_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
-                    \_SB.PCI0.PEG0.PEGP._OFF()
-                }
             }
 
             OperationRegion (DEB0, SystemIO, 0x80, One)
@@ -60652,7 +60637,6 @@ Return (AM00)
             {
                 Return (0x0F)
             }
-            Name (_PRW, Package() { 0x18, 0x03 })
         }
 
         Device (BAT0)
