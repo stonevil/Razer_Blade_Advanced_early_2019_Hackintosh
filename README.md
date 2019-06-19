@@ -150,7 +150,7 @@ can be different for your computer.
 
 ``Development/ACPI_patches/`` folder with uncompiled versions of the SSDT's created for various ACPI hot patches.
 
-``Drivers/Windows/Apple USB Ethernet drivers for Windows`` folder for Apple USB-A Ethernet drivers for Windows extracted from ``Apple BootCamp``.
+``Drivers/Windows/Apple USB Ethernet drivers for Windows`` folder with Apple USB-A Ethernet drivers for Windows extracted from ``Apple BootCamp``.
 
 
 Required Tools
@@ -1073,7 +1073,8 @@ Special Thanks
 * [Acidanthera](https://github.com/acidanthera)
 * [RehabMan](https://github.com/RehabMan)
 * [Alexandre Daoud](https://github.com/alexandred)
-* [Ben Raz](https://github.com/williambj1)
+* [Ben Raz](https://github.com/ben9923)
+* [Bat.bat](https://github.com/williambj1)
 * [Steve Zheng](https://github.com/stevezhengshiqi)
 * [vettz500](https://www.tonymacx86.com/members/vettz500.291395/)
 * and many others
