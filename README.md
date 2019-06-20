@@ -836,8 +836,8 @@ Power Management
 				* Enable ``Intel(R) SpeedStep(tm)``
 				* Enable ``Intel(R) Speed Shift Technology``
 			* ``CPU Lock Configuration``
-					* Disable ``CFG Lock``
-					* Disable ``Overclocking Lock``
+				* Disable ``CFG Lock``
+				* Disable ``Overclocking Lock``
 		* ``Memory``
 			* Set ``Memory Profile`` to the best for installed memory. Usually something like ``XMP profile 1``. 
 	* ``Save and Exit``
