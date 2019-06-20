@@ -41,7 +41,7 @@ Hardware
 | CPU | Intel Core i7-8750H processor, 6 Cores / 12 Threads, 2.2GHz / 4.1GHz, 9MB Cache | No issues |
 | Memory | 16GB dual-channel DDR4-2667MHz, up to 64GB | No issues |
 | GPU | Intel UHD 630 | No issues |
-| dGPU | Nvidia 2070 Max-Q (8GB GDDR6 VRAM) | Nvidia Drivers absent for Mojave |
+| dGPU | Nvidia 2070 Max-Q (8GB GDDR6 VRAM) | Nvidia Drivers absent for Mojave. ACPI should be patched to disable dGPU |
 | Storage | Samsung PM981 256GB NVMe M.2 | Incompatible firmware. You can try fix with [Lenovo NVMe Firmware Update Utility](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t470s/downloads/ds119265) but better to replace |
 | Screen | 15.6" Full HD 144Hz, 1920 x 1080 IPS |  No issues |
 | Webcam | Windows Hello built-in IR HD webcam (1MP / 720P) |  No issues. Windows Hello is not supported in macOS |
@@ -50,12 +50,12 @@ Hardware
 | | Thunderbolt 3 (USB-C) | No issues |
 | | HDMI 2.0B | HDMI connected directly to Nvidia GPU and will not work in macOS |
 | | Mini DisplayPort 1.4 | Not tested |
-| Soundboard | Realtek ALC298 | No issues |
-| Battery | 80Wh | About 3-5h after proper Power Management configuration |
+| Soundboard | Realtek ALC298 | No issues. ACPI patch should be added to solve sleep issue |
+| Battery | 80Wh | About 3-5h after proper Power Management configuration.  ACPI should be patched to enable battery stats |
 | Keyboard | Per-key RGB powered by Razer Chroma N-Key rollover backlit | No issues. Razer Chroma software absent for macOS |
 | Touchpad | Precision Glass | No issues. ACPI should be patched to enable trackpad |
 | Dimensions | 17.8mm x 235mm x 355mm | |
-| Weight | 2.21 kg | |
+| Weight | 2.21 kg | ACPI patches will not help with this. /sarcasm |
 | Power | 230W power adapter | |
 
 
@@ -441,7 +441,7 @@ one with data ``4K`` starting with ID ``1``.
 * [nvme-cli](https://github.com/linux-nvme/nvme-cli)
 * [nvme-cli package in Ubuntu](https://launchpad.net/ubuntu/+source/nvme-cli)
 * [smartmontools](https://www.smartmontools.org)
-* [Gilles 4k NVMe foramt procedure](https://forums.macrumors.com/attachments/gilles-4k-nvme-foramt-procedure-pdf.763884/)
+* [Gilles 4k NVMe format procedure](https://forums.macrumors.com/attachments/gilles-4k-nvme-foramt-procedure-pdf.763884/)
 
 
 ### (Optional) Liquid Metal re-paste
@@ -824,6 +824,8 @@ TODO
 Power Management
 ---
 
+**BIOS tweak**
+
 * Reboot computer.
 * Repeatedly press ``DEL`` key to enter BIOS configuration menu.
 * In BIOS navigate to menu
@@ -842,6 +844,54 @@ Power Management
 		* Hit ``Save Changes``
 		* Hit ``Save Changes and Reset``
 
+**CPUFriendDataProvider**
+
+* Login with user with admin privileges. Usually first one created during installation procedure.
+* Download [One Key CPUFriend](https://github.com/stevezhengshiqi/one-key-cpufriend) Github repository ZIP archive.
+* Unpack downloaded ZIP archive.
+* Run ``Terminal`` application.
+* Changes folder in ``Terminal`` application to unpacked ZIP archive folder with command like this ``cd ~/Download/one-key-cpufriend-master``.
+* In ``Terminal`` applications window type execute command ``./one-key-cpufriend.sh``.
+* Command will show something like this
+
+```
+-----------------------------------------
+|****** Choose Low Frequency Mode ******|
+-----------------------------------------
+(1) Remain the same (1200/1300mhz)
+(2) 800mhz
+(3) Customize
+Which option you want to choose? (1/2/3)
+```
+
+* For most cases option ``2`` will be optional. Type ``2`` and press ``Enter``.
+* Command will show something like this
+
+```
+----------------------------------------
+| Choose Energy Performance Preference |
+----------------------------------------
+(1) Max Power Saving
+(2) Balance Power (Default)
+(3) Balance performance
+(4) Performance
+Which mode is your favourite? (1/2/3/4)
+```
+
+* Option ``2`` is recommended for most cases.
+* Type your option and press ``Enter``
+* Command will ask for password. Type password and press ``Enter``.
+* Command will generate two customised macOS Extensions (kext's) on ``Desktop`` folder.
+* Run ``KextBeast.pkg`` application.
+* Click ``Continue`` and click ``Agree``.
+* Select ``/Library/Extensions`` and click ``Continue``.
+* Click ``Install``.
+* If extensions installed without any issues run ``Terminal`` application from ``/Applications/Utilities`` folder.
+* In ``Terminal`` application window type ``sudo kextcache -i /`` and press ``Enter``.
+* When command ``kextcache`` finish execution unmount and detach macOS USB installation media and reboot computer to apply new configuration.
+* Reboot computer.
+* With next boot macOS will enable granular and precise power management.
+
 **Useful information**
 
 * [Skylake HWP Enable](https://www.tonymacx86.com/threads/skylake-hwp-enable.214915/)
@@ -858,7 +908,12 @@ There are several tools for Windows for undervolting and overclocking CPU and GP
 * [MSI Afterburner](https://www.msi.com/page/afterburner)
 * [ThrottleStop](https://www.techpowerup.com/download/techpowerup-throttlestop/)
 
-With macOS a different story. So I decide gone Rogue and do undervolt with BIOS. Tools like ``XTU`` provides better control but I need solution that will work both in Windows and Debian Linux and macOS.
+With macOS a different story. There are few tools for macOS for undervolting but they requires additional macOS Extensions (kext's) or not free or not very well supported.
+
+* [Volta](https://volta.garymathews.com)
+* [VoltageShift](https://github.com/sicreative/VoltageShift)
+
+So I decide gone Rogue and do undervolt with BIOS. Tools like ``XTU`` provides better control but I need solution that will work both in Windows and Debian Linux and macOS.
 
 AMI BIOS provides a lot different tools for undervolting and overclocking.
 
