@@ -776,22 +776,185 @@ External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 * Make ``USBMap.command`` executable with ``chmod +x USBMap.command``.
 * Detach all USB devices from the Razer Blade.
 * Run ``USBMap.command`` with ``./USBMap.command``.
+
+```
+  #######################################################
+ #                      USBMap                         #
+#######################################################
+
+Plist:          USB.plist
+UIA Boot Args:  None
+USBInjectAll:   Not Loaded - NVRAM boot-args WILL NOT WORK
+AptioMemoryFix: Loaded
+
+NVRAM Arg Options:
+  E. Apply Exclusion-Arg.txt
+  H. Exclude HSxx Ports (-uia_exclude_hs)
+  S. Exclude SSxx Ports (-uia_exclude_ss)
+  C. Clear Exclusions
+
+R.  Remove USB.plist from Scripts Folder
+T.  Reset Settings to Defaults
+P.  Edit Plist & Create SSDT/Kext
+D.  Discover Ports
+U.  Validate USB Power Settings
+Q.  Quit
+
+Please select an option:
+```
+
 * Press ``U`` to ``Validate USB Power Settings``.
-* If required confirm to install ``USBX``.
+* Command will show something like this.
+
+```
+  #######################################################
+ #           Validating USB Power Settings             #
+#######################################################
+
+Checking EC
+ - EC is properly setup
+Checking USBX requirements
+ - MacBookPro15,2 not found in IOUSBHostFamily.kext - checking for USBX
+ --> USBX device found: USBX@0
+
+EC Setup Properly:   True
+USBX Setup Properly: True
+
+Press [enter] to return
+```
+
+* If command will ask required confirm to install ``USBX``.
 * Press ``Q`` to back main screen.
+* Press ``P`` to get to ``Edit Plist & Create SSDT/Kext`` screen.
+* Press ``T`` to get list of USB types. It will be useful.
+
+```
+  #######################################################
+ #                     USB Types                       #
+#######################################################
+
+0: Type A connector
+1: Mini-AB connector
+2: ExpressCard
+3: USB 3 Standard-A connector
+4: USB 3 Standard-B connector
+5: USB 3 Micro-B connector
+6: USB 3 Micro-AB connector
+7: USB 3 Power-B connector
+8: Type C connector - USB2-only
+9: Type C connector - USB2 and SS with Switch
+10: Type C connector - USB2 and SS without Switch
+11 - 254: Reserved
+255: Proprietary connector
+
+Per the ACPI 6.2 Spec.
+
+Press [enter] to return
+```
+
+* Press ``Enter`` to return to ``Edit Plist & Create SSDT/Kext`` screen.
+* Press ``M`` to return ``Main`` screen.
 * Press ``D`` to ``Discover Ports``.
 * If all USB devices removed and detached properly ``USBMap`` will show list of internal USB devices such as Bluetooth, Integrated Camera, Razer Blade.
+
+```
+ #######################################################
+ #                  Detecting Ports                    #
+#######################################################
+
+1. HS01 - Controller XHC
+2. HS02 - Controller XHC
+3. HS03 - Controller XHC
+4. HS05 - Controller XHC
+    - BCM20702A0
+5. HS06 - Controller XHC
+6. HS07 - Controller XHC
+    - Integrated Camera
+7. HS08 - Controller XHC
+    - Razer Blade
+8. HS09 - Controller XHC
+9. HS10 - Controller XHC
+10. HS11 - Controller XHC
+11. HS13 - Controller XHC
+12. HS14 - Controller XHC
+13. SS01 - Controller XHC
+14. SS02 - Controller XHC
+15. SS03 - Controller XHC
+
+Populated:  XHC:3
+
+Press Q then [enter] to stop
+
+Waiting 5 seconds:
+```
+
 * Write down USB port identifications for this internal USB devices. It will be required later to properly setup USB type to properly enable sleep mode. For RBA early 2019 it will be like this:
 	* HS05 - Controller XHC - Bluetooth
 	* HS07 - Controller XHC - Integrated Camera
 	* HS08 - Controller XHC - Razer Blade
-* Detect properly USB ports.
-	* One by one insert and detach USB 2, USB 3 in every USB-A port and keep for 10-15s just to be sure devices is detected.
-	* Insert native USB-C device in USB-C port.
-	* Use USB-C to USB-A cable to connect USB 2, USB 3 devices to USB-C port.
-	* ``USBMap`` should detect...
+* You will need to mark this ports like ``255`` later.
+* Detect properly ``USB 2.0`` ports.
+	* Insert in every ``USB-A`` port for 15-20sec and detach ``USB 2.0`` (!) device. Command will highlight with color new detected ports.
+	* Write down this ports number.
+* Detect properly ``USB 3.0`` ports.
+	* Insert in every ``USB-A`` port for 15-20sec and detach ``USB 3.0 or 3.1`` (!) device. Command will highlight with color new detected ports.
+	* Write down this ports number.
+* Detect properly ``USB-C`` ports.
+	* Insert ``USB-C`` device into ``USB-C`` port for 15-20sec and detach. Command will highlight with color new detected port.
+	* Write down this ports number.
+	* Insert ``USB-A 2.0`` device into ``USB-C`` port with ``USB-A to USB-C`` cable for 15-20sec and detach. Command will highlight with color new detected port.
+	* Write down this ports number.
+* When ports will detected press ``Q`` to back to ``Main`` screen.
+* In ``Main`` screen press ``P`` to open ``Edit Plist & Create SSDT/Kext`` screen.
+* All ports will be automatically marked like ``Type 3`` ports.
+* Mark internal ports like ``Type 255``. This is very important to enable sleep mode. Without this computer will wake up every 20-40secs even with closed lid.
+* Very bellow in screen will be tips how-to do this.
 
-TODO
+```
+Select ports to toggle with comma-delimited lists (eg. 1,2,3,4,5)
+Change types using this formula T:1,2,3,4,5:t where t is the type
+Set custom names using this formula C:1:Name - Name = None to clear
+```
+
+* You can do this with command like this example:
+
+```
+T:4,6,7:255
+```
+
+* Next you need to mark properly ``Type`` for ``USB-C``.
+	* In my case ``SS03`` is ``Type 9``.
+	* And ``SS03`` is ``USB 2.0`` ``Type 8``.
+* Next is to build and install ``USBMap.kext``.
+* Press ``K`` to execute ``Build USBMap.kext``.
+
+```
+  #######################################################
+ #               Creating USBMap.kext                  #
+#######################################################
+
+Loading plist
+Generating Info.plist
+Writing to USBMap.kext
+ - Created USBMap.kext!
+Checking EC
+ - EC is properly setup
+Checking USBX requirements
+ - MacBookPro15,2 not found in IOUSBHostFamily.kext - checking for USBX
+ --> USBX device found: USBX@0
+
+Created the following file:
+
+USBMap.kext
+
+Copy automatically to booted EFI? (y/n):
+```
+
+* Confirm to install ``USBMap.kext`` automatically.
+* Press ``Q`` to ``Quit`` command.
+* Reboot computer.
+
+Verify configuration by inserting ``USB 2.0`` and ``USB 3.0`` and ``USB-C`` devices just like during detecting procedure. Also close lid and turn over notebook. After 20-60sec depends on current load fan should stop rotating. Wait for another 3-5min. They shouldn't start spinning again. If they start and stops after 10-20sec you done something wrong and need to start procedure again.
 
 **Useful information**
 
@@ -814,7 +977,29 @@ Follow instruction in article [An iDiot's Guide To iMessage](https://www.tonymac
 
 This step is optional but highly recommended from security standpoint.
 
-TODO
+* Make sure you have full TimeMachine or clone backup. Some mistakes done during this procedure can make you drive and data inaccessible!
+* Make sure you have prepared macOS installation media for worst case.
+* Do recommend to use
+	* [Apple TimeMachine](https://support.apple.com/en-us/HT201250) backup or
+	* [SuperDuper](https://www.shirt-pocket.com/SuperDuper/SuperDuperDescription.html)
+* Make sure required ``drivers`` installed.
+	* ``AptioInputFix-64`` for Bluetooth keyboard and mouse.
+	* ``AppleKeyAggregator-64`` for PS/2 keyboard and mouse.
+* Make sure ``Preboot`` volume is not hidden in ``Clover Configurator``.
+	* Open ``/Volumes/EFI/EFI/CLOVER/config.plist`` with ``Clover configurator`` application.
+	* Open ``Gui`` section.
+	* Remove ``Preboot`` volume from ``Hide Volume`` in top right corner.
+	* Hit ``Command+S`` to save configuration.
+	* Open ``System Preferences…`` and ``Security & Privacy`` and ``FileVault`` tab.
+	* Click ``Turn On FileVault…``
+	* It will take a time… Depends on drive size and number of files this can take up to 12h. So be patience.
+	* Reboot computer.
+	* At ``Clover`` screen, make sure you select the ``FileVault`` ``Preboot`` option of NVMe drive.
+	* Login prompt should appear.
+	* Keyboard should work without issues.
+	* If keyboard do not work maybe additional drivers required. Boot from macOS USB installation media and fix ``Clover`` boot configuration.
+	* Enter credentials.
+	* macOS should continue to boot.
 
 **Useful information**
 
