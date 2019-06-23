@@ -171,7 +171,7 @@ Required Tools
 	* [Kext Updater download URL](https://www.insanelymac.com/forum/topic/334222-kext-updater-keep-your-kexts-fresh-with-only-one-click/)
 * ``MaciASL``. A native AML compiler and IDE for OS X, with syntax coloring, tree navigation, automated patching, online patch file repositories, and iASL binary updates. Written entirely in Cocoa, conforms to OS X guidelines.
 	* [MaciASL download URL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads/)
-* iasl, 
+* ``iasl``
 	* [iasl download URL](https://bitbucket.org/RehabMan/acpica/downloads/iasl.zip)
 * ``GenSMBIOS``, Py script that uses acidanthera's macserial to generate SMBIOS and optionally saves them to a plist.
 	* [GenSMBIOS Github Repository](https://github.com/corpnewt/GenSMBIOS)
