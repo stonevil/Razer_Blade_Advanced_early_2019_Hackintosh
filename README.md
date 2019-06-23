@@ -79,12 +79,13 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 
 **Storage**
 
-| NVMe | 4k Support | Amazon URL |
-| ---: | :--- | :--- |
-| Samsung EVO 970 NVMe | NO | [Amazon](https://www.amazon.com/gp/product/B07DB942BT/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) |
-| Samsung EVO 970 Pro NVMe | NO | [Amazon](https://www.amazon.com/Samsung-PCI-Express-Solid-State-V-NAND/dp/B07DFJ3YQR/ref=sr_1_4?keywords=Samsung+970+EVO+Pro&qid=1560233808&s=electronics&sr=1-4) |
-| Sabrent Rocket NVMe | YES | [Amazon](https://www.amazon.com/gp/product/B07LGF54XR/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) |
-| WD Black SN750 NVMe | - | [Amazon](https://www.amazon.com/BLACK-SN750-500GB-Internal-Gaming/dp/B07MQ468S8/ref=sxin_3_ac_d_rm?keywords=wd%2Bblack%2Bnvme&pd_rd_i=B07MH2P5ZD&pd_rd_r=0be71a8a-a79d-4ce3-ad47-102a5ee16a25&pd_rd_w=9ZCWD&pd_rd_wg=dlFxu&pf_rd_p=0bc35c17-1e0d-4808-b361-20ab11b00973&pf_rd_r=0CKT4MYE9A5QZ8AJYEVK&qid=1560233421&s=gateway&th=1) |
+| NVMe | 4k Support | Amazon URL | Confirmation |
+| ---: | :--- | :--- | :--- |
+| Samsung EVO 970 NVMe | NO | [Amazon](https://www.amazon.com/gp/product/B07DB942BT/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) | [community](https://www.tonymacx86.com) |
+| Samsung EVO 970 Pro NVMe | NO | [Amazon](https://www.amazon.com/Samsung-PCI-Express-Solid-State-V-NAND/dp/B07DFJ3YQR/ref=sr_1_4?keywords=Samsung+970+EVO+Pro&qid=1560233808&s=electronics&sr=1-4) | [community](https://www.tonymacx86.com) |
+| Sabrent Rocket NVMe | YES | [Amazon](https://www.amazon.com/gp/product/B07LGF54XR/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) | [stonevil](https://www.tonymacx86.com/members/stonevil.254235/) |
+| WD Black SN750 NVMe | - | [Amazon](https://www.amazon.com/BLACK-SN750-500GB-Internal-Gaming/dp/B07MQ468S8/ref=sxin_3_ac_d_rm?keywords=wd%2Bblack%2Bnvme&pd_rd_i=B07MH2P5ZD&pd_rd_r=0be71a8a-a79d-4ce3-ad47-102a5ee16a25&pd_rd_w=9ZCWD&pd_rd_wg=dlFxu&pf_rd_p=0bc35c17-1e0d-4808-b361-20ab11b00973&pf_rd_r=0CKT4MYE9A5QZ8AJYEVK&qid=1560233421&s=gateway&th=1) | [community](https://www.tonymacx86.com) |
+| HP EX900 M.2 NVMe | - | [Amazon](https://www.amazon.com/HP-EX900-Internal-Solid-5Xm46Aa/dp/B07MFBNMF1/ref=sr_1_3?keywords=HP+EX900+NVME+1TB+drive&qid=1561283379&s=gateway&sr=8-3) | [konohasaint](https://www.tonymacx86.com/members/konohasaint.88998/) |
 
 macOS have native support and works better with 4k blocks. Check **NVMe format**.
 Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/app/blackmagic-disk-speed-test/id425264550?mt=12). Samsung EVO 970 1Tb NVMe and Sabrent Rocket 1Tb NMVe have the same Read/Write performance. But Samsung EVO stays about 8-12° C hotter on heave load. Even with additional passive cooling.
@@ -437,8 +438,18 @@ Best way to format NVMe drive is boot from Linux Live USB media and use ``smartc
 one with data ``4K`` starting with ID ``1``.
 * If ``4K`` is absent NVMe do not supports 4k blocks. Reboot computer and follow to **macOS install media preparation**.
 * Usually NVMe formatted to ``512B``. And this ``512B`` will be marked with asterix ``*``.
-* Format the NVME with ``4K`` blocs with the command ``sudo nvme format -l 1 /dev/nvme0``. This command will erase all information on NVMe drive.
-* Re-type the smartctl command ``sudo smartctl -a /dev/nvme0`` to verify that the LBA 4K size is properly selected.
+* Format the NVME with ``4K`` blocs with the command
+
+```
+sudo nvme format -l 1 /dev/nvme0
+```
+
+* This command will erase all information on NVMe drive.
+* To verify that the LBA 4K size is properly selected re-type the smartctl command
+
+```
+sudo smartctl -a /dev/nvme0
+```
 
 **Useful information**
 
@@ -571,9 +582,20 @@ Again, very important to apply all BIOS patches, firmware updates before this st
 * Copy ``iasl`` from macOS USB installation media or re-download from Internet to.
 * Unpack ``iasl.zip`` if required.
 * Run ``Terminal`` application from ``/Applications/Utilities/`` folder.
-* Copy ``iasl`` from ``~/Downloads/`` folder to ``/usr/local/bin/`` folder with command in ``Terminal`` application ``sudo cp ~/Downloads/iasl /usr/local/bin/``.
+* Copy ``iasl`` from ``~/Downloads/`` folder to ``/usr/local/bin/`` folder with command in ``Terminal`` application
+
+```
+sudo cp ~/Downloads/iasl /usr/local/bin/
+
+```
+
 * Navigate to ``~/Desktop/origin/`` folder in ``Terminal`` application with command ``cd ~/Desktop/origin/``.
-* Disassembling ``.aml`` files with command in ``Terminal`` application ``/usr/local/bin/iasl -da -dl DSDT.aml SSDT*.aml``.
+* Disassembling ``.aml`` files with command in ``Terminal`` application
+
+```
+/usr/local/bin/iasl -da -dl DSDT.aml SSDT*.aml
+```
+
 * Run ``MaciASL`` and open file ``~/Desktop/origin/DSDT.dsl``.
 * Click ``Patch`` button in ``toolbar``.
 * In ``Patch`` window on left panel scroll and find ``[bat] Razer Blade (2014)`` and click ``Apply``. Do not close window!
@@ -1039,8 +1061,18 @@ Power Management
 * Download [One Key CPUFriend](https://github.com/stevezhengshiqi/one-key-cpufriend) Github repository ZIP archive.
 * Unpack downloaded ZIP archive.
 * Run ``Terminal`` application.
-* Changes folder in ``Terminal`` application to unpacked ZIP archive folder with command like this ``cd ~/Download/one-key-cpufriend-master``.
-* In ``Terminal`` applications window type execute command ``./one-key-cpufriend.sh``.
+* Changes folder in ``Terminal`` application to unpacked ZIP archive folder with command like this
+
+```
+cd ~/Download/one-key-cpufriend-master
+```
+
+* In ``Terminal`` applications window type execute command
+
+```
+./one-key-cpufriend.sh
+```
+
 * Command will show something like this
 
 ```
@@ -1076,7 +1108,13 @@ Which mode is your favourite? (1/2/3/4)
 * Select ``/Library/Extensions`` and click ``Continue``.
 * Click ``Install``.
 * If extensions installed without any issues run ``Terminal`` application from ``/Applications/Utilities`` folder.
-* In ``Terminal`` application window type ``sudo kextcache -i /`` and press ``Enter``.
+* In ``Terminal`` application window type
+
+```
+sudo kextcache -i /
+```
+
+* And press ``Enter``.
 * When command ``kextcache`` finish execution unmount and detach macOS USB installation media and reboot computer to apply new configuration.
 * Reboot computer.
 * With next boot macOS will enable granular and precise power management.
