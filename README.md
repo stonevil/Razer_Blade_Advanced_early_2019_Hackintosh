@@ -1,6 +1,6 @@
 # Razer Blade Advanced early 2019 macOS 10.14 Hackintosh
 
-<span style="color:red">**Note: I am not responsible if you mess up your computer with this guide!**</span>
+**Note: I am not responsible if you mess up your computer with this guide!**
 
 
 Intro
@@ -89,7 +89,7 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 macOS have native support and works better with 4k blocks. Check **NVMe format**.
 Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/app/blackmagic-disk-speed-test/id425264550?mt=12). Samsung EVO 970 1Tb NVMe and Sabrent Rocket 1Tb NMVe have the same Read/Write performance. But Samsung EVO stays about 8-12° C hotter on heave load. Even with additional passive cooling.
 
-<span style="color:red">Note: I do recommend to use at least 1Tb NVMe for dual boot with Windows 10.</span>
+**Note: I do recommend to use at least 1Tb NVMe for dual boot with Windows 10.**
 
 
 **RAM**
@@ -110,7 +110,7 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 
 **Extreme Upgrade only for Advance Gamers**
 
-* Thermal Grizzly Conductonaut Thermal Grease Paste <span style="color:red">**(Liquid Metal)**</span> [Amazon](https://www.amazon.com/gp/product/B01A9KIGSI/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1)
+* Thermal Grizzly Conductonaut Thermal Grease Paste **(Liquid Metal)** [Amazon](https://www.amazon.com/gp/product/B01A9KIGSI/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1)
 * MG Chemicals 422B Silicone Modified Conformal Coating [Amazon](https://www.amazon.com/gp/product/B008O9YIV6/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1)
 * 3M Scotch Super 88 Vinyl Electrical Tape [Amazon](https://www.amazon.com/3M-Scotch-Electrical-Dielectric-Strength/dp/B001DPXGSE/ref=sr_1_2_sspa?ie=UTF8&qid=1538036249&sr=8-2-spons&keywords=super+88&psc=1)
 
@@ -118,7 +118,8 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 Repository
 ---
 
-``BIOS_mod/`` folder. This folder contains latest BIOS mod with all required unlocked options.
+``BIOS_mod/`` folder. This folder contains latest RBA AMI BIOS mod with all required unlocked options.
+``BIOS_mod/Nvidia_2080_Max-Q_BIOS_mod/`` this folder contains patches for 80w or 90w TDP for Nvidia 2080 Max-Q.
 
 This BIOS mod actual only for Razer Blade Advanced early 2019 with
 
@@ -145,7 +146,10 @@ can be different for your computer.
 ``Extensions/`` folder with all required macOS Extensions (kext's).
 
 
-``Tools/`` folder with AMI BIOS flashing and modding tools. Also macOS IORegistryExplorer v2.1 included with this repository. This tool is necessary for debugging USB, etc. configuration.
+``Tools/`` folder with various tools to flash BIOS, etc. macOS IORegistryExplorer v2.1 included with this repository. This tool is necessary for debugging USB, etc. configuration.
+
+``Tools/AMI/`` folder with AMI BIOS flashing and modding tools.
+``Tools/Nvidia/`` folder with Nvidia BIOS flashing tools.
 
 
 ``Development/ACPI_patches/`` folder with uncompiled versions of the SSDT's created for various ACPI hot patches.
@@ -192,7 +196,7 @@ Preparation
 
 ### BIOS update
 
-Very important to make all updates for BIOS before starting any macOS deployment. ACPI sources will be different after BIOS update and this will require to dump ACPI sources and patch them again. And this is very pleasant tasks.
+Very important to make all updates for BIOS before starting any macOS deployment. ACPI sources will be different after BIOS update and this will require to dump ACPI sources and patch them again. And this is not pleasant tasks.
 
 Download BIOS, EC, ME, etc. Firmware and apply them from stock Windows partition.
 
@@ -246,7 +250,7 @@ Otherwise follow to **BIOS export** step.
 
 ### BIOS modding
 
-Most of this options required for next undervolting and overclocking. But part of them is necessary for macOS. This like options marked with <span style="color:red">**!**</span>
+Most of this options required for next undervolting and overclocking. But part of them is necessary for macOS. This like options marked with **!**
 
 * Open ``Tools\AMIBCP64\`` folder.
 * Run ``AMIBCP64.exe`` application.
@@ -257,16 +261,16 @@ Most of this options required for next undervolting and overclocking. But part o
 	* Click ``Power & Performance`` subfolder.
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
 			* ``Power & Performance`` (second row from top)
-			* ``CPU - Power Management Control`` <span style="color:red">**!**</span>
+			* ``CPU - Power Management Control`` **!**
 			* ``Intel(R) Speed Shift Technology``
 	* Click ``CPU - Power Management Control`` folder in left pane
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``CPU - Power Management Control`` (second row from top) <span style="color:red">**!**</span>
+			* ``CPU - Power Management Control`` (second row from top) **!**
 			* ``Intel(R) SpeedStep(tm)``
 			* ``Intel(R) Speed Shift Technology``
 			* ``C states``
 			* ``Package C State Limit``
-			* ``CPU Lock Configuration`` (scroll way down) <span style="color:red">**!**</span>
+			* ``CPU Lock Configuration`` (scroll way down) **!**
 	* Click ``OverClocking Performance Menu`` folder in left pane
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
 			* ``OverClocking Performance Menu`` (second row from top)
@@ -296,30 +300,30 @@ Most of this options required for next undervolting and overclocking. But part o
 			* ``Offset Prefix`` below ``Uncore Voltage Offset``
 	* Click ``Memory Overclocking Menu`` folder in left pane
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``Memory Profile`` (second row from top) <span style="color:red">**RAM XMP Profile**</span>
-			* ``Memory Profile`` (another one somewhere in the middle of the list) <span style="color:red">**RAM XMP profile**</span>
-			* ``Memory Reference Clock`` <span style="color:red">**RAM XMP Profile**</span>
-			* ``Memory Ratio`` <span style="color:red">**RAM XMP Profile**</span>
-			* ``Memory Voltage`` <span style="color:red">**RAM XMP Profile**</span>
+			* ``Memory Profile`` (second row from top) **RAM XMP Profile**
+			* ``Memory Profile`` (another one somewhere in the middle of the list) **RAM XMP profile**
+			* ``Memory Reference Clock`` **RAM XMP Profile**
+			* ``Memory Ratio`` **RAM XMP Profile**
+			* ``Memory Voltage`` **RAM XMP Profile**
 	* Click ``Chipset`` folder in left pane
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``System Agent (SA) Configuration`` (second row from top) <span style="color:red">**!**</span>
+			* ``System Agent (SA) Configuration`` (second row from top) **!**
 	* Unfold ``Chipset`` subfolder.
 	* Click ``System Agent (SA) Configuration`` folder in left pane
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``System Agent (SA) Configuration`` (second row from top) <span style="color:red">**!**</span>
-			* ``VT-d`` <span style="color:red">**!**</span>
-			* ``Graphics Configuration`` <span style="color:red">**!**</span>
+			* ``System Agent (SA) Configuration`` (second row from top) **!**
+			* ``VT-d`` **!**
+			* ``Graphics Configuration`` **!**
 			* ``PEG Port Configuration``
-			* ``VT-d`` (another one somewhere in the middle of the list) <span style="color:red">**!**</span>
+			* ``VT-d`` (another one somewhere in the middle of the list) **!**
 	* Unfold ``System Agent (SA) Configuration`` folder in left pane
 	* Click ``Graphics Configuration`` folder in left pane
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``Graphics Configuration`` (second row from top) <span style="color:red">**!**</span>
+			* ``Graphics Configuration`` (second row from top) **!**
 			* ``Primary Display``
 			* ``Internal Graphics``
-			* ``DVMT Pre-Allocated`` <span style="color:red">**!**</span>
-			* ``DVMT Total Gfx Mem`` <span style="color:red">**!**</span>
+			* ``DVMT Pre-Allocated`` **!**
+			* ``DVMT Total Gfx Mem`` **!**
 	* Click ``PEG Port Configuration`` folder in left pane
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
 			* ``PEG Port Configuration`` (second row from top)
@@ -387,7 +391,7 @@ There are few changes in BIOS is vital to make macOS happy and bootable on RBA. 
 		* Hit ``Save Changes and Reset``
 
 
-<span style="color:red">**Note: If some of this options is not available in BIOS, please boot back in Windows and check modded BIOS dump for missing changes.**</span>
+**Note: If some of this options is not available in BIOS, please boot back in Windows and check modded BIOS dump for missing changes.**
 
 
 Hardware preparation
@@ -446,7 +450,7 @@ one with data ``4K`` starting with ID ``1``.
 
 ### (Optional) Liquid Metal re-paste
 
-<span style="color:red">**Be very careful and do this at your OWN RISK!**</span>
+**Be very careful and do this at your OWN RISK!**
 
 This step is not necessary and can be recommended only for hardcore gamers with experience building own rigs. Razer already using very good thermal paste so re-paste thermal paste is not very useful until liquid metal will be used. And Grizzly Conductonaut Thermal Grease Paste maybe the best one. Read more about liquid metal thermal paste and all issues he can cause before make decision and go forward.
 
@@ -495,7 +499,7 @@ Use you own OR borrow some friend Mac computer.
 * Follow usual macOS installation procedure.
 * You can use TimeMachine Backup restore procedure during macOS installation.
 
-<span style="color:red">**Note: Do not try connect computer with iCloud before you will generate proper SMBIOS! This step will explained in 'iCloud. iMessages and FaceTime' step.**</span>
+**Note: Do not try connect computer with iCloud before you will generate proper SMBIOS! This step will explained in 'iCloud. iMessages and FaceTime' step.**
 
 **Useful information**
 
@@ -1158,6 +1162,40 @@ BIOS have a lot additional configurations for undervolting and overclocking just
 * [Intel Extreme Tuning Utility (XTU) Undervolting Guide](https://www.notebookcheck.net/Intel-Extreme-Tuning-Utility-XTU-Undervolting-Guide.272120.0.html)
 
 
+Nvidia BIOS flashing
+---
+
+Razer Blade Advanced mid 2019 have very little changes compare to previous early 2019 model.
+
+* Better refresh rate.
+* Can be packed with i7 9750H CPU for extra money.
+
+And most disadvantage is 80w 2080 instead of 90w for previous model. This is a huge difference.
+
+* Reboot computer.
+* Select Windows 10 partition in ``Clover``.
+* Download this repository ZIP archive.
+* Unpack archive.
+* Backup Nvidia BIOS with ``GPU-Z`` application from ``Tools\Nvidia\`` repository folder (!).
+* Open ``cmd.exe`` with admin privileges.
+* In ``cmd.exe`` window change folder to ``BIOS_mod\Nvidia_2080_Max-Q_BIOS_mod\`` repository folder.
+* To apply 90w TDP type in ``cmd.exe`` window command
+
+```
+nvflash64 -6 Nvidia_2080_Max-Q_90w.rom
+```
+
+* And press ``Enter``.
+* Press ``Y`` for the warning(s).
+* Reboot computer.
+
+**Useful information**
+
+* [Razer Blade Pro 17 (2019) Review](https://www.reddit.com/r/razer/comments/c3doo2/razer_blade_pro_17_2019_review/)
+* [Comparison: 80w vs 90w RTX 2080 Max-Q](https://www.theeverydayenthusiast.com/home/comparison-80w-vs-90w-2080-max-q)
+* [So much better than before: Razer Blade Pro 17 Laptop Review](https://www.notebookcheck.net/So-much-better-than-before-Razer-Blade-Pro-17-Laptop-Review.424150.0.html)
+
+
 Razer Chroma
 ---
 
@@ -1210,7 +1248,7 @@ Windows
 * Select USB installation media with Windows 10.
 * Follow usual Windows 10 installation procedure.
 
-<span style="color:red">**Note: Be careful and select right partition created before for Windows 10. Otherwise you can destroy macOS installation.**</span>
+**Note: Be careful and select right partition created before for Windows 10. Otherwise you can destroy macOS installation.**
 
 **Useful information**
 
@@ -1252,6 +1290,8 @@ If for some reason UEFI OS (drive_name) isn’t showing as an available boot dev
 * Rename ``BOOTX64.efi`` to ``bootmgfw.efi``.
 * Restart.
 * Now ``Windows Boot Manager`` will redirects to ``Clover`` instead of booting Windows.
+
+**Note: Very often with combo and security updates Windows 10 will place new ``bootmgfw.efi`` in ``EFI/Microsoft/Boot/``. You can notice this by two Windows boot options in ``Clover`` boot screen. Just remove old ``bootmgfw-orig.efi`` and rename new ``bootmgfw.efi`` to  ``bootmgfw-orig.efi``.**
 
 **Useful information**
 
