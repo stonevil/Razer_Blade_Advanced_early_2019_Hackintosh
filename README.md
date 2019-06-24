@@ -245,7 +245,7 @@ Otherwise follow to **BIOS export** step.
 
 * Boot into Windows.
 * Download this repository.
-* Open ``Tools\AfuWin64\`` folder.
+* Open ``Tools\AMI\AfuWin64\`` folder.
 * Run ``AFUWINGUIx64.EXE`` application.
 * In ``AFUWINGUI`` application click ``Save`` button to export current BIOS.
 * Save BIOS to ``Desktop`` folder.
@@ -256,7 +256,7 @@ Otherwise follow to **BIOS export** step.
 
 Most of this options required for next undervolting and overclocking. But part of them is necessary for macOS. This like options marked with **!**
 
-* Open ``Tools\AMIBCP64\`` folder.
+* Open ``Tools\AMI\AMIBCP64\`` folder.
 * Run ``AMIBCP64.exe`` application.
 * In ``AMIBCP`` application click ``Open``, navigate to ``Desktop`` and open BIOS saved in previous steps.
 * In ``AMIBCP`` application
@@ -381,7 +381,7 @@ Most of this options required for next undervolting and overclocking. But part o
 
 ### BIOS flashing
 
-* Open ``Tools\AfuWin64\`` folder.
+* Open ``Tools\AMI\AfuWin64\`` folder.
 * Run ``AFUWINGUIx64.EXE`` application.
 * In ``AFUWINGUI`` application click ``Open`` button.
 * Choose new modded BIOS from ``Desktop`` folder.
