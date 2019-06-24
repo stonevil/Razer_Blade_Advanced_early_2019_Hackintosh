@@ -287,7 +287,9 @@ Most of this options required for next undervolting and overclocking. But part o
 		* ``Package C State Limit``
 		* ``CPU Lock Configuration`` (scroll way down) **!**
 
-![CPU_Power_Management_Control](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/CPU_Power_Management_Control.png)
+![CPU_Power_Management_Control1](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/CPU_Power_Management_Control1.png)
+
+![CPU_Power_Management_Control2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/CPU_Power_Management_Control2.png)
 
 * Click ``OverClocking Performance Menu`` folder in left pane
 	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
@@ -336,7 +338,9 @@ Most of this options required for next undervolting and overclocking. But part o
 		* ``Memory Ratio`` **RAM XMP Profile**
 		* ``Memory Voltage`` **RAM XMP Profile**
 
-![Memory_Overclocking_Menu](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Memory_Overclocking_Menu.png)
+![Memory_Overclocking_Menu1](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Memory_Overclocking_Menu1.png)
+
+![Memory_Overclocking_Menu2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Memory_Overclocking_Menu2.png)
 
 * Click ``Chipset`` folder in left pane
 	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
