@@ -217,34 +217,37 @@
 			<string>SSDT-XCPM.aml</string>
 			<string>SSDT-PluginType1.aml</string>
 		</array>
-		<key>DropTables</key>
-		<array>
-			<dict>
-				<key>Signature</key>
-				<string>#MCFG</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>xh_rvp10</string>
-			</dict>
-		</array>
 		<key>FixHeaders</key>
 		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
 			<false/>
+			<key>EnableC2</key>
+			<true/>
+			<key>EnableC4</key>
+			<true/>
+			<key>EnableC6</key>
+			<true/>
+			<key>EnableC7</key>
+			<true/>
 			<key>Generate</key>
 			<dict>
+				<key>APLF</key>
+				<false/>
+				<key>APSN</key>
+				<false/>
+				<key>CStates</key>
+				<false/>
+				<key>PStates</key>
+				<false/>
 				<key>PluginType</key>
 				<true/>
 			</dict>
+			<key>MaxMultiplier</key>
+			<integer>41</integer>
+			<key>MinMultiplier</key>
+			<integer>8</integer>
 			<key>NoOemTableId</key>
 			<false/>
 		</dict>
@@ -270,12 +273,29 @@
 		<key>Timeout</key>
 		<integer>5</integer>
 	</dict>
+	<key>CPU</key>
+	<dict>
+		<key>C2</key>
+		<true/>
+		<key>C4</key>
+		<true/>
+		<key>C6</key>
+		<true/>
+		<key>HWPEnable</key>
+		<true/>
+		<key>HWPValue</key>
+		<string>0x20002901</string>
+		<key>UseARTFrequency</key>
+		<true/>
+	</dict>
 	<key>Comment</key>
 	<string>This file is for 10.14.x with native CoffeeLake support</string>
 	<key>Devices</key>
 	<dict>
 		<key>Audio</key>
 		<dict>
+			<key>AFGLowPowerState</key>
+			<true/>
 			<key>Inject</key>
 			<integer>0</integer>
 		</dict>
@@ -430,14 +450,14 @@
 		<key>KernelLapic</key>
 		<true/>
 		<key>KernelPm</key>
-		<true/>
+		<false/>
 		<key>KernelToPatch</key>
 		<array>
 			<dict>
 				<key>Comment</key>
 				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				ILniAAAADzA=
