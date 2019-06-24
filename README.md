@@ -6,7 +6,7 @@
 Intro
 ---
 
-![About this Mac](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/about.png)
+![About this Mac](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/About_Mac.png)
 
 I'm long time Apple hardware and software user. Since 1996. And still macOS is best OS for my requirements.
 My first computer is PowerBook 150. Since then I used mostly Apple mobile solutions. PowerBook G3, PowerBook Titanium, bunch of MacBook Pro 13" and 15".
@@ -267,77 +267,112 @@ Most of this options required for next undervolting and overclocking. But part o
 			* ``Power & Performance`` (second row from top)
 			* ``CPU - Power Management Control`` **!**
 			* ``Intel(R) Speed Shift Technology``
-	* Click ``CPU - Power Management Control`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``CPU - Power Management Control`` (second row from top) **!**
-			* ``Intel(R) SpeedStep(tm)``
-			* ``Intel(R) Speed Shift Technology``
-			* ``C states``
-			* ``Package C State Limit``
-			* ``CPU Lock Configuration`` (scroll way down) **!**
-	* Click ``OverClocking Performance Menu`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``OverClocking Performance Menu`` (second row from top)
-			* ``XTU Interface``
-			*	``Processor``
-			* ``Ring``
-			* ``GT``
-			* ``Uncore``
-			* ``Memory``
-	* Unfold ``OverClocking Performance Menu`` subfolder.
-	* Click ``Processor`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``Processor`` (second row from top)
-			* ``Core Voltage Offset``
-			* ``Offset Prefix`` below ``Core Voltage Offset``
-	* Click ``GT`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``GT Domain`` (second row from top)
-			* ``GT Voltage Offset``
-			* ``Offset Prefix`` below ``GT Voltage Offset``
-			* ``GTU Voltage Offset``
-			* ``Offset Prefix`` below ``GTU Voltage Offset``
-	* Click ``Uncore`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``Uncore`` (second row from top)
-			* ``Uncore Voltage Offset``
-			* ``Offset Prefix`` below ``Uncore Voltage Offset``
-	* Click ``Memory Overclocking Menu`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``Memory Profile`` (second row from top) **RAM XMP Profile**
-			* ``Memory Profile`` (another one somewhere in the middle of the list) **RAM XMP profile**
-			* ``Memory Reference Clock`` **RAM XMP Profile**
-			* ``Memory Ratio`` **RAM XMP Profile**
-			* ``Memory Voltage`` **RAM XMP Profile**
-	* Click ``Chipset`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``System Agent (SA) Configuration`` (second row from top) **!**
-	* Unfold ``Chipset`` subfolder.
-	* Click ``System Agent (SA) Configuration`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``System Agent (SA) Configuration`` (second row from top) **!**
-			* ``VT-d`` **!**
-			* ``Graphics Configuration`` **!**
-			* ``PEG Port Configuration``
-			* ``VT-d`` (another one somewhere in the middle of the list) **!**
-	* Unfold ``System Agent (SA) Configuration`` folder in left pane
-	* Click ``Graphics Configuration`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``Graphics Configuration`` (second row from top) **!**
-			* ``Primary Display``
-			* ``Internal Graphics``
-			* ``DVMT Pre-Allocated`` **!**
-			* ``DVMT Total Gfx Mem`` **!**
 
-![Graphics Configuration](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Graphics_Configuration.png)
+![Power_Performance](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Power_Performance.png)
 
-	* Click ``PEG Port Configuration`` folder in left pane
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
-			* ``PEG Port Configuration`` (second row from top)
-			* ``ASPM``
-			* ``ASPM L0s``
+* Unfold ``CPU VR Settings``
+* Click `` View/Configure CPU Lock Configuration`` folder in left pane
+* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+	* ``CFG Lock``
+	* ``Overclocking Lock``
 
-![PEG Port Configuration](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/PEG_Port_Configuration.png)
+![CPU_VR_Settings](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/CPU_VR_Settings.png)
+
+* Click ``CPU - Power Management Control`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``CPU - Power Management Control`` (second row from top) **!**
+		* ``Intel(R) SpeedStep(tm)``
+		* ``Intel(R) Speed Shift Technology``
+		* ``C states``
+		* ``Package C State Limit``
+		* ``CPU Lock Configuration`` (scroll way down) **!**
+
+![CPU_Power_Management_Control](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/CPU_Power_Management_Control.png)
+
+* Click ``OverClocking Performance Menu`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``OverClocking Performance Menu`` (second row from top)
+		* ``XTU Interface``
+		*	``Processor``
+		* ``Ring``
+		* ``GT``
+		* ``Uncore``
+		* ``Memory``
+
+![OverClocking_Performance_Menu](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/OverClocking_Performance_Menu.png)
+
+* Unfold ``OverClocking Performance Menu`` subfolder.
+* Click ``Processor`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``Processor`` (second row from top)
+		* ``Core Voltage Offset``
+		* ``Offset Prefix`` below ``Core Voltage Offset``
+
+![Processor](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Processor.png)
+
+* Click ``GT`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``GT Domain`` (second row from top)
+		* ``GT Voltage Offset``
+		* ``Offset Prefix`` below ``GT Voltage Offset``
+		* ``GTU Voltage Offset``
+		* ``Offset Prefix`` below ``GTU Voltage Offset``
+
+![GT](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/GT.png)
+
+* Click ``Uncore`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``Uncore`` (second row from top)
+		* ``Uncore Voltage Offset``
+		* ``Offset Prefix`` below ``Uncore Voltage Offset``
+
+![Uncore](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Uncore.png)
+
+* Click ``Memory Overclocking Menu`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``Memory Profile`` (second row from top) **RAM XMP Profile**
+		* ``Memory Profile`` (another one somewhere in the middle of the list) **RAM XMP profile**
+		* ``Memory Reference Clock`` **RAM XMP Profile**
+		* ``Memory Ratio`` **RAM XMP Profile**
+		* ``Memory Voltage`` **RAM XMP Profile**
+
+![Memory_Overclocking_Menu](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Memory_Overclocking_Menu.png)
+
+* Click ``Chipset`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``System Agent (SA) Configuration`` (second row from top) **!**
+
+![Chipset](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Chipset.png)
+
+* Unfold ``Chipset`` subfolder.
+* Click ``System Agent (SA) Configuration`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``System Agent (SA) Configuration`` (second row from top) **!**
+		* ``VT-d`` **!**
+		* ``Graphics Configuration`` **!**
+		* ``PEG Port Configuration``
+		* ``VT-d`` (another one somewhere in the middle of the list) **!**
+
+![System_Agent_Configuration](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/System_Agent_Configuration.png)
+
+* Unfold ``System Agent (SA) Configuration`` folder in left pane
+* Click ``Graphics Configuration`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``Graphics Configuration`` (second row from top) **!**
+		* ``Primary Display``
+		* ``Internal Graphics``
+		* ``DVMT Pre-Allocated`` **!**
+		* ``DVMT Total Gfx Mem`` **!**
+
+![Graphics_Configuration](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Graphics_Configuration.png)
+
+* Click ``PEG Port Configuration`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``PEG Port Configuration`` (second row from top)
+		* ``ASPM``
+		* ``ASPM L0s``
+
+![PEG_Port_Configuration](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/PEG_Port_Configuration.png)
 
 * Click ``Save As`` in ``AMIBCP`` application.
 * Save BIOS with new name to ``Desktop`` folder.
