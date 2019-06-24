@@ -83,6 +83,7 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 | ---: | :--- | :--- | :--- |
 | Samsung EVO 970 NVMe | NO | [Amazon](https://www.amazon.com/gp/product/B07DB942BT/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) | [community](https://www.tonymacx86.com) |
 | Samsung EVO 970 Pro NVMe | NO | [Amazon](https://www.amazon.com/Samsung-PCI-Express-Solid-State-V-NAND/dp/B07DFJ3YQR/ref=sr_1_4?keywords=Samsung+970+EVO+Pro&qid=1560233808&s=electronics&sr=1-4) | [community](https://www.tonymacx86.com) |
+| Samsung EVO 970 Plus NVMe | NO | [Amazon](https://www.amazon.com/Samsung-970-EVO-Plus-MZ-V7S1T0B/dp/B07MFZY2F2/ref=sr_1_3?keywords=Samsung+EVO+970+Plus+NVMe&qid=1561343834&s=gateway&sr=8-3) | [Do the Samsung 970 Evo Plus drives work ? New Firmware Available for testing 5/20/19](https://www.tonymacx86.com/threads/do-the-samsung-970-evo-plus-drives-work-new-firmware-available-for-testing-5-20-19.270757/page-13#post-1959914) |
 | Sabrent Rocket NVMe | YES | [Amazon](https://www.amazon.com/gp/product/B07LGF54XR/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) | [stonevil](https://www.tonymacx86.com/members/stonevil.254235/) |
 | WD Black SN750 NVMe | - | [Amazon](https://www.amazon.com/BLACK-SN750-500GB-Internal-Gaming/dp/B07MQ468S8/ref=sxin_3_ac_d_rm?keywords=wd%2Bblack%2Bnvme&pd_rd_i=B07MH2P5ZD&pd_rd_r=0be71a8a-a79d-4ce3-ad47-102a5ee16a25&pd_rd_w=9ZCWD&pd_rd_wg=dlFxu&pf_rd_p=0bc35c17-1e0d-4808-b361-20ab11b00973&pf_rd_r=0CKT4MYE9A5QZ8AJYEVK&qid=1560233421&s=gateway&th=1) | [community](https://www.tonymacx86.com) |
 | HP EX900 M.2 NVMe | - | [Amazon](https://www.amazon.com/HP-EX900-Internal-Solid-5Xm46Aa/dp/B07MFBNMF1/ref=sr_1_3?keywords=HP+EX900+NVME+1TB+drive&qid=1561283379&s=gateway&sr=8-3) | [konohasaint](https://www.tonymacx86.com/members/konohasaint.88998/) |
@@ -225,7 +226,7 @@ Some changes for BIOS configuration should be done to make macOS bootable on Raz
 * Disable Secure Boot.
 * etc.
 
-Some of this configurations can be fixed one or another way in Clover configuration file. But better to play safe and change configuration in BIOS. And deactivation of CFG-Lock can help a lot with power management.
+Some of this configurations can be fixed one or another way in ``Clover`` configuration file. But better to play safe and change configuration in BIOS. And deactivation of CFG-Lock can help a lot with power management.
 
 In case if BIOS upgraded to latest version and
 
@@ -327,11 +328,17 @@ Most of this options required for next undervolting and overclocking. But part o
 			* ``Internal Graphics``
 			* ``DVMT Pre-Allocated`` **!**
 			* ``DVMT Total Gfx Mem`` **!**
+
+![Graphics Configuration](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Graphics_Configuration.png)
+
 	* Click ``PEG Port Configuration`` folder in left pane
 		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
 			* ``PEG Port Configuration`` (second row from top)
 			* ``ASPM``
 			* ``ASPM L0s``
+
+![PEG Port Configuration](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/PEG_Port_Configuration.png)
+
 * Click ``Save As`` in ``AMIBCP`` application.
 * Save BIOS with new name to ``Desktop`` folder.
 * Close ``AMIBCP`` application.
@@ -379,10 +386,10 @@ There are few changes in BIOS is vital to make macOS happy and bootable on RBA. 
 				* Set ``DVMT Total Gfx Mem`` to ``MAX``
 	* ``Chipset``
 		* ``System Agent (SA) Configuration``
-		* Disable ``VT-d``
+			* Disable ``VT-d``
 	* ``Chipset``
 		* ``SATA And RST Configuration``
-		* Check ``SATA Mode Selection`` set to ``AHCI``
+			* Check ``SATA Mode Selection`` set to ``AHCI``
 	* ``Security``
 		* Set ``Secure Boot`` to ``Disabled``
 	* ``Boot``
@@ -432,10 +439,28 @@ Best way to format NVMe drive is boot from Linux Live USB media and use ``smartc
 * Select ``Try Ubuntu``
 * When ``Ubuntu`` starts connect computer to Internet. Can be done from WiFi menu in top right corner.
 * Click on bottom left button and type ``Terminal`` and press ``Enter``.
-* In ``Terminal`` application type ``sudo apt -y install smartmontools`` and press Enter.
-* In ``Terminal`` application type ``sudo apt -y install nvme-cli`` and press Enter.
+* In ``Terminal`` application type
+
+```
+sudo apt -y install smartmontools
+```
+
+* and press Enter.
+* In ``Terminal`` application type
+
+```
+sudo apt -y install nvme-cli
+```
+
+* and press Enter.
 * If previous command fail use this URL [https://launchpad.net/ubuntu/+archive/primary/+files/nvme-cli-dbgsym_1.7-1_amd64.ddeb](https://launchpad.net/ubuntu/+archive/primary/+files/nvme-cli-dbgsym_1.7-1_amd64.ddeb) to install ``nvme-cli`` on Ubuntu.
-* Verify your NVMe is recognized and manage 4K blocs by typing ``sudo smartctl -a /dev/nvme0``.
+* Verify your NVMe is recognized and manage 4K blocs by typing
+
+```
+sudo smartctl -a /dev/nvme0
+
+```
+
 * You should have two lines under ``Supported LBA sizes`` one with data ``512B`` starting with ID ``0``
 one with data ``4K`` starting with ID ``1``.
 * If ``4K`` is absent NVMe do not supports 4k blocks. Reboot computer and follow to **macOS install media preparation**.
@@ -447,7 +472,7 @@ sudo nvme format -l 1 /dev/nvme0
 ```
 
 * This command will erase all information on NVMe drive.
-* To verify that the LBA 4K size is properly selected re-type the smartctl command
+* To verify that the LBA 4K size is properly selected re-type the ``smartctl`` command
 
 ```
 sudo smartctl -a /dev/nvme0
@@ -539,7 +564,13 @@ Once when macOS installation will be finished
 * Select ``/Library/Extensions`` and click ``Continue``.
 * Click ``Install``.
 * If extensions installed without any issues run ``Terminal`` application from ``/Applications/Utilities`` folder.
-* In ``Terminal`` application window type ``sudo kextcache -i /`` and press ``Enter``.
+* In ``Terminal`` application window type
+
+```
+sudo kextcache -i /
+```
+
+* and press ``Enter``.
 * When command ``kextcache`` finish execution unmount and detach macOS USB installation media and reboot computer to apply new configuration.
 * Repeatedly press ``DEL`` key to enter BIOS configuration menu.
 * In BIOS navigate to menu
@@ -1192,7 +1223,7 @@ To apply configuration
 
 CPU limitations can be very different even in same series. So, do not use blindly my configuration.
 
-BIOS have a lot additional configurations for undervolting and overclocking just like TDP (Thermal Design Power) but this requires extensive knowledge in CPU/Chipset/etc. power management and not part of this documentation. For more information check links provided below.
+BIOS have a lot additional configurations for undervolting and overclocking just like TDP (Thermal Design Power) but this requires extensive knowledge in CPU/Chipset/etc. power management and not a part of this documentation. For more information check links provided below.
 
 **Useful information**
 
@@ -1222,7 +1253,7 @@ And most disadvantage is 80w 2080 instead of 90w for previous model. This is a h
 * To apply 90w TDP type in ``cmd.exe`` window command
 
 ```
-nvflash64 -6 Nvidia_2080_Max-Q_90w.rom
+nvflash64.exe -6 Nvidia_2080_Max-Q_90w.rom
 ```
 
 * And press ``Enter``.
@@ -1331,7 +1362,7 @@ If for some reason UEFI OS (drive_name) isn’t showing as an available boot dev
 * Restart.
 * Now ``Windows Boot Manager`` will redirects to ``Clover`` instead of booting Windows.
 
-**Note: Very often with combo and security updates Windows 10 will place new ``bootmgfw.efi`` in ``EFI/Microsoft/Boot/``. You can notice this by two Windows boot options in ``Clover`` boot screen. Just remove old ``bootmgfw-orig.efi`` and rename new ``bootmgfw.efi`` to  ``bootmgfw-orig.efi``.**
+**Note: Very often with cumulative and security updates Windows 10 will place new ``bootmgfw.efi`` in ``EFI/Microsoft/Boot/``. You can notice this by two Windows boot options in ``Clover`` boot screen. Just remove old ``bootmgfw-orig.efi`` and rename new ``bootmgfw.efi`` to  ``bootmgfw-orig.efi``.**
 
 **Useful information**
 
@@ -1378,6 +1409,7 @@ Additional Information
 * [UniBeast: Install macOS Mojave on Any Supported Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-mojave-on-any-supported-intel-based-pc.259381/)
 * [Keeping your Hackintosh up-to-date, my method](https://davejansen.com/keeping-your-hackintosh-up-to-date/)
 * [Hackintosh Mojave 10.14.5 Update Guide](https://hackintosher.com/guides/hackintosh-mojave-10-14-5-update-guide/)
+* [Anti-Hackintosh Buyers Guide](https://www.reddit.com/r/hackintosh/comments/c0y312/antihackintosh_buyers_guide/)
 
 
 **Community**
