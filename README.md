@@ -312,6 +312,16 @@ Most of this options required for next undervolting and overclocking. But part o
 
 ![Processor](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Processor.png)
 
+* Click ``Ring`` folder in left pane
+	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* ``Ring`` (second row from top)
+		* ``Ring Max OC Radio``
+		* ``Ring Down Bin``
+		* ``Min Ring Ratio Limit``
+		* ``Max Ring Ratio Limit``
+
+![Ring](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ring.png)
+
 * Click ``GT`` folder in left pane
 	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``GT Domain`` (second row from top)
