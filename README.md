@@ -191,6 +191,7 @@ Required Tools
 | ``Intel Power Gadget`` | is a software-based power usage monitoring tool enabled for Intel Core processors | [Intel Power Gadget](https://software.intel.com/en-us/articles/intel-power-gadget) |
 | ``iStat Menus`` | and advanced Mac system monitor | [iStat Menus](https://bjango.com/mac/istatmenus/) |
 | ``Prime95`` | free Mersenne Prime search tool. Maybe the best tool for CPU torture testing | [Prime95](https://www.mersenne.org/download/) |
+| ``UNetbootin`` | allows you to create bootable USB drives for Windows and Ubuntu and other Linux distributions without burning a CD. | [UNetbootin](https://unetbootin.github.io) |
 
 
 Preparation
@@ -246,6 +247,9 @@ Otherwise follow to **BIOS export** step.
 * Open ``Tools\AMI\AfuWin64\`` folder.
 * Run ``AFUWINGUIx64.EXE`` application.
 * In ``AFUWINGUI`` application click ``Save`` button to export current BIOS.
+
+![AFUWINGUI_Save](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/AFUWINGUI_Save.png)
+
 * Save BIOS to ``Desktop`` folder.
 * Close ``AFUWINGUI`` application.
 
@@ -399,6 +403,10 @@ Most of this options required for next undervolting and overclocking. But part o
 * Choose new modded BIOS from ``Desktop`` folder.
 * Close all application except ``AFUWINGUI``. Close also all Windows TaskBar apps like Nvidia Expierence, Razer, etc.
 * Click ``Flash`` button in ``AFUWINGUI`` application and confirm flashing BIOS.
+
+![AFUWINGUI_Flash](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/AFUWINGUI_Flash.png)
+
+* Follow ``AFUWINGUI`` application on-screen instruction.
 * Close ``AFUWINGUI`` application.
 * Reboot Windows.
 
@@ -1287,7 +1295,7 @@ Razer Blade Advanced mid 2019 have very little changes compare to previous early
 * Better refresh rate.
 * Can be packed with i7 9750H CPU for extra money.
 
-And most disadvantage is 80w 2080 instead of 90w for previous model. This is a huge difference.
+And most disadvantage is 80w 2080 Max-Q instead of 90w in previous model. This is a huge difference for general performance. Check articles [Comparison: 80w vs 90w RTX 2080 Max-Q](https://www.theeverydayenthusiast.com/home/comparison-80w-vs-90w-2080-max-q).
 
 * Reboot computer.
 * Select Windows 10 partition in ``Clover``.
@@ -1436,7 +1444,7 @@ Know Issues and Limitations
 Conclusion
 ---
 
-It's a pretty good laptop with far better keyboard than 2016-2019y MacBook Pro. Solid workstation and extremely good gaming machine. And easy to upgrade NVMe and RAM and WiFi modules. This Model supports NVMe up to 2Tb and RAM up to 64Gb.
+It's a pretty good laptop with way better keyboard than 2016-2019y MacBook Pro. Solid workstation and extremely good gaming machine. And easy to upgrade NVMe and RAM and WiFi modules. This Model supports NVMe up to 2Tb and RAM up to 64Gb.
 
 Major disadvantages is
 
