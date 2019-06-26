@@ -36,7 +36,7 @@ Hardware
 **Razer Blade Advanced early 2019**
 
 | | Spec | macOS 10.14 compatibility |
-| ---:|:--- |:--- |
+| ---: | :--- | :--- |
 | Chipset | Mobile Intel HM370 | No issues |
 | CPU | Intel Core i7-8750H processor, 6 Cores / 12 Threads, 2.2GHz / 4.1GHz, 9MB Cache | No issues |
 | Memory | 16GB dual-channel DDR4-2667MHz, up to 64GB | No issues |
@@ -87,6 +87,9 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 | Sabrent Rocket NVMe | YES | [Amazon](https://www.amazon.com/gp/product/B07LGF54XR/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) | [stonevil](https://www.tonymacx86.com/members/stonevil.254235/) |
 | WD Black SN750 NVMe | - | [Amazon](https://www.amazon.com/BLACK-SN750-500GB-Internal-Gaming/dp/B07MQ468S8/ref=sxin_3_ac_d_rm?keywords=wd%2Bblack%2Bnvme&pd_rd_i=B07MH2P5ZD&pd_rd_r=0be71a8a-a79d-4ce3-ad47-102a5ee16a25&pd_rd_w=9ZCWD&pd_rd_wg=dlFxu&pf_rd_p=0bc35c17-1e0d-4808-b361-20ab11b00973&pf_rd_r=0CKT4MYE9A5QZ8AJYEVK&qid=1560233421&s=gateway&th=1) | [community](https://www.tonymacx86.com) |
 | HP EX900 M.2 NVMe | - | [Amazon](https://www.amazon.com/HP-EX900-Internal-Solid-5Xm46Aa/dp/B07MFBNMF1/ref=sr_1_3?keywords=HP+EX900+NVME+1TB+drive&qid=1561283379&s=gateway&sr=8-3) | [konohasaint](https://www.tonymacx86.com/members/konohasaint.88998/) |
+| Samsung PM981 | NO | Bundled with Razer Blade | [suyukai](https://www.tonymacx86.com/members/suyukai.2249983/) |
+
+**Note: Bundled Samsung NVMe PM981 can be enabled with additional macOS Extension (kext) and (ACPI hot patch). More information in ``suyukai`` post [I find a way to use macOS on SSD(pm981) in blade!...](https://www.tonymacx86.com/threads/guide-razer-blade-15-2018-detailed-install-guide-high-sierra-10-13-6-17g2208-17g5019.264017/page-65#post-1969367)**
 
 macOS have native support and works better with 4k blocks. Check **NVMe format**.
 Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/app/blackmagic-disk-speed-test/id425264550?mt=12). Samsung EVO 970 1Tb NVMe and Sabrent Rocket 1Tb NMVe have the same Read/Write performance. But Samsung EVO stays about 8-12° C hotter on heave load. Even with additional passive cooling.
@@ -119,21 +122,28 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 * 3M Scotch Super 88 Vinyl Electrical Tape [Amazon](https://www.amazon.com/3M-Scotch-Electrical-Dielectric-Strength/dp/B001DPXGSE/ref=sr_1_2_sspa?ie=UTF8&qid=1538036249&sr=8-2-spons&keywords=super+88&psc=1)
 
 
+**Useful information**
+
+* [The Mainstream Phoenix Rises: Samsung's 970 EVO (500GB & 1TB) SSDs Reviewed - Power Management Features](https://www.anandtech.com/show/12670/the-samsung-970-evo-ssd-review/8)
+
+
 Repository
 ---
 
 ``BIOS_mod/`` folder. This folder contains latest RBA AMI BIOS mod with all required unlocked options.
-``BIOS_mod/Nvidia_2080_Max-Q_BIOS_mod/`` this folder contains patches for 80w or 90w TDP for Nvidia 2080 Max-Q.
 
 This BIOS mod actual only for Razer Blade Advanced early 2019 with
 
 | | Version |
-| ---:|:--- |
+| ---: | :--- |
 | System BIOS | 1.04 |
 | EC FW | 1.03 |
 | MCU FW | 1.00.00.00 |
 
 Do not use this mod if your system is different! Please check with BIOS.
+
+
+``BIOS_mod/Nvidia_2080_Max-Q_BIOS_mod/`` this folder contains patches for 80w or 90w TDP for Nvidia 2080 Max-Q.
 
 
 ``EFI/`` folder is basically full copy of my EFI folder from EFI drive with removed machine serial number.
@@ -164,35 +174,23 @@ can be different for your computer.
 Required Tools
 ---
 
-* ``balenaEtcher``
-	* [balenaEtcher download URL](https://www.balena.io/etcher/)
-* ``UniBeast`` OR ``TINU`` to build macOS installation media.
-	* [UniBeast download URL](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/)
-	* [TINU download URL](https://github.com/ITzTravelInTime/TINU)
-* ``Clover Configurator``, an easy to use macOS application designed to help you create custom configuration files for the Clover EFI bootloader via a streamlined graphical interface.
-	* [Clover Configurator download URL](https://mackie100projects.altervista.org/download-clover-configurator/)
-* ``KextBeast`` is a quick installer for .kext, .bundle, and .plugin files.
-	* [KextBeast download URL](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/)
-* ``Continuity Activation Tool`` tool makes the necessary changes to enable Continuity features on compatible hardware.
-	* [Continuity Activation Tool download URL](https://github.com/dokterdok/Continuity-Activation-Tool)
-* ``Kext Updater``, this little tool its totally easy to have up-to-date Kexts.
-	* [Kext Updater download URL](https://www.insanelymac.com/forum/topic/334222-kext-updater-keep-your-kexts-fresh-with-only-one-click/)
-* ``MaciASL``. A native AML compiler and IDE for OS X, with syntax coloring, tree navigation, automated patching, online patch file repositories, and iASL binary updates. Written entirely in Cocoa, conforms to OS X guidelines.
-	* [MaciASL download URL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads/)
-* ``iasl``
-	* [iasl download URL](https://bitbucket.org/RehabMan/acpica/downloads/iasl.zip)
-* ``GenSMBIOS``, Py script that uses acidanthera's macserial to generate SMBIOS and optionally saves them to a plist.
-	* [GenSMBIOS Github Repository](https://github.com/corpnewt/GenSMBIOS)
-* ``one-key-cpufriend``, script to modify macOS CPU Performance
-	* [one-key-cpufriend Github Repository](https://github.com/stevezhengshiqi/one-key-cpufriend)
-* ``USBMap``, Py script for mapping out USB ports and creating a custom SSDT or injector kext (WIP).
-	* [USBMap Github Repository](https://github.com/corpnewt/USBMap)
-* ``Intel Power Gadget``,  is a software-based power usage monitoring tool enabled for Intel Core processors.
-	* [Intel Power Gadget download URL](https://software.intel.com/en-us/articles/intel-power-gadget)
-* ``iStat Menus``, and advanced Mac system monitor.
-	* [iStat Menus download URL](https://bjango.com/mac/istatmenus/)
-* ``Prime95``, free Mersenne Prime search tool. Maybe the best tool for CPU torture testing.
-	* [Prime95 download URL](https://www.mersenne.org/download/)
+| Tool | Description | Download URL |
+| ---: | :--- | :--- |
+| ``balenaEtcher`` |  is a free and open-source utility used for burning image files such as .iso and .img files, as well as zipped folders to create live SD cards and USB flash drives. | [balenaEtcher](https://www.balena.io/etcher/) |
+| ``UniBeast`` | to build macOS installation media | [UniBeast](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/) |
+| ``TINU`` | alternative tool to build macOS installation media | [TINU](https://github.com/ITzTravelInTime/TINU) |
+| ``Clover Configurator`` | an easy to use macOS application designed to help you create custom configuration files for the Clover EFI bootloader via a streamlined graphical interface | [Clover Configurator](https://mackie100projects.altervista.org/download-clover-configurator/) |
+| ``KextBeast`` | is a quick installer for .kext, .bundle, and .plugin files | [KextBeast](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/) |
+| ``Continuity Activation Tool`` | tool makes the necessary changes to enable Continuity features on compatible hardware | [Continuity Activation Tool](https://github.com/dokterdok/Continuity-Activation-Tool) |
+| ``Kext Updater`` | this little tool its totally easy to have up-to-date Kexts | [Kext Updater](https://www.insanelymac.com/forum/topic/334222-kext-updater-keep-your-kexts-fresh-with-only-one-click/) |
+| ``MaciASL`` | A native AML compiler and IDE for OS X, with syntax coloring, tree navigation, automated patching, online patch file repositories, and iASL binary updates. Written entirely in Cocoa, conforms to OS X guidelines | [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads/) |
+| ``iasl`` | -//- | [iasl](https://bitbucket.org/RehabMan/acpica/downloads/iasl.zip) |
+| ``GenSMBIOS`` | Py script that uses acidanthera's macserial to generate SMBIOS and optionally saves them to a plist| [GenSMBIOS Github Repository](https://github.com/corpnewt/GenSMBIOS) |
+| ``one-key-cpufriend`` | script to modify macOS CPU Performance | [one-key-cpufriend Github Repository](https://github.com/stevezhengshiqi/one-key-cpufriend) |
+| ``USBMap`` | Py script for mapping out USB ports and creating a custom SSDT or injector kext (WIP) | [USBMap Github Repository](https://github.com/corpnewt/USBMap) |
+| ``Intel Power Gadget`` | is a software-based power usage monitoring tool enabled for Intel Core processors | [Intel Power Gadget](https://software.intel.com/en-us/articles/intel-power-gadget) |
+| ``iStat Menus`` | and advanced Mac system monitor | [iStat Menus](https://bjango.com/mac/istatmenus/) |
+| ``Prime95`` | free Mersenne Prime search tool. Maybe the best tool for CPU torture testing | [Prime95](https://www.mersenne.org/download/) |
 
 
 Preparation
@@ -231,7 +229,7 @@ Some of this configurations can be fixed one or another way in ``Clover`` config
 In case if BIOS upgraded to latest version and
 
 | | Version |
-| ---:|:--- |
+| ---: | :--- |
 | System BIOS | 1.04 |
 | EC FW | 1.03 |
 | MCU FW | 1.00.00.00 |
@@ -1264,7 +1262,7 @@ To apply configuration
 * If system works stable repeat all steps and incremental increase undervolting for -5. Better to keep undervolting for ``Processor`` and ``GT/GTU`` on same level. And repeat again ``Torture Test...``. If system is unstable under ``Torture Test...``, freezes or reboots revert back to previous working configuration.
 
 | Option | Configuration start undervolting | Recommended step | My stable working configuration |
-| ---:| ---:| ---:| ---:|
+| ---: | ---: | ---: | ---: |
 | Processor Core Voltage Offset | -100 | -5 | -140 |
 | GT Core Voltage Offset | -100 | -5 | -140 |
 | GTU Core Voltage Offset | -100 | -5 | -140 |
@@ -1468,14 +1466,16 @@ Additional Information
 * [Reddit Hackintosh](https://www.reddit.com/r/hackintosh/)
 
 
-Special Thanks
+Credits
 ---
 
-* [Acidanthera](https://github.com/acidanthera)
-* [RehabMan](https://github.com/RehabMan)
-* [Alexandre Daoud](https://github.com/alexandred)
-* [Ben Raz](https://github.com/ben9923)
-* [Bat.bat](https://github.com/williambj1)
-* [Steve Zheng](https://github.com/stevezhengshiqi)
-* [vettz500](https://www.tonymacx86.com/members/vettz500.291395/)
-* and many others
+* [Apple](https://www.apple.com) for macOS. Still the best OS
+* [netkas](http://netkas.org) for the original idea of creating a software SMC emulator
+* [RehabMan](https://github.com/RehabMan) for Laptop-DSDT-Patch, OS-X-Clover-Laptop-Config, OS-X-MaciASL-patchmatic, and more. You are a legend!
+* [Acidanthera](https://github.com/acidanthera) for VirtualSMC
+* [Alexandre Daoud](https://github.com/alexandred) for VoodooI2C
+* [Ben Raz](https://github.com/ben9923) for help with VoodooI2C and trackpad
+* [Bat.bat](https://github.com/williambj1) for help with VoodooI2C and trackpad
+* [Steve Zheng](https://github.com/stevezhengshiqi) for one-key-cpufriend
+* [vettz500](https://www.tonymacx86.com/members/vettz500.291395/) for incredible useful information about RBA 2018
+* Additional big thanks go to all the contributors and researchers involved in Hackintosh development!
