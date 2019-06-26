@@ -484,8 +484,17 @@ Best way to format NVMe drive is boot from Linux Live USB media and use ``smartc
 * Insert USB media with at least 16Gb. Drive will be formatted and all data will be erased.
 * Run ``balenaEtcher``
 * Select image ``Ubuntu Desktop Live Image`` downloaded before.
+
+![balenaEtcher_Select_Image](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/balenaEtcher_Select_Image.png)
+
 * Select USB media.
+
+![balenaEtcher_Select_Media](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/balenaEtcher_Select_Media.png)
+
 * And press ``Flash!``.
+
+![balenaEtcher_Flash](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/balenaEtcher_Flash.png)
+
 * Install new NVMe drive in target Razer Blade.
 * Insert USB media with ``Ubuntu Desktop``.
 * Press ``Power Button`` to start computer.
