@@ -666,7 +666,6 @@ Again, very important to apply all BIOS patches, firmware updates before this st
 
 ```
 sudo cp ~/Downloads/iasl /usr/local/bin/
-
 ```
 
 * Navigate to ``~/Desktop/origin/`` folder in ``Terminal`` application with command ``cd ~/Desktop/origin/``.
@@ -1478,4 +1477,5 @@ Credits
 * [Bat.bat](https://github.com/williambj1) for help with VoodooI2C and trackpad
 * [Steve Zheng](https://github.com/stevezhengshiqi) for one-key-cpufriend
 * [vettz500](https://www.tonymacx86.com/members/vettz500.291395/) for incredible useful information about RBA 2018
+* [Kishor Prins](https://github.com/kprinssu) and [Boo](https://github.com/boo-dev) for osx-razer-blade
 * Additional big thanks go to all the contributors and researchers involved in Hackintosh development!
