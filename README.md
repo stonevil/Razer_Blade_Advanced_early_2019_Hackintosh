@@ -500,16 +500,28 @@ Best way to format NVMe drive is boot from Linux Live USB media and use ``smartc
 * Press ``Power Button`` to start computer.
 * Press repeatedly ``F12`` until you ``Boot Menu`` will show.
 * Select USB media with ``Ubuntu Desktop``.
-* Select ``Try Ubuntu``
+* Select ``Try Ubuntu without installation``
 * When ``Ubuntu`` starts connect computer to Internet. Can be done from WiFi menu in top right corner.
+
+![Ubuntu_Show_Applications](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Show_Applications.png)
+
 * Click on bottom left button and type ``Terminal`` and press ``Enter``.
+
+![Ubuntu_Terminal](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Terminal.png)
+
 * In ``Terminal`` application type
 
 ```
 sudo apt -y install smartmontools
 ```
 
+![Ubuntu_Install_smartmontools](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_smartmontools.png)
+
 * and press Enter.
+* In ``Postfix Configuration`` window select ``No configuration`` with ``Up/Down`` arrow keys and press ``Enter``.
+
+![Ubuntu_Install_smartmontools_postfix](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_smartmontools_postfix.png)
+
 * In ``Terminal`` application type
 
 ```
@@ -517,15 +529,36 @@ sudo apt -y install nvme-cli
 ```
 
 * and press Enter.
-* If previous command fail use this URL [http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli_0.5-1_amd64.deb](http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli_0.5-1_amd64.deb) to install ``nvme-cli`` on Ubuntu.
-* Verify your NVMe is recognized and manage 4K blocs by typing
+
+![Ubuntu_Install_nvme_cli_fail](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_fail.png)
+
+* If previous command fail with error ``E: Unable to locate package nvme-cli`` use this URL [http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli\_0.5-1\_amd64.deb](http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli_0.5-1_amd64.deb) to install ``nvme-cli`` on Ubuntu.
+
+![Ubuntu_Install_nvme_cli_url](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url.png)
+
+![Ubuntu_Install_nvme_cli_url_open_with](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url_open_with.png)
+
+* Click on download button on top right ``Firefox`` window corner.
+* Click on downloaded package and click ``Open``.
+* In installer window click ``Install`` button.
+
+![Ubuntu_Install_nvme_cli_window](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_window.png)
+
+* Verify your NVMe is recognized and manage 4K blocs by typing this command in ``Terminal`` window
 
 ```
 sudo smartctl -a /dev/nvme0
 ```
 
+* and press ``Enter``
+
+![Ubuntu_Run_smartctl](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Run_smartctl.png)
+
 * You should have two lines under ``Supported LBA sizes`` one with data ``512B`` starting with ID ``0``
 one with data ``4K`` starting with ID ``1``.
+
+![Ubuntu_Run_smartctl_result](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Run_smartctl_result.png)
+
 * If ``4K`` is absent NVMe do not supports 4k blocks. Reboot computer and follow to **macOS install media preparation**.
 * Usually NVMe formatted to ``512B``. And this ``512B`` will be marked with asterix ``*``.
 * Format the NVME with ``4K`` blocs with the command
@@ -533,6 +566,10 @@ one with data ``4K`` starting with ID ``1``.
 ```
 sudo nvme format -l 1 /dev/nvme0
 ```
+
+* and press ``Enter``.
+
+![Ubuntu_Install_nvme_format](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_format.png)
 
 * This command will erase all information on NVMe drive.
 * To verify that the LBA 4K size is properly selected re-type the ``smartctl`` command
