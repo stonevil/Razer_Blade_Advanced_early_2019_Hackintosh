@@ -1,6 +1,6 @@
 # Razer Blade Advanced early 2019 macOS 10.14 Hackintosh
 
-**Note: I AM NOT RESPONSIBLE IF YOU MESS UP YOUR COMPUTER WITH THIS GUIDE!**
+**Note: I'AM NOT RESPONSIBLE IF YOU MESS UP YOUR COMPUTER WITH THIS GUIDE!**
 
 
 Intro
@@ -517,12 +517,11 @@ sudo apt -y install nvme-cli
 ```
 
 * and press Enter.
-* If previous command fail use this URL [https://launchpad.net/ubuntu/+archive/primary/+files/nvme-cli-dbgsym_1.7-1_amd64.ddeb](https://launchpad.net/ubuntu/+archive/primary/+files/nvme-cli-dbgsym_1.7-1_amd64.ddeb) to install ``nvme-cli`` on Ubuntu.
+* If previous command fail use this URL [http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli_0.5-1_amd64.deb](http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli_0.5-1_amd64.deb) to install ``nvme-cli`` on Ubuntu.
 * Verify your NVMe is recognized and manage 4K blocs by typing
 
 ```
 sudo smartctl -a /dev/nvme0
-
 ```
 
 * You should have two lines under ``Supported LBA sizes`` one with data ``512B`` starting with ID ``0``
