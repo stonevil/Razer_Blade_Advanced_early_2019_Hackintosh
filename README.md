@@ -37,26 +37,26 @@ Hardware
 
 | | Spec | macOS 10.14 compatibility |
 | ---: | :--- | :--- |
-| Chipset | Mobile Intel HM370 | No issues |
-| CPU | Intel Core i7-8750H processor, 6 Cores / 12 Threads, 2.2GHz / 4.1GHz, 9MB Cache | No issues |
-| Memory | 16GB dual-channel DDR4-2667MHz, up to 64GB | No issues |
-| GPU | Intel UHD 630 | No issues |
-| dGPU | Nvidia 2070 Max-Q (8GB GDDR6 VRAM) | Nvidia Drivers absent for Mojave. ACPI should be patched to disable dGPU |
-| Storage | Samsung PM981 256GB NVMe M.2 | Incompatible firmware. You can try fix with [Lenovo NVMe Firmware Update Utility](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t470s/downloads/ds119265) but better to replace |
-| Screen | 15.6" Full HD 144Hz, 1920 x 1080 IPS |  No issues |
-| Webcam | Windows Hello built-in IR HD webcam (1MP / 720P) |  No issues. Windows Hello is not supported in macOS |
-| WiFi | Intel Wireless-AC 9560NGW | Drivers absent for macOS. Should replaced |
-| Input & Output | USB 3.1 Gen 1 (USB-A) x3 | No issues |
+| ``Chipset`` | Mobile Intel HM370 | No issues |
+| ``CPU`` | Intel Core i7-8750H processor, 6 Cores / 12 Threads, 2.2GHz / 4.1GHz, 9MB Cache | No issues |
+| ``Memory`` | 16GB dual-channel DDR4-2667MHz, up to 64GB | No issues |
+| ``GPU`` | Intel UHD 630 | No issues |
+| ``dGPU`` | Nvidia 2070 Max-Q (8GB GDDR6 VRAM) | Nvidia Drivers absent for Mojave. ACPI should be patched to disable dGPU |
+| ``Storage`` | Samsung PM981 256GB NVMe M.2 | Incompatible firmware. You can try fix with [Lenovo NVMe Firmware Update Utility](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t470s/downloads/ds119265) but better to replace |
+| ``Screen`` | 15.6" Full HD 144Hz, 1920 x 1080 IPS |  No issues |
+| ``Webcam`` | Windows Hello built-in IR HD webcam (1MP / 720P) |  No issues. Windows Hello is not supported in macOS |
+| ``WiFi`` | Intel Wireless-AC 9560NGW | Drivers absent for macOS. Should replaced |
+| ``Input & Output`` | USB 3.1 Gen 1 (USB-A) x3 | No issues |
 | | Thunderbolt 3 (USB-C) | No issues |
 | | HDMI 2.0B | HDMI connected directly to Nvidia GPU and will not work in macOS |
 | | Mini DisplayPort 1.4 | Not tested |
-| Soundboard | Realtek ALC298 | No issues. ACPI patch should be added to solve sleep issue |
-| Battery | 80Wh | About 3-5h after proper Power Management configuration.  ACPI should be patched to enable battery stats |
-| Keyboard | Per-key RGB powered by Razer Chroma N-Key rollover backlit | No issues. Razer Chroma software absent for macOS |
-| Touchpad | Precision Glass | No issues. ACPI should be patched to enable trackpad |
-| Dimensions | 17.8mm x 235mm x 355mm | |
-| Weight | 2.21 kg | ACPI patches will not help with this. /sarcasm |
-| Power | 230W power adapter | |
+| ``Soundboard`` | Realtek ALC298 | No issues. ACPI patch should be added to solve sleep issue |
+| ``Battery`` | 80Wh | About 3-5h after proper Power Management configuration.  ACPI should be patched to enable battery stats |
+| ``Keyboard`` | Per-key RGB powered by Razer Chroma N-Key rollover backlit | No issues. Razer Chroma software absent for macOS |
+| ``Touchpad`` | Precision Glass | No issues. ACPI should be patched to enable trackpad |
+| ``Dimensions`` | 17.8mm x 235mm x 355mm | |
+| ``Weight`` | 2.21 kg | ACPI patches will not help with this. /sarcasm |
+| ``Power`` | 230W power adapter | |
 
 
 Hardware Upgrades and Tools
@@ -67,27 +67,31 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 
 **Accessories**
 
-* USB mouse. Trackpad will be unavailable during macOS installation procedure.
-* USB storage device with at least 16Gb storage [Amazon](https://www.amazon.com/gp/product/B076GXJJRD/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1).
-* USB-A to USB-C cable [Amazon](https://www.amazon.com/AmazonBasics-Type-C-Gen1-Female-Adapter/dp/B01GGKYXVE/ref=pd_hpb_a2a_sims_6/130-2479265-2893400?_encoding=UTF8&pd_rd_i=B01GGKYYT0&pd_rd_r=54b9f737-919c-11e9-b9d7-6915ce2a8dc3&pd_rd_w=j9bw6&pd_rd_wg=IVvh1&pf_rd_p=bfc589eb-d865-496f-a10b-5e00902c2113&pf_rd_r=G68JVK6HBAFKEDA75MYY&refRID=G68JVK6HBAFKEDA75MYY&th=1).
+| Accessories | Description | Amazon URL |
+| ---: | :--- | :--- |
+| ``USB mouse`` | Trackpad will be unavailable during macOS installation procedure | [Amazon](https://www.amazon.com/AmazonBasics-3-Button-Wired-Mouse-Black/dp/B005EJH6RW/ref=sr_1_3?keywords=amazon+basic+mouse&qid=1561714362&s=gateway&sr=8-3) |
+| ``USB storage`` with at least 16Gb storage | Installation USB media | [Amazon](https://www.amazon.com/gp/product/B076GXJJRD/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1) |
+| ``USB-A to USB-C cable`` | For USB ports detection procedure | [Amazon](https://www.amazon.com/AmazonBasics-Type-C-Gen1-Female-Adapter/dp/B01GGKYXVE/ref=pd_hpb_a2a_sims_6/130-2479265-2893400?_encoding=UTF8&pd_rd_i=B01GGKYYT0&pd_rd_r=54b9f737-919c-11e9-b9d7-6915ce2a8dc3&pd_rd_w=j9bw6&pd_rd_wg=IVvh1&pf_rd_p=bfc589eb-d865-496f-a10b-5e00902c2113&pf_rd_r=G68JVK6HBAFKEDA75MYY&refRID=G68JVK6HBAFKEDA75MYY&th=1) |
 
 
 **WiFi**
 
-* BCM94352Z (DW-1560). It can be easily find for $24-30 on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1)
+| WiFi Module | Description | eBay URL |
+| ---: | :--- | :--- |
+| ``BCM94352Z (DW-1560)`` | Easily to find for $24-30 on | [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1) |
 
 
 **Storage**
 
 | NVMe | 4k Support | Amazon URL | Confirmation |
 | ---: | :--- | :--- | :--- |
-| Samsung EVO 970 NVMe | NO | [Amazon](https://www.amazon.com/gp/product/B07DB942BT/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) | [community](https://www.tonymacx86.com) |
-| Samsung EVO 970 Pro NVMe | NO | [Amazon](https://www.amazon.com/Samsung-PCI-Express-Solid-State-V-NAND/dp/B07DFJ3YQR/ref=sr_1_4?keywords=Samsung+970+EVO+Pro&qid=1560233808&s=electronics&sr=1-4) | [community](https://www.tonymacx86.com) |
-| Samsung EVO 970 Plus NVMe | NO | [Amazon](https://www.amazon.com/Samsung-970-EVO-Plus-MZ-V7S1T0B/dp/B07MFZY2F2/ref=sr_1_3?keywords=Samsung+EVO+970+Plus+NVMe&qid=1561343834&s=gateway&sr=8-3) | [Do the Samsung 970 Evo Plus drives work ? New Firmware Available for testing 5/20/19](https://www.tonymacx86.com/threads/do-the-samsung-970-evo-plus-drives-work-new-firmware-available-for-testing-5-20-19.270757/page-13#post-1959914) |
-| Sabrent Rocket NVMe | YES | [Amazon](https://www.amazon.com/gp/product/B07LGF54XR/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) | [stonevil](https://www.tonymacx86.com/members/stonevil.254235/) |
-| WD Black SN750 NVMe | - | [Amazon](https://www.amazon.com/BLACK-SN750-500GB-Internal-Gaming/dp/B07MQ468S8/ref=sxin_3_ac_d_rm?keywords=wd%2Bblack%2Bnvme&pd_rd_i=B07MH2P5ZD&pd_rd_r=0be71a8a-a79d-4ce3-ad47-102a5ee16a25&pd_rd_w=9ZCWD&pd_rd_wg=dlFxu&pf_rd_p=0bc35c17-1e0d-4808-b361-20ab11b00973&pf_rd_r=0CKT4MYE9A5QZ8AJYEVK&qid=1560233421&s=gateway&th=1) | [community](https://www.tonymacx86.com) |
-| HP EX900 M.2 NVMe | - | [Amazon](https://www.amazon.com/HP-EX900-Internal-Solid-5Xm46Aa/dp/B07MFBNMF1/ref=sr_1_3?keywords=HP+EX900+NVME+1TB+drive&qid=1561283379&s=gateway&sr=8-3) | [konohasaint](https://www.tonymacx86.com/members/konohasaint.88998/) |
-| Samsung PM981 | NO | Bundled with Razer Blade | [suyukai](https://www.tonymacx86.com/members/suyukai.2249983/) |
+| ``Samsung EVO 970 NVMe`` | NO | [Amazon](https://www.amazon.com/gp/product/B07DB942BT/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) | [community](https://www.tonymacx86.com) |
+| ``Samsung EVO 970 Pro NVMe`` | NO | [Amazon](https://www.amazon.com/Samsung-PCI-Express-Solid-State-V-NAND/dp/B07DFJ3YQR/ref=sr_1_4?keywords=Samsung+970+EVO+Pro&qid=1560233808&s=electronics&sr=1-4) | [community](https://www.tonymacx86.com) |
+| ``Samsung EVO 970 Plus NVMe`` | NO | [Amazon](https://www.amazon.com/Samsung-970-EVO-Plus-MZ-V7S1T0B/dp/B07MFZY2F2/ref=sr_1_3?keywords=Samsung+EVO+970+Plus+NVMe&qid=1561343834&s=gateway&sr=8-3) | [Do the Samsung 970 Evo Plus drives work ? New Firmware Available for testing 5/20/19](https://www.tonymacx86.com/threads/do-the-samsung-970-evo-plus-drives-work-new-firmware-available-for-testing-5-20-19.270757/page-13#post-1959914) |
+| ``Sabrent Rocket NVMe`` | YES | [Amazon](https://www.amazon.com/gp/product/B07LGF54XR/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) | [stonevil](https://www.tonymacx86.com/members/stonevil.254235/) |
+| ``WD Black SN750 NVMe`` | - | [Amazon](https://www.amazon.com/BLACK-SN750-500GB-Internal-Gaming/dp/B07MQ468S8/ref=sxin_3_ac_d_rm?keywords=wd%2Bblack%2Bnvme&pd_rd_i=B07MH2P5ZD&pd_rd_r=0be71a8a-a79d-4ce3-ad47-102a5ee16a25&pd_rd_w=9ZCWD&pd_rd_wg=dlFxu&pf_rd_p=0bc35c17-1e0d-4808-b361-20ab11b00973&pf_rd_r=0CKT4MYE9A5QZ8AJYEVK&qid=1560233421&s=gateway&th=1) | [community](https://www.tonymacx86.com) |
+| ``HP EX900 M.2 NVMe`` | - | [Amazon](https://www.amazon.com/HP-EX900-Internal-Solid-5Xm46Aa/dp/B07MFBNMF1/ref=sr_1_3?keywords=HP+EX900+NVME+1TB+drive&qid=1561283379&s=gateway&sr=8-3) | [konohasaint](https://www.tonymacx86.com/members/konohasaint.88998/) |
+| ``Samsung PM981`` | NO | Bundled with Razer Blade | [suyukai](https://www.tonymacx86.com/members/suyukai.2249983/) |
 
 **Note: Bundled Samsung NVMe PM981 can be enabled with additional macOS Extension (kext) and (ACPI hot patch). More information in ``suyukai`` post [I find a way to use macOS on SSD(pm981) in blade!...](https://www.tonymacx86.com/threads/guide-razer-blade-15-2018-detailed-install-guide-high-sierra-10-13-6-17g2208-17g5019.264017/page-65#post-1969367)**
 
@@ -101,8 +105,8 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 
 | Memory | Modules size | Speed | CL | Amazon URL | Confirmation |
 | ---: | :--- | :--- | :--- | :--- | :--- |
-| Ballistix Sport LT 32GB | 2x16Gb | 2666 | CL16 | [Amazon](https://www.amazon.com/gp/product/B06XRBS4Y5/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1) | [stonevil](https://www.tonymacx86.com/members/stonevil.254235/) |
-| Kingston Technology HyperX Impact 32GB | 2x16Gb | 2666 | CL15 | [Amazon](https://www.amazon.com/dp/B01NAL3TYY/?coliid=I3Q9P4ZU9V435H&colid=1ZGSQH2G88154&psc=1&ref_=lv_ov_lig_dp_it) | [Razer Blade 15 Advanced RAM upgrade](https://www.reddit.com/r/razer/comments/c1c9wl/razer_blade_15_advanced_ram_upgrade/) |
+| ``Ballistix Sport LT 32GB`` | 2x16Gb | 2666 | CL16 | [Amazon](https://www.amazon.com/gp/product/B06XRBS4Y5/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1) | [stonevil](https://www.tonymacx86.com/members/stonevil.254235/) |
+| ``Kingston Technology HyperX Impact 32GB`` | 2x16Gb | 2666 | CL15 | [Amazon](https://www.amazon.com/dp/B01NAL3TYY/?coliid=I3Q9P4ZU9V435H&colid=1ZGSQH2G88154&psc=1&ref_=lv_ov_lig_dp_it) | [Razer Blade 15 Advanced RAM upgrade](https://www.reddit.com/r/razer/comments/c1c9wl/razer_blade_15_advanced_ram_upgrade/) |
 
 
 **Recommended Upgrades**
@@ -112,7 +116,9 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 
 **Recommended Tools**
 
-* iFixIt Pro Tech Toolkit [iFixIt](https://www.ifixit.com/Store/Tools/Pro-Tech-Toolkit/IF145-307?o=4)
+| Tool | URL |
+| ---: | :--- |
+| ``iFixIt Pro Tech Toolkit`` | [iFixIt](https://www.ifixit.com/Store/Tools/Pro-Tech-Toolkit/IF145-307?o=4) |
 
 
 **Extreme Upgrade only for Advance Gamers**
@@ -501,6 +507,10 @@ There are 3 way to overcome this issue
 
 * Use ``USB to Ethernet`` cable.
 * Install proprietary WiFi drivers installation. Follow this instruction for this [WifiDocs/Driver/bcm43xx](https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx)
+
+| Accessories | Description | Amazon URL |
+| ---: | :--- | :--- |
+| ``USB to Ethernet`` | Internet access | [AmazonBasics USB 3.0 to 10/100/1000 Gigabit Ethernet](https://www.amazon.com/AmazonBasics-1000-Gigabit-Ethernet-Adapter/dp/B00M77HMU0/ref=sr_1_8?crid=3KJ7TSXIVKNO6&keywords=apple+usb+to+ethernet+adapter&qid=1561713591&s=gateway&sprefix=Apple+USB+to+Eth%2Caps%2C247&sr=8-8) |
 
 * Install new NVMe drive in target Razer Blade.
 * Insert USB media with ``Ubuntu Desktop``.
