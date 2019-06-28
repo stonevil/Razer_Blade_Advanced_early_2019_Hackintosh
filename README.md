@@ -76,7 +76,7 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 
 **WiFi**
 
-| WiFi Module | Description | eBay URL |
+| WiFi module | Description | eBay URL |
 | ---: | :--- | :--- |
 | ``BCM94352Z (DW-1560)`` | Easily to find for $24-30 on | [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1) |
 
@@ -103,7 +103,7 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 
 **RAM**
 
-| Memory | Modules size | Speed | CL | Amazon URL | Confirmation |
+| Memory module | Modules size | Speed | CL | Amazon URL | Confirmation |
 | ---: | :--- | :--- | :--- | :--- | :--- |
 | ``Ballistix Sport LT 32GB`` | 2x16Gb | 2666 | CL16 | [Amazon](https://www.amazon.com/gp/product/B06XRBS4Y5/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1) | [stonevil](https://www.tonymacx86.com/members/stonevil.254235/) |
 | ``Kingston Technology HyperX Impact 32GB`` | 2x16Gb | 2666 | CL15 | [Amazon](https://www.amazon.com/dp/B01NAL3TYY/?coliid=I3Q9P4ZU9V435H&colid=1ZGSQH2G88154&psc=1&ref_=lv_ov_lig_dp_it) | [Razer Blade 15 Advanced RAM upgrade](https://www.reddit.com/r/razer/comments/c1c9wl/razer_blade_15_advanced_ram_upgrade/) |
@@ -111,7 +111,9 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 
 **Recommended Upgrades**
 
-* Advancing Gene NVMe M.2 Heatsink. Decreased temperature for about 10-12° C on heave load [Amazon](https://www.amazon.com/gp/product/B074Y5DZ4N/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1)
+| Accessories | Description | Amazon URL |
+| ---: | :--- | :--- |
+| Advancing Gene NVMe M.2 Heatsink | Passive cooling for NVMe. Decreased temperature for about 10-12° C on heave load | [Amazon](https://www.amazon.com/gp/product/B074Y5DZ4N/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1) |
 
 
 **Recommended Tools**
@@ -121,11 +123,13 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 | ``iFixIt Pro Tech Toolkit`` | [iFixIt](https://www.ifixit.com/Store/Tools/Pro-Tech-Toolkit/IF145-307?o=4) |
 
 
-**Extreme Upgrade only for Advance Gamers**
+**(Optional) Extreme Upgrade only for Advance Gamers**
 
-* Thermal Grizzly Conductonaut Thermal Grease Paste **(Liquid Metal)** [Amazon](https://www.amazon.com/gp/product/B01A9KIGSI/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1)
-* MG Chemicals 422B Silicone Modified Conformal Coating [Amazon](https://www.amazon.com/gp/product/B008O9YIV6/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1)
-* 3M Scotch Super 88 Vinyl Electrical Tape [Amazon](https://www.amazon.com/3M-Scotch-Electrical-Dielectric-Strength/dp/B001DPXGSE/ref=sr_1_2_sspa?ie=UTF8&qid=1538036249&sr=8-2-spons&keywords=super+88&psc=1)
+| Accessories | Description | Amazon URL |
+| ---: | :--- | :--- |
+| Thermal Grizzly Conductonaut Thermal Grease Paste | Liquid metal thermal paste | [Amazon](https://www.amazon.com/gp/product/B01A9KIGSI/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) |
+| MG Chemicals 422B Silicone Modified Conformal Coating | Coating | [Amazon](https://www.amazon.com/gp/product/B008O9YIV6/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1) |
+| 3M Scotch Super 88 Vinyl Electrical Tape | Electrical tape | [Amazon](https://www.amazon.com/3M-Scotch-Electrical-Dielectric-Strength/dp/B001DPXGSE/ref=sr_1_2_sspa?ie=UTF8&qid=1538036249&sr=8-2-spons&keywords=super+88&psc=1) |
 
 
 **Useful information**
@@ -590,7 +594,7 @@ one with data ``4K`` starting with ID ``1``.
 sudo nvme format -l 1 /dev/nvme0
 ```
 
-* and press ``Enter``.
+* and press ``Enter`` and follow on-screen instructions.
 
 ![Ubuntu_Install_nvme_format](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_format.png)
 
@@ -603,7 +607,7 @@ sudo smartctl -a /dev/nvme0
 
 **Useful information**
 
-* [WifiDocs/Driver/bcm43xx](https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx)
+* [Ubuntu WifiDocs/Driver/bcm43xx](https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx)
 * [nvme-cli](https://github.com/linux-nvme/nvme-cli)
 * [nvme-cli package in Ubuntu](https://launchpad.net/ubuntu/+source/nvme-cli)
 * [smartmontools](https://www.smartmontools.org)
@@ -1416,16 +1420,40 @@ Windows
 ### Windows installation media preparation
 
 * Download Windows 10 ISO image.
-	* Open [Download Windows 10 Disc Image (ISO File) URL](https://www.microsoft.com/en-us/software-download/windows10ISO) in Safari. It better to download ISO image on macOS. Microsoft detects OS and prevent download ISO image on Windows machine. It can be override by browser ``User-Agent`` replacement but still easier todo this on macOS.
-	* From ``Select Edition`` menu select ``Windows 10 May 2019 Update`` (!). ``Windows 10 October 2019 Update`` ISO image have issues Microsoft still not fixed.
-	* Click ``Confirm``.
+* Open [Download Windows 10 Disc Image (ISO File) URL](https://www.microsoft.com/en-us/software-download/windows10ISO) in Safari. It better to download ISO image on macOS. Microsoft detects OS and prevent download ISO image on Windows machine. It can be override by browser ``User-Agent`` replacement but still easier todo this on macOS.
+* From ``Select Edition`` menu select ``Windows 10 May 2019 Update`` (!). ``Windows 10 October 2019 Update`` ISO image have issues Microsoft still not fixed.
+
+![Windows_Download1](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_Download1.png)
+
+* Click ``Confirm``.
+
+![Windows_Download2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_Download2.png)
+
+* From ``Select the product language`` menu select preferred language.
+
+![Windows_Download3](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_Download3.png)
+
+* Click ``Confirm``.
+
+![Windows_Download4](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_Download4.png)
+
+* Click ``64-bit Download`` button.
+
+![Windows_Download5](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_Download5.png)
+
 * Download [UNetbootin](https://unetbootin.github.io) tool.
-* Plug a USB media into Mac
+* Plug a USB media into Mac.
 * Open ``Disk Utility``.
 * Select USB media from the left panel and click on ``Info`` button. Write down the device name.
 * Run ``UNetbootin``
 * Select the ``Diskimage`` radio button, click ``…`` to select a Windows 10 ISO image.
+
+![Windows_unetbootin1](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_unetbootin1.png)
+
 * Choose ``Type`` as USB media and select the device name of USB media.
+
+![Windows_unetbootin2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_unetbootin2.png)
+
 * Click ``OK`` to start burning to the USB media.
 
 **Useful information**
