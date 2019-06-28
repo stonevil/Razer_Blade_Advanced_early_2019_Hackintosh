@@ -473,7 +473,7 @@ WiFi and NVMe replacement is easy enough for this Model. Just unscrew bottom cas
 * [Razer Blade Advanced RTX 2070 SSD Replacement](https://www.youtube.com/watch?v=9-ZfDNdj2WU)
 
 
-### NVMe format
+### (Optional) NVMe format with 4k block
 
 This step optional. macOS works faster and better with NVMe with 4k blocks. Usually NVMe formatted with 512 or 512e block size for unknown reason. Maybe another Windows compatibility issue. Anyway, Windows 10 works with no issues with NVMe with 4k blocks.
 
@@ -494,6 +494,13 @@ Best way to format NVMe drive is boot from Linux Live USB media and use ``smartc
 * And press ``Flash!``.
 
 ![balenaEtcher_Flash](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/balenaEtcher_Flash.png)
+
+**Note:Ubuntu lack of support by default drivers for most Broadcom WiFi modules.**
+
+There are 3 way to overcome this issue
+
+* Use ``USB to Ethernet`` cable.
+* Install proprietary WiFi drivers installation. Follow this instruction for this [WifiDocs/Driver/bcm43xx](https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx)
 
 * Install new NVMe drive in target Razer Blade.
 * Insert USB media with ``Ubuntu Desktop``.
@@ -536,7 +543,13 @@ sudo apt -y install nvme-cli
 
 ![Ubuntu_Install_nvme_cli_url](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url.png)
 
-![Ubuntu_Install_nvme_cli_url_open_with](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url_open_with.png)
+![Ubuntu_Install_nvme_cli_url_open_with1](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url_open_with1.png)
+
+![Ubuntu_Install_nvme_cli_url_open_with2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url_open_with2.png)
+
+![Ubuntu_Install_nvme_cli_url_open_with3](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url_open_with3.png)
+
+![Ubuntu_Install_nvme_cli_url_open_with4](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url_open_with4.png)
 
 * Click on download button on top right ``Firefox`` window corner.
 * Click on downloaded package and click ``Open``.
@@ -580,6 +593,7 @@ sudo smartctl -a /dev/nvme0
 
 **Useful information**
 
+* [WifiDocs/Driver/bcm43xx](https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx)
 * [nvme-cli](https://github.com/linux-nvme/nvme-cli)
 * [nvme-cli package in Ubuntu](https://launchpad.net/ubuntu/+source/nvme-cli)
 * [smartmontools](https://www.smartmontools.org)
@@ -688,7 +702,6 @@ In case if you have same Razer Blade model you safe to jump to step **iCloud. iM
 
 
 ### ACPI patching
-
 
 In case if have a little bit different version of Razer Blade just like mid 2019 Model OR Base Model OR different version of BIOS my ACPI and USB patches will be not compatible with you Razer Blade!
 
