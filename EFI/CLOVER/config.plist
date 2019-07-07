@@ -217,6 +217,17 @@
 			<string>SSDT-XCPM.aml</string>
 			<string>SSDT-PluginType1.aml</string>
 		</array>
+		<key>DropTables</key>
+		<array>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>MATS</string>
+			</dict>
+		</array>
 		<key>FixHeaders</key>
 		<true/>
 		<key>SSDT</key>
@@ -224,13 +235,13 @@
 			<key>DropOem</key>
 			<false/>
 			<key>EnableC2</key>
-			<true/>
+			<false/>
 			<key>EnableC4</key>
-			<true/>
+			<false/>
 			<key>EnableC6</key>
-			<true/>
+			<false/>
 			<key>EnableC7</key>
-			<true/>
+			<false/>
 			<key>Generate</key>
 			<dict>
 				<key>APLF</key>
@@ -257,15 +268,15 @@
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
-		<string>dart=0 slide=0 keepsyms=1 kext-dev-mode=1 nv_disable=1 -hbfx-dump-nvram -hbfxbeta -v</string>
+		<string>dart=0 slide=0 keepsyms=1 kext-dev-mode=1 nv_disable=1 igfxcflbklt=1 alcid=29 shikigva=40 -v</string>
 		<key>DefaultLoader</key>
 		<string></string>
 		<key>DefaultVolume</key>
 		<string>stone</string>
 		<key>HibernationFixup</key>
-		<true/>
-		<key>NeverHibernate</key>
 		<false/>
+		<key>NeverHibernate</key>
+		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>SignatureFixup</key>
@@ -276,17 +287,15 @@
 	<key>CPU</key>
 	<dict>
 		<key>C2</key>
-		<true/>
+		<false/>
 		<key>C4</key>
-		<true/>
+		<false/>
 		<key>C6</key>
-		<true/>
+		<false/>
 		<key>HWPEnable</key>
-		<true/>
-		<key>HWPValue</key>
-		<string>0x20002901</string>
+		<false/>
 		<key>UseARTFrequency</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>Comment</key>
 	<string>This file is for 10.14.x with native CoffeeLake support</string>
@@ -295,9 +304,11 @@
 		<key>Audio</key>
 		<dict>
 			<key>AFGLowPowerState</key>
-			<true/>
+			<false/>
 			<key>Inject</key>
-			<integer>0</integer>
+			<integer>1</integer>
+			<key>ResetHDA</key>
+			<true/>
 		</dict>
 		<key>FakeID</key>
 		<dict>
