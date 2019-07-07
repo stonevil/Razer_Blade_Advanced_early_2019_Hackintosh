@@ -480,6 +480,7 @@ WiFi and NVMe replacement is easy enough for this Model. Just unscrew bottom cas
 
 * [How to Upgrade the Razer Blade 15 RAM & SSD](https://www.youtube.com/watch?v=6TZih3m0-Ys)
 * [Razer Blade Advanced RTX 2070 SSD Replacement](https://www.youtube.com/watch?v=9-ZfDNdj2WU)
+* [INVENTORY OF SUPPORTED/UNSUPPORTED WIRELESS CARDS #2, SIERRA -> CATALINA](https://osxlatitude.com/forums/topic/11138-inventory-of-supportedunsupported-wireless-cards-2-sierra-catalina/)
 
 
 ### (Optional) NVMe format with 4k block
@@ -736,6 +737,18 @@ sudo rm /var/vm/sleepimage
 ```
 sudo mkdir /var/vm/sleepimage
 ```
+
+### Tweak Energy Saver
+
+* Open ``System Preferences``
+* Click ``Energy Saver``
+* Click tab ``Power Adapter``
+
+![System_Preferences](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/System_Preferences.png)
+
+* Disable ``Wake for Wi-Fi network access``
+
+![System_Preferences_Energy_Saver](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/System_Preferences_Energy_Saver.png)
 
 
 ### ACPI patching
@@ -1589,6 +1602,7 @@ Additional Information
 * [Hackintosh Mojave 10.14.5 Update Guide](https://hackintosher.com/guides/hackintosh-mojave-10-14-5-update-guide/)
 * [corpnewt/Hackintosh-Guide](https://github.com/corpnewt/Hackintosh-Guide/blob/master/config.plist-per-hardware/coffee-lake.md)
 * [Anti-Hackintosh Buyers Guide](https://www.reddit.com/r/hackintosh/comments/c0y312/antihackintosh_buyers_guide/)
+* [INVENTORY OF SUPPORTED/UNSUPPORTED WIRELESS CARDS #2, SIERRA -> CATALINA](https://osxlatitude.com/forums/topic/11138-inventory-of-supportedunsupported-wireless-cards-2-sierra-catalina/)
 
 
 **Community**
