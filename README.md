@@ -77,7 +77,7 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 
 | WiFi module | Description | eBay URL |
 | ---: | :--- | :--- |
-| ``BCM94352Z (DW-1560)`` | Easily to find for $24-30 on | [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1) |
+| ``BCM94352Z (DW-1560)`` | Easily to find for $24-60 on | [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1) |
 
 
 **Storage**
@@ -1551,9 +1551,11 @@ Know Issues and Limitations
 **Limitations**
 
 * Nvidia Web Drivers is not available for macOS 10.14 Mojave. Nvidia do not want to implement support for Apple 2D/3D rendering framework Metal and do not want to share access for Nvidia drivers source code for Apple. So, currently no support for Nvidia GPU for macOS 10.14 Mojave. It's not a problem for me because I'm using Windows 10 partition for gaming and Debian Linux partition to run ML tasks overnight.
-	* HDMI port connected directly to Nvidia GPU and will not work in macOS 10.14 Mojave.
-	* No idea about DisplayPort. Maybe I will borrow monitor with DisplayPort in office for testing.
+	* HDMI and DisplayPort ports both connected directly to Nvidia GPU and will not work in macOS 10.14 Mojave.
 	* USB-C to HDMI should work without any issues.
+
+![HDMI_DP](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/HDMI_DP.png)
+
 * Windows Hello camera not supported in macOS.
 * Not all sensors are supported by VirtualSMC.
 
