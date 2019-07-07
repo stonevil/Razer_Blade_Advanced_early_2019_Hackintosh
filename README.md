@@ -740,13 +740,14 @@ sudo mkdir /var/vm/sleepimage
 
 ### Tweak Energy Saver
 
-* Open ``System Preferences``
-* Click ``Energy Saver``
-* Click tab ``Power Adapter``
+* Open ``System Preferences``.
+* Click ``Energy Saver``.
+* Click tab ``Power Adapter``.
 
 ![System_Preferences](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/System_Preferences.png)
 
-* Disable ``Wake for Wi-Fi network access``
+* Disable ``Wake for Wi-Fi network access``.
+* Disable ``Enable Power Nap while plugged into a power adapter``.
 
 ![System_Preferences_Energy_Saver](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/System_Preferences_Energy_Saver.png)
 
