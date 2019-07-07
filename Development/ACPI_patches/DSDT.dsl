@@ -49,17 +49,17 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
     External (_SB_.IETM, DeviceObj)    // (from opcode)
     External (_SB_.ITBI, IntObj)    // (from opcode)
     External (_SB_.PCI0.B0D4.SPUR, MethodObj)    // 1 Arguments (from opcode)
-    External (_SB_.PCI0.IGPU, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU.ALSI, UnknownObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU.CBLV, UnknownObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU.CDCK, UnknownObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU.CLID, UnknownObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU.DD1F, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU.GSCI, MethodObj)    // 0 Arguments (from opcode)
-    External (_SB_.PCI0.IGPU.GSSE, UnknownObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU.IUEH, MethodObj)    // 1 Arguments (from opcode)
-    External (_SB_.PCI0.IGPU.STAT, UnknownObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU.TCHE, UnknownObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0, DeviceObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0.ALSI, UnknownObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0.CBLV, UnknownObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0.CDCK, UnknownObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0.CLID, UnknownObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0.DD1F, DeviceObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.GFX0.GSSE, UnknownObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0.IUEH, MethodObj)    // 1 Arguments (from opcode)
+    External (_SB_.PCI0.GFX0.STAT, UnknownObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0.TCHE, UnknownObj)    // (from opcode)
     External (_SB_.PCI0.HDAS.PPMS, MethodObj)    // 1 Arguments (from opcode)
     External (_SB_.PCI0.HDAS.PS0X, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.HDAS.PS3X, MethodObj)    // 0 Arguments (from opcode)
@@ -4634,7 +4634,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
 
             Scope (\_SB.PCI0)
             {
-                Device (IGPU)
+                Device (GFX0)
                 {
                     Name (_ADR, 0x00020000)  // _ADR: Address
                 }
@@ -11555,7 +11555,9 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
     })
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
-        If (Arg0)
+        External(\_SB.PCI0.PEG0.PEGP._ON, MethodObj)
+If (CondRefOf(\_SB.PCI0.PEG0.PEGP._ON)) { \_SB.PCI0.PEG0.PEGP._ON() }
+If (Arg0)
         {
             \_SB.TPM.TPTS (Arg0)
             RPTS (Arg0)
@@ -11569,7 +11571,9 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
         \_SB.PCI0.NWAK (Arg0)
         \_SB.PCI0.LPCB.SWAK (Arg0)
         RWAK (Arg0)
-        Return (AM00)
+        External(\_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
+If (CondRefOf(\_SB.PCI0.PEG0.PEGP._OFF)) { \_SB.PCI0.PEG0.PEGP._OFF() }
+Return (AM00)
     }
 
     Scope (_SB)
@@ -12038,7 +12042,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
     {
         If (LEqual (And (DIDX, 0x0F00), 0x0400))
         {
-            Notify (\_SB.PCI0.IGPU.DD1F, Arg0)
+            Notify (\_SB.PCI0.GFX0.DD1F, Arg0)
         }
     }
 
@@ -23211,12 +23215,12 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
         {
             If (And (GBSX, 0x40))
             {
-                \_SB.PCI0.IGPU.IUEH (0x06)
+                \_SB.PCI0.GFX0.IUEH (0x06)
             }
 
             If (And (GBSX, 0x80))
             {
-                \_SB.PCI0.IGPU.IUEH (0x07)
+                \_SB.PCI0.GFX0.IUEH (0x07)
             }
 
             If (CondRefOf (\_SB.DTSE))
@@ -23410,11 +23414,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
             {
                 If (LEqual (LIDS, One))
                 {
-                    Store (0x03, \_SB.PCI0.IGPU.CLID)
+                    Store (0x03, \_SB.PCI0.GFX0.CLID)
                 }
                 Else
                 {
-                    Store (Zero, \_SB.PCI0.IGPU.CLID)
+                    Store (Zero, \_SB.PCI0.GFX0.CLID)
                 }
             }
 
@@ -23861,7 +23865,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
                     Store (0x07DD, OSYS)
                 }
 
-                If(LOr(_OSI("Darwin"),_OSI("Windows 2015")))
+                If (_OSI ("Windows 2015"))
                 {
                     Store (0x07DF, OSYS)
                 }
@@ -25306,9 +25310,9 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
 
         Method (_L66, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
+            If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
             {
-                \_SB.PCI0.IGPU.GSCI ()
+                \_SB.PCI0.GFX0.GSCI ()
             }
         }
 
@@ -39272,7 +39276,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
         }
     }
 
-    Scope (_SB.PCI0.IGPU)
+    Scope (_SB.PCI0.GFX0)
     {
         Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
         {
@@ -41385,7 +41389,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.IGPU", 
+                    "\\_SB.PCI0.GFX0", 
                     One, 
                     Package (0x02)
                     {
@@ -48789,7 +48793,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
             Store (SDS0, I2CN)
             Store (Zero, I2CX)
         }
-
+        
         Method (SSCN, 0, NotSerialized)
         {
             Return (PKG3 (SSH0, SSL0, SSD0))
@@ -48799,7 +48803,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
         {
             Return (PKG3 (FMH0, FML0, FMD0))
         }
-        
+
         Device (TPD0)
         {
             Name (HID2, Zero)
@@ -58784,7 +58788,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
             Name (_UID, One)  // _UID: Unique ID
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                Store (0x03, ^^^IGPU.CLID)
+                Store (0x03, ^^^GFX0.CLID)
                 Return (Zero)
             }
 
@@ -60198,11 +60202,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
                     {
                         If (LEqual (LIDS, One))
                         {
-                            Store (0x03, ^^^IGPU.CLID)
+                            Store (0x03, ^^^GFX0.CLID)
                         }
                         Else
                         {
-                            Store (Zero, ^^^IGPU.CLID)
+                            Store (Zero, ^^^GFX0.CLID)
                         }
                     }
                 }
@@ -60304,11 +60308,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I ", 0x01072009)
                 {
                     If (LEqual (LIDS, One))
                     {
-                        Store (0x03, ^^^IGPU.CLID)
+                        Store (0x03, ^^^GFX0.CLID)
                     }
                     Else
                     {
-                        Store (Zero, ^^^IGPU.CLID)
+                        Store (Zero, ^^^GFX0.CLID)
                     }
                 }
 
