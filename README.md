@@ -8,9 +8,8 @@ Intro
 
 ![About this Mac](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/About_Mac.png)
 
-I'm long time Apple hardware and software user. Since 1996. And still macOS is best OS for my requirements.
-My first computer is PowerBook 150. Since then I used mostly Apple mobile solutions. PowerBook G3, PowerBook Titanium, bunch of MacBook Pro 13" and 15".
-But I'm really unhappy with my latest MacBook Pro 2017. Useless keyboard with arrow keys designed for Tinker Bell? Zero ability to upgrade up to 32Gb RAM back then in 2017. Yes. I know. This is 100% Intel failure. Just like performance and thermal issues Intel CPU had for last 6 years. Intel just don't care anymore about mobile CPU market.
+I have been using Apple hardware and software since 1996. MacOS is the best OS to meet my requirements. My first computer was a PowerBook 150. Since then, I used mostly Apple mobile solutions. PowerBook G3, PowerBook Titanium, bunch of MacBook Pro 13" and 15".
+But I'm really unhappy with my latest MacBook Pro 2017. Useless keyboard with arrow keys designed for Tinker Bell? Zero ability to upgrade up to 32Gb RAM back then in 2017. Yes. I know. This is 100% Intel failure. Just like performance and thermal issues Intel CPU had for last 6 years. Intel just doesn’t care about the mobile CPU market anymore.
 
 So finally I make decision to switch to dark side and hackintosh good enough notebook. After some research I selected Razer Blade Advanced for this purpose. Maybe the best combo of design (!) and performance and upgradability.
 
@@ -715,6 +714,30 @@ sudo kextcache -i /
 In case if you have same Razer Blade model you safe to jump to step **iCloud. iMessages and FaceTime**. Otherwise you need to generate custom ACPI hot patches and USB mapping specific to your Razer Blade model.
 
 
+### Disable Hibernation
+
+Hibernation do not work correctly with most hackintosh notebooks anyway.
+
+* Run ``Terminal`` application from ``/Applications/Utilities/`` folder.
+* To disable ``hibernation`` type and execute this command in ``Terminal`` application window
+
+```
+sudo pmset -a hibernatemode 0
+```
+
+* To remove ``hibernation`` ``sleepimage`` type and execute this command in ``Terminal`` application window
+
+```
+sudo rm /var/vm/sleepimage
+```
+
+* To prevent create ``hibernation`` ``sleepimage`` in future type and execute this command in ``Terminal`` application window
+
+```
+sudo mkdir /var/vm/sleepimage
+```
+
+
 ### ACPI patching
 
 In case if have a little bit different version of Razer Blade just like mid 2019 Model OR Base Model OR different version of BIOS my ACPI and USB patches will be not compatible with you Razer Blade!
@@ -755,13 +778,10 @@ sudo cp ~/Downloads/iasl /usr/local/bin/
 /usr/local/bin/iasl -da -dl DSDT.aml SSDT*.aml
 ```
 
-* Run ``MaciASL`` and open file ``~/Desktop/origin/DSDT.dsl``.
+* Run ``MaciASL`` application and open file ``~/Desktop/origin/DSDT.dsl``.
 * Click ``Patch`` button in ``toolbar``.
 * In ``Patch`` window on left panel scroll and find ``[bat] Razer Blade (2014)`` and click ``Apply``. Do not close window!
-* In ``Patch`` window on left panel scroll and find ``[sys] OS Check Fix (Windows 10)`` and click ``Apply``. Do not close window!
-* In ``Patch`` window on left panel scroll and find ``[gfx0] Disable from _INI (DSDT)`` and click ``Apply``. Do not close window!
 * In ``Patch`` window on left panel scroll and find ``[gfx0] Disable/Enable on _WAK/_PTS (DSDT)`` and click ``Apply``. Do not close window!
-* In ``Patch`` window on left panel scroll and find ``[igpu] Rename GFXO to IGPU`` and click ``Apply``. Usually this step is not required and ``Clover`` handles this rename without any issues. But for some reason after sleep iGPU have an issues. This patch solve this issue.
 * Click ``Close`` in ``Patch`` window.
 * Click ``Compile`` button in ``toolbar``. ``DSDT`` should complied without any issues.
 * Next step is hot patch DSDT for trackpad.
@@ -864,10 +884,12 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 }
 ```
 
-* Click ``Compile`` button in ``toolbar``. ``DSDT`` should complied without any issues.
+* Click ``Compile`` button in ``toolbar``. ``SSDT-12-OptTabl`` should complied without any issues.
+* Choose ``Save`` from ``File`` menu.
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
-* Copy newly created file ``SSDT-12-OptTabl.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
+* Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend this file name automatically.
+* Copy newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
 
 Next step is hot patch ACPI to disable Nvidia GPU in macOS for save battery and decrease overall heat.
@@ -926,13 +948,13 @@ External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 
 * Now ``SSDT-12-OptTabl.dsl`` should compile without issues.
 * Click ``Patch`` button in ``toolbar``.
-* In ``Patch`` window on left panel scroll and find ``[gfx0] Disable from _INI (DSDT)`` and click ``Apply``. Do not close window!
-* In ``Patch`` window on left panel scroll and find ``[igpu] Rename GFXO to IGPU`` and click ``Apply``. Usually this step is not required and ``Clover`` handles this rename without any issues. But for some reason after sleep iGPU have an issues. This patch solve this issue.
 * Click ``Close`` in ``Patch`` window.
 * Click ``Compile`` button in ``toolbar``. ``SSDT-12-OptTabl.dsl`` should complied without any issues.
+* Choose ``Save`` from ``File`` menu.
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
-* Copy newly created file ``SSDT-12-OptTabl.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
+* Save this file as ``SSDT-12-OptTabl.aml``. ``MaciASL`` application will recommend this file name automatically.
+* Copy newly created file ``SSDT-12-OptTabl.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/`` 
 
 **Useful information**
 
@@ -1351,6 +1373,8 @@ CPU limitations can be very different even in same series. So, do not use blindl
 
 BIOS have a lot additional configurations for undervolting and overclocking just like TDP (Thermal Design Power) but this requires extensive knowledge in CPU/Chipset/etc. power management and not a part of this documentation. For more information check links provided below.
 
+**Note: Looks like mid 2019 Razer Blade Advanced undervolted from factory!**
+
 **Useful information**
 
 * [Razer Blade 2017 Ultimate CPU GPU Optimization - Unleashed Performance - BIOS Unlock](https://www.youtube.com/watch?v=O5CvK7i9a_Y)
@@ -1391,6 +1415,8 @@ nvflash64.exe -6 Nvidia_2080_Max-Q_90w.rom
 * [Razer Blade Pro 17 (2019) Review](https://www.reddit.com/r/razer/comments/c3doo2/razer_blade_pro_17_2019_review/)
 * [Comparison: 80w vs 90w RTX 2080 Max-Q](https://www.theeverydayenthusiast.com/home/comparison-80w-vs-90w-2080-max-q)
 * [So much better than before: Razer Blade Pro 17 Laptop Review](https://www.notebookcheck.net/So-much-better-than-before-Razer-Blade-Pro-17-Laptop-Review.424150.0.html)
+* [Razer Blade Advanced OLED 80w 2080 Max-q](https://www.reddit.com/r/razer/comments/c9i1x6/razer_blade_advanced_oled_80w_2080_maxq/)
+* [Razer RTX 2080 8 GB BIOS](https://www.techpowerup.com/vgabios/212123/212123)
 
 
 Razer Chroma
@@ -1559,6 +1585,7 @@ Additional Information
 * [UniBeast: Install macOS Mojave on Any Supported Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-mojave-on-any-supported-intel-based-pc.259381/)
 * [Keeping your Hackintosh up-to-date, my method](https://davejansen.com/keeping-your-hackintosh-up-to-date/)
 * [Hackintosh Mojave 10.14.5 Update Guide](https://hackintosher.com/guides/hackintosh-mojave-10-14-5-update-guide/)
+* [corpnewt/Hackintosh-Guide](https://github.com/corpnewt/Hackintosh-Guide/blob/master/config.plist-per-hardware/coffee-lake.md)
 * [Anti-Hackintosh Buyers Guide](https://www.reddit.com/r/hackintosh/comments/c0y312/antihackintosh_buyers_guide/)
 
 
