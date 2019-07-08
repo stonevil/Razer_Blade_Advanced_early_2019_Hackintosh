@@ -67,7 +67,7 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 **Accessories**
 
 | Accessories | Description | Amazon URL |
-| ---: | :--- | :--- |
+| ---: | :--- | :--- | :--- |
 | ``USB mouse`` | Trackpad will be unavailable during macOS installation procedure | [Amazon](https://www.amazon.com/AmazonBasics-3-Button-Wired-Mouse-Black/dp/B005EJH6RW/ref=sr_1_3?keywords=amazon+basic+mouse&qid=1561714362&s=gateway&sr=8-3) |
 | ``USB storage`` with at least 16Gb storage | Installation USB media | [Amazon](https://www.amazon.com/gp/product/B076GXJJRD/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1) |
 | ``USB-A to USB-C cable`` | For USB ports detection procedure | [Amazon](https://www.amazon.com/AmazonBasics-Type-C-Gen1-Female-Adapter/dp/B01GGKYXVE/ref=pd_hpb_a2a_sims_6/130-2479265-2893400?_encoding=UTF8&pd_rd_i=B01GGKYYT0&pd_rd_r=54b9f737-919c-11e9-b9d7-6915ce2a8dc3&pd_rd_w=j9bw6&pd_rd_wg=IVvh1&pf_rd_p=bfc589eb-d865-496f-a10b-5e00902c2113&pf_rd_r=G68JVK6HBAFKEDA75MYY&refRID=G68JVK6HBAFKEDA75MYY&th=1) |
@@ -75,10 +75,10 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 
 **WiFi**
 
-| WiFi module | Description | eBay or AliExpress URL |
-| ---: | :--- | :--- |
-| ``BCM94352Z (DW-1560)`` | Recommended. 2 antennas. No issues. Additional kext's are required. Easily to find for \$24-60 on | [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1) |
-| ``BCM943602BAED (DW1830)`` | 3 antennas. RBA have only 2. Works out of the box. About \$60-120 on AliExpress | [AliExpress](https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20190707194727&SearchText=BCM943602BAED+DW1830&switch_new_app=y) |
+| WiFi module | Description | eBay or AliExpress URL | Confirmation |
+| ---: | :--- | :--- | :--- |
+| ``BCM94352Z (DW-1560)`` | Recommended. 2 antennas. No issues. Additional kext's are required. Easily to find for \$24-60 on | [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1) | [community](https://osxlatitude.com/forums/topic/11138-inventory-of-supportedunsupported-wireless-cards-2-sierra-catalina/) |
+| ``BCM943602BAED (DW-1830)`` | 3 antennas. RBA have only 2. Works out of the box. About \$60-120 on AliExpress | [AliExpress](https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20190707194727&SearchText=BCM943602BAED+DW1830&switch_new_app=y) | [community](https://osxlatitude.com/forums/topic/11138-inventory-of-supportedunsupported-wireless-cards-2-sierra-catalina/) |
 
 
 **Storage**
@@ -471,7 +471,6 @@ There are a few changes in the BIOS that are vital to make macOS happy and boota
 
 Hardware preparation
 ---
-
 
 ### WiFi and NVMe replacement
 
@@ -1396,7 +1395,7 @@ CPU limitations can be very different even in same series. So, do not use my con
 
 BIOS has many additional configurations for undervolting and overclocking, just like TDP (Thermal Design Power), but this requires extensive knowledge in CPU/Chipset/etc. and power management. This is not a part of this documentation. For more information, check the links provided at the end of the document.
 
-**Note: It looks like the mid 2019 Razer Blade Advanced has been undervolted from factory!**
+**Note: It looks like the mid 2019 Razer Blade Advanced has been undervolted from factory! But there are still room for improvement.**
 
 **Useful information**
 
@@ -1619,6 +1618,7 @@ Additional Information
 
 * [InsanelyMac](https://www.insanelymac.com)
 * [tonymacx86](https://www.tonymacx86.com)
+* [OSXL](https://osxlatitude.com)
 * [Reddit Hackintosh](https://www.reddit.com/r/hackintosh/)
 
 
