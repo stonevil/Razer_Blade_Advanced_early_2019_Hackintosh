@@ -67,7 +67,7 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 **Accessories**
 
 | Accessories | Description | Amazon URL |
-| ---: | :--- | :--- | :--- |
+| ---: | :--- | :--- |
 | ``USB mouse`` | Trackpad will be unavailable during macOS installation procedure | [Amazon](https://www.amazon.com/AmazonBasics-3-Button-Wired-Mouse-Black/dp/B005EJH6RW/ref=sr_1_3?keywords=amazon+basic+mouse&qid=1561714362&s=gateway&sr=8-3) |
 | ``USB storage`` with at least 16Gb storage | Installation USB media | [Amazon](https://www.amazon.com/gp/product/B076GXJJRD/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1) |
 | ``USB-A to USB-C cable`` | For USB ports detection procedure | [Amazon](https://www.amazon.com/AmazonBasics-Type-C-Gen1-Female-Adapter/dp/B01GGKYXVE/ref=pd_hpb_a2a_sims_6/130-2479265-2893400?_encoding=UTF8&pd_rd_i=B01GGKYYT0&pd_rd_r=54b9f737-919c-11e9-b9d7-6915ce2a8dc3&pd_rd_w=j9bw6&pd_rd_wg=IVvh1&pf_rd_p=bfc589eb-d865-496f-a10b-5e00902c2113&pf_rd_r=G68JVK6HBAFKEDA75MYY&refRID=G68JVK6HBAFKEDA75MYY&th=1) |
@@ -111,9 +111,9 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 
 **Recommended Upgrades**
 
-| Accessories | Description | Amazon URL |
-| ---: | :--- | :--- |
-| ``Advancing Gene NVMe M.2 Heatsink`` | Passive cooling for NVMe. Decreased temperature for about 10-12° C on heave load | [Amazon](https://www.amazon.com/gp/product/B074Y5DZ4N/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1) |
+| Accessories | Description | Amazon URL | Confirmation |
+| ---: | :--- | :--- | :--- |
+| ``Advancing Gene NVMe M.2 Heatsink`` | Passive cooling for NVMe. Decreased temperature for about 10-12° C on heave load | [Amazon](https://www.amazon.com/gp/product/B074Y5DZ4N/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1) | [stonevil](https://www.tonymacx86.com/members/stonevil.254235/) |
 
 
 **Recommended Tools**
