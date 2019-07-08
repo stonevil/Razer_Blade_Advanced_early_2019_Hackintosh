@@ -1,6 +1,6 @@
 # Razer Blade Advanced early 2019 macOS 10.14 Hackintosh
 
-**Note: I'AM NOT RESPONSIBLE IF YOU MESS UP YOUR COMPUTER WITH THIS GUIDE!**
+**Note: I'AM NOT RESPONSIBLE IF YOU MESS UP YOUR COMPUTER USING THIS GUIDE!**
 
 
 Intro
@@ -8,10 +8,10 @@ Intro
 
 ![About this Mac](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/About_Mac.png)
 
-I have been using Apple hardware and software since 1996. MacOS is the best OS to meet my requirements. My first computer was a PowerBook 150. Since then, I used mostly Apple mobile solutions. PowerBook G3, PowerBook Titanium, bunch of MacBook Pro 13" and 15".
-But I'm really unhappy with my latest MacBook Pro 2017. Useless keyboard with arrow keys designed for Tinker Bell? Zero ability to upgrade up to 32Gb RAM back then in 2017. Yes. I know. This is 100% Intel failure. Just like performance and thermal issues Intel CPU had for last 6 years. Intel just doesn’t care about the mobile CPU market anymore.
+I have been using Apple hardware and software since 1996 for macOS has been the best OS to meet my needs. My first computer was a PowerBook 150. Since then, I used mostly Apple mobile solutions: PowerBook G3, PowerBook Titanium, bunch of MacBook Pro 13" and 15".
+But, I'm really dissatisfied with the latest MacBook Pro 2017 as it has a useless keyboard with arrow keys designed for Tinker Bell and zero ability to upgrade up to 32Gb RAM back then in 2017. Yes. I know. This is 100% Intel failure. Just like performance and thermal issues the Intel CPU had for the last 6 years. Intel just doesn’t care about the mobile CPU market anymore.
 
-So finally I make decision to switch to dark side and hackintosh good enough notebook. After some research I selected Razer Blade Advanced for this purpose. Maybe the best combo of design (!) and performance and upgradability.
+So, finally, I made a decision to go to the dark side and to switch to the hackintosh notebook. After doing some research, I selected Razer Blade Advanced. This has, perhaps, the best combo of design (!), performance and upgradability.
 
 **Purpose**
 
@@ -61,7 +61,7 @@ Hardware
 Hardware Upgrades and Tools
 ---
 
-The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be replaced. Please find below recommended replacement parts already tested for compatibility. Usually I need to deploy for testing 4-5 node Kubernetes cluster with at least 4Gb per node. So 32GB is necessary upgrade for me.
+The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be replaced. Please find below the recommended replacement parts, already tested for compatibility. Usually I need to deploy for testing 4-5 node Kubernetes cluster with at least 4Gb per node. So 32GB is a necessary upgrade for me.
 
 
 **Accessories**
@@ -139,9 +139,9 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 Repository
 ---
 
-``BIOS_mod/`` folder. This folder contains latest RBA AMI BIOS mod with all required unlocked options.
+``BIOS_mod/`` folder. This folder contains the latest RBA AMI BIOS mod with all the required unlocked options.
 
-This BIOS mod actual only for Razer Blade Advanced early 2019 with
+This BIOS mod is actual only for Razer Blade Advanced early 2019 with
 
 | | Version |
 | ---: | :--- |
@@ -155,7 +155,7 @@ Do not use this mod if your system is different! Please check with BIOS.
 ``BIOS_mod/Nvidia_2080_Max-Q_BIOS_mod/`` this folder contains patches for 80w or 90w TDP for Nvidia 2080 Max-Q.
 
 
-``EFI/`` folder is basically full copy of my EFI folder from EFI drive with removed machine serial number.
+``EFI/`` folder is basically a full copy of my EFI folder from EFI drive with a removed machine serial number.
 
 ACPI Patches
 
@@ -169,15 +169,15 @@ can be different for your computer.
 ``Extensions/`` folder with all required macOS Extensions (kext's).
 
 
-``Tools/`` folder with various tools to flash BIOS, etc. macOS IORegistryExplorer v2.1 included with this repository. This tool is necessary for debugging USB, etc. configuration.
+``Tools/`` folder with various tools to flash BIOS, etc. macOS IORegistryExplorer v2.1 is included with this repository. This tool is necessary for debugging USB, etc. configuration.
 
-``Tools/AMI/`` folder with AMI BIOS flashing and modding tools.
-``Tools/Nvidia/`` folder with Nvidia BIOS flashing tools.
+``Tools/AMI/`` is a folder with AMI BIOS flashing and modding tools.
+``Tools/Nvidia/`` is a folder with Nvidia BIOS flashing tools.
 
 
-``Development/ACPI_patches/`` folder with uncompiled versions of the SSDT's created for various ACPI hot patches.
+``Development/ACPI_patches/`` is a folder with uncompiled versions of the SSDT's created for various ACPI hot patches.
 
-``Drivers/Windows/Apple USB Ethernet drivers for Windows`` folder with Apple USB-A Ethernet drivers for Windows extracted from ``Apple BootCamp``.
+``Drivers/Windows/Apple USB Ethernet drivers for Windows`` is a folder with Apple USB-A Ethernet drivers for Windows extracted from ``Apple BootCamp``.
 
 
 Required Tools
@@ -185,22 +185,22 @@ Required Tools
 
 | Tool | Description | Download URL |
 | ---: | :--- | :--- |
-| ``balenaEtcher`` |  is a free and open-source utility used for burning image files such as .iso and .img files, as well as zipped folders to create live SD cards and USB flash drives. | [balenaEtcher](https://www.balena.io/etcher/) |
-| ``UniBeast`` | to build macOS installation media | [UniBeast](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/) |
-| ``TINU`` | alternative tool to build macOS installation media | [TINU](https://github.com/ITzTravelInTime/TINU) |
+| ``balenaEtcher`` |  a free and open-source utility used for burning image files such as .iso and .img files, as well as zipped folders to create live SD cards and USB flash drives. | [balenaEtcher](https://www.balena.io/etcher/) |
+| ``UniBeast`` | a tool for building macOS installation media | [UniBeast](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/) |
+| ``TINU`` | an alternative tool for building macOS installation media | [TINU](https://github.com/ITzTravelInTime/TINU) |
 | ``Clover Configurator`` | an easy to use macOS application designed to help you create custom configuration files for the Clover EFI bootloader via a streamlined graphical interface | [Clover Configurator](https://mackie100projects.altervista.org/download-clover-configurator/) |
-| ``KextBeast`` | is a quick installer for .kext, .bundle, and .plugin files | [KextBeast](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/) |
-| ``Continuity Activation Tool`` | tool makes the necessary changes to enable Continuity features on compatible hardware | [Continuity Activation Tool](https://github.com/dokterdok/Continuity-Activation-Tool) |
-| ``Kext Updater`` | this little tool its totally easy to have up-to-date Kexts | [Kext Updater](https://www.insanelymac.com/forum/topic/334222-kext-updater-keep-your-kexts-fresh-with-only-one-click/) |
-| ``MaciASL`` | A native AML compiler and IDE for OS X, with syntax coloring, tree navigation, automated patching, online patch file repositories, and iASL binary updates. Written entirely in Cocoa, conforms to OS X guidelines | [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads/) |
+| ``KextBeast`` | a quick installer for .kext, .bundle, and .plugin files | [KextBeast](https://www.tonymacx86.com/resources/kextbeast-2-0-2.399/) |
+| ``Continuity Activation Tool`` | is a tool that makes the changes necessary to enable Continuity features on compatible hardware | [Continuity Activation Tool](https://github.com/dokterdok/Continuity-Activation-Tool) |
+| ``Kext Updater`` | this little tool is totally easy to have up-to-date kext's | [Kext Updater](https://www.insanelymac.com/forum/topic/334222-kext-updater-keep-your-kexts-fresh-with-only-one-click/) |
+| ``MaciASL`` | a native AML compiler and IDE for OS X, with syntax colouring, tree navigation, automated patching, online patch file repositories, and iASL binary updates, written entirely in Cocoa, conforms to OS X guidelines | [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads/) |
 | ``iasl`` | -//- | [iasl](https://bitbucket.org/RehabMan/acpica/downloads/iasl.zip) |
-| ``GenSMBIOS`` | Py script that uses acidanthera's macserial to generate SMBIOS and optionally saves them to a plist| [GenSMBIOS Github Repository](https://github.com/corpnewt/GenSMBIOS) |
-| ``one-key-cpufriend`` | script to modify macOS CPU Performance | [one-key-cpufriend Github Repository](https://github.com/stevezhengshiqi/one-key-cpufriend) |
-| ``USBMap`` | Py script for mapping out USB ports and creating a custom SSDT or injector kext (WIP) | [USBMap Github Repository](https://github.com/corpnewt/USBMap) |
-| ``Intel Power Gadget`` | is a software-based power usage monitoring tool enabled for Intel Core processors | [Intel Power Gadget](https://software.intel.com/en-us/articles/intel-power-gadget) |
-| ``iStat Menus`` | and advanced Mac system monitor | [iStat Menus](https://bjango.com/mac/istatmenus/) |
-| ``Prime95`` | free Mersenne Prime search tool. Maybe the best tool for CPU torture testing | [Prime95](https://www.mersenne.org/download/) |
-| ``UNetbootin`` | allows you to create bootable USB drives for Windows and Ubuntu and other Linux distributions without burning a CD. | [UNetbootin](https://unetbootin.github.io) |
+| ``GenSMBIOS`` | a Py script that uses acidanthera's macserial to generate SMBIOS and optionally saves them to a plist | [GenSMBIOS Github Repository](https://github.com/corpnewt/GenSMBIOS) |
+| ``one-key-cpufriend`` | a script for modifying macOS CPU Performance | [one-key-cpufriend Github Repository](https://github.com/stevezhengshiqi/one-key-cpufriend) |
+| ``USBMap`` | a Py script for mapping out USB ports and creating a custom SSDT or injector kext (WIP) | [USBMap Github Repository](https://github.com/corpnewt/USBMap) |
+| ``Intel Power Gadget`` | a software-based power usage monitoring tool enabled for Intel Core processors | [Intel Power Gadget](https://software.intel.com/en-us/articles/intel-power-gadget) |
+| ``iStat Menus`` | an advanced Mac system monitor | [iStat Menus](https://bjango.com/mac/istatmenus/) |
+| ``Prime95`` | a free Mersenne Prime search tool. Maybe, the best tool for CPU torture testing | [Prime95](https://www.mersenne.org/download/) |
+| ``UNetbootin`` | this tool allows you to create bootable USB drives for Windows and Ubuntu and other Linux distributions without burning a CD. | [UNetbootin](https://unetbootin.github.io) |
 
 
 Preparation
@@ -208,7 +208,7 @@ Preparation
 
 ### BIOS update
 
-Very important to make all updates for BIOS before starting any macOS deployment. ACPI sources will be different after BIOS update and this will require to dump ACPI sources and patch them again. And this is not pleasant tasks.
+It is very important to make all the updates for BIOS before starting any macOS deployment. ACPI sources will be different after BIOS update and this will require to dump ACPI sources and patch them again. And, that is not a pleasant task.
 
 Download BIOS, EC, ME, etc. Firmware and apply them from stock Windows partition.
 
@@ -216,8 +216,8 @@ Download BIOS, EC, ME, etc. Firmware and apply them from stock Windows partition
 
 * Boot into Windows.
 * Open [Razer Hardware Drivers download URL](http://drivers.razersupport.com//index.php?_m=downloads&_a=view&parentcategoryid=864&pcid=860&nav=0,350,860) in preferred browser.
-* Download latest BIOS, EC, ME, etc. Firmware updates.
-* Apply this updates in required order. This is very important! Read documentation carefully!
+* Download the latest BIOS, EC, ME, etc. Firmware updates.
+* Apply these updates in a required order. This is very important! Read documentation carefully.
 
 **Useful information**
 
@@ -226,17 +226,17 @@ Download BIOS, EC, ME, etc. Firmware and apply them from stock Windows partition
 
 ### BIOS unlock
 
-Some changes for BIOS configuration should be done to make macOS bootable on Razer Blade Advanced.
+Certain changes for the BIOS configuration should be done to make macOS bootable on the Razer Blade Advanced.
 
-* Disable VT-d. Apple dropped support long time ago and will not boot in some cases with enabled VT-d. Do not mistake VT-d for VMX or VTX.
-* Increase memory pre-allocated for DVMT. Usually DVMT Pre-Allocated for 32Mb. macOS requires 64Mb minimum.
-* Deactivate CFG-Lock. Required by macOS Power Management.
-* Disable Secure Boot.
+* Disable ``VT-d``. Apple stopped supporting this long time ago and will not boot in some cases with enabled ``VT-d``. Do not mistake ``VT-d`` for ``VMX`` or ``VTX``.
+* Increase memory pre-allocated for ``DVMT``. Usually ``DVMT`` is pre-allocated for ``32Mb``. MacOS requires ``64Mb`` minimum.
+* Deactivate ``CFG-Lock``. Required by macOS Power Management.
+* Disable ``Secure Boot``.
 * etc.
 
-Some of this configurations can be fixed one or another way in ``Clover`` configuration file. But better to play safe and change configuration in BIOS. And deactivation of CFG-Lock can help a lot with power management.
+Some of these configurations can be fixed one or another way in ``Clover`` configuration file. But, it is better to play safe and change configuration in BIOS. Deactivation of the ``CFG-Lock`` can help a lot with power management.
 
-In case if BIOS upgraded to latest version and
+If the BIOS is upgraded to the latest version and
 
 | | Version |
 | ---: | :--- |
@@ -246,7 +246,7 @@ In case if BIOS upgraded to latest version and
 
 it's safely to use already modded dump from ``BIOS_mod/`` folder and jump to **BIOS flashing**.
 
-Otherwise follow to **BIOS export** step.
+Otherwise, follow the **BIOS export** step.
 
 
 ### BIOS export
@@ -265,16 +265,16 @@ Otherwise follow to **BIOS export** step.
 
 ### BIOS modding
 
-Most of this options required for next undervolting and overclocking. But part of them is necessary for macOS. This like options marked with **!**
+Most of the options are required for further undervolting and overclocking. But, some of them are necessary for the macOS. These options are marked with **!**
 
 * Open ``Tools\AMI\AMIBCP64\`` folder.
 * Run ``AMIBCP64.exe`` application.
 * In ``AMIBCP`` application click ``Open``, navigate to ``Desktop`` and open BIOS saved in previous steps.
 * In ``AMIBCP`` application
-	* Unfold root folder in left pane. This folder is blank and have no name.
+	* Unfold root folder in the left pane. This folder is blank and have no name.
 	* Unfold ``Setup`` subfolder.
 	* Click ``Power & Performance`` subfolder.
-		* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+		* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 			* ``Power & Performance`` (second row from top)
 			* ``CPU - Power Management Control`` **!**
 			* ``Intel(R) Speed Shift Technology``
@@ -282,15 +282,15 @@ Most of this options required for next undervolting and overclocking. But part o
 ![Power_Performance](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Power_Performance.png)
 
 * Unfold ``CPU VR Settings``
-* Click `` View/Configure CPU Lock Configuration`` folder in left pane
-* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click `` View/Configure CPU Lock Configuration`` folder in the left pane
+* In right the pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 	* ``CFG Lock``
 	* ``Overclocking Lock``
 
 ![CPU_VR_Settings](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/CPU_VR_Settings.png)
 
-* Click ``CPU - Power Management Control`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``CPU - Power Management Control`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``CPU - Power Management Control`` (second row from top) **!**
 		* ``Intel(R) SpeedStep(tm)``
 		* ``Intel(R) Speed Shift Technology``
@@ -302,8 +302,8 @@ Most of this options required for next undervolting and overclocking. But part o
 
 ![CPU_Power_Management_Control2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/CPU_Power_Management_Control2.png)
 
-* Click ``OverClocking Performance Menu`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``OverClocking Performance Menu`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``OverClocking Performance Menu`` (second row from top)
 		* ``XTU Interface``
 		*	``Processor``
@@ -315,16 +315,16 @@ Most of this options required for next undervolting and overclocking. But part o
 ![OverClocking_Performance_Menu](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/OverClocking_Performance_Menu.png)
 
 * Unfold ``OverClocking Performance Menu`` subfolder.
-* Click ``Processor`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``Processor`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``Processor`` (second row from top)
 		* ``Core Voltage Offset``
 		* ``Offset Prefix`` below ``Core Voltage Offset``
 
 ![Processor](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Processor.png)
 
-* Click ``Ring`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``Ring`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``Ring`` (second row from top)
 		* ``Ring Max OC Radio``
 		* ``Ring Down Bin``
@@ -333,8 +333,8 @@ Most of this options required for next undervolting and overclocking. But part o
 
 ![Ring](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ring.png)
 
-* Click ``GT`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``GT`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``GT Domain`` (second row from top)
 		* ``GT Voltage Offset``
 		* ``Offset Prefix`` below ``GT Voltage Offset``
@@ -343,16 +343,16 @@ Most of this options required for next undervolting and overclocking. But part o
 
 ![GT](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/GT.png)
 
-* Click ``Uncore`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``Uncore`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``Uncore`` (second row from top)
 		* ``Uncore Voltage Offset``
 		* ``Offset Prefix`` below ``Uncore Voltage Offset``
 
 ![Uncore](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Uncore.png)
 
-* Click ``Memory Overclocking Menu`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``Memory Overclocking Menu`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``Memory Profile`` (second row from top) **RAM XMP Profile**
 		* ``Memory Profile`` (another one somewhere in the middle of the list) **RAM XMP profile**
 		* ``Memory Reference Clock`` **RAM XMP Profile**
@@ -363,15 +363,15 @@ Most of this options required for next undervolting and overclocking. But part o
 
 ![Memory_Overclocking_Menu2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Memory_Overclocking_Menu2.png)
 
-* Click ``Chipset`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``Chipset`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``System Agent (SA) Configuration`` (second row from top) **!**
 
 ![Chipset](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Chipset.png)
 
 * Unfold ``Chipset`` subfolder.
-* Click ``System Agent (SA) Configuration`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``System Agent (SA) Configuration`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``System Agent (SA) Configuration`` (second row from top) **!**
 		* ``VT-d`` **!**
 		* ``Graphics Configuration`` **!**
@@ -380,9 +380,9 @@ Most of this options required for next undervolting and overclocking. But part o
 
 ![System_Agent_Configuration](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/System_Agent_Configuration.png)
 
-* Unfold ``System Agent (SA) Configuration`` folder in left pane
-* Click ``Graphics Configuration`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Unfold ``System Agent (SA) Configuration`` folder in the left pane
+* Click ``Graphics Configuration`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``Graphics Configuration`` (second row from top) **!**
 		* ``Primary Display``
 		* ``Internal Graphics``
@@ -391,8 +391,8 @@ Most of this options required for next undervolting and overclocking. But part o
 
 ![Graphics_Configuration](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Graphics_Configuration.png)
 
-* Click ``PEG Port Configuration`` folder in left pane
-	* In right pane change ``Access/Use`` from ``Default`` to ``USER`` for
+* Click ``PEG Port Configuration`` folder in the left pane
+	* In the right pane, change ``Access/Use`` from ``Default`` to ``USER`` for
 		* ``PEG Port Configuration`` (second row from top)
 		* ``ASPM``
 		* ``ASPM L0s``
@@ -426,7 +426,7 @@ Most of this options required for next undervolting and overclocking. But part o
 
 ### BIOS configuration
 
-There are few changes in BIOS is vital to make macOS happy and bootable on RBA. Undervolting and Overclocking will explained in dedicated chapter.
+There are a few changes in the BIOS that are vital to make macOS happy and bootable on RBA. Undervolting and Overclocking are explained in the following chapter.
 
 * Reboot computer.
 * Repeatedly press ``DEL`` key to enter BIOS configuration menu.
@@ -465,7 +465,7 @@ There are few changes in BIOS is vital to make macOS happy and bootable on RBA. 
 		* Hit ``Save Changes and Reset``
 
 
-**Note: If some of this options is not available in BIOS, please boot back in Windows and check modded BIOS dump for missing changes.**
+**Note: If some of these options are not available in BIOS, please, boot back in Windows and check modded BIOS dump for missing changes.**
 
 
 Hardware preparation
@@ -474,7 +474,7 @@ Hardware preparation
 
 ### WiFi and NVMe replacement
 
-WiFi and NVMe replacement is easy enough for this Model. Just unscrew bottom case. Check video provided below for more information.
+WiFi and NVMe replacement is easy enough for this Model. You just need to unscrew the bottom case. Check the video provided below for more information.
 
 **Useful information**
 
@@ -485,9 +485,9 @@ WiFi and NVMe replacement is easy enough for this Model. Just unscrew bottom cas
 
 ### (Optional) NVMe format with 4k block
 
-This step optional. macOS works faster and better with NVMe with 4k blocks. Usually NVMe formatted with 512 or 512e block size for unknown reason. Maybe another Windows compatibility issue. Anyway, Windows 10 works with no issues with NVMe with 4k blocks.
+This step is optional. MacOS works faster and better with NVMe with 4k blocks. Usually NVMe formatted with 512 or 512e block size for unknown reason. Maybe another Windows compatibility issue. Anyway, Windows 10 works with no issues with NVMe with 4k blocks.
 
-Best way to format NVMe drive is boot from Linux Live USB media and use ``smartctl`` and ``nvme-cli`` tools.
+The best way to format NVMe drive is to boot from Linux Live USB media and use ``smartctl`` and ``nvme-cli`` tools.
 
 * Download [balenaEtcher](https://www.balena.io/etcher/) on Windows or macOS machine.
 * Download [Ubuntu Desktop Live Image](https://ubuntu.com/download/desktop) on same Windows or macOS machine.
@@ -505,28 +505,28 @@ Best way to format NVMe drive is boot from Linux Live USB media and use ``smartc
 
 ![balenaEtcher_Flash](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/balenaEtcher_Flash.png)
 
-**Note:Ubuntu lack of support by default drivers for most Broadcom WiFi modules.**
+**Note: Ubuntu lacks the support by default drivers for most Broadcom WiFi modules.**
 
-There are 3 way to overcome this issue
+There are 3 way to overcome this issue:
 
 * Use ``USB to Ethernet`` cable.
-* Install proprietary WiFi drivers installation. Follow this instruction for this [WifiDocs/Driver/bcm43xx](https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx)
+* Install proprietary WiFi drivers installation. Follow this instruction [WifiDocs/Driver/bcm43xx](https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx)
 
 | Accessories | Description | Amazon URL |
 | ---: | :--- | :--- |
 | ``USB to Ethernet`` | Internet access | [AmazonBasics USB 3.0 to 10/100/1000 Gigabit Ethernet](https://www.amazon.com/AmazonBasics-1000-Gigabit-Ethernet-Adapter/dp/B00M77HMU0/ref=sr_1_8?crid=3KJ7TSXIVKNO6&keywords=apple+usb+to+ethernet+adapter&qid=1561713591&s=gateway&sprefix=Apple+USB+to+Eth%2Caps%2C247&sr=8-8) |
 
-* Install new NVMe drive in target Razer Blade.
+* Install a new NVMe drive in the target Razer Blade.
 * Insert USB media with ``Ubuntu Desktop``.
 * Press ``Power Button`` to start computer.
 * Press repeatedly ``F12`` until you ``Boot Menu`` will show.
 * Select USB media with ``Ubuntu Desktop``.
 * Select ``Try Ubuntu without installation``
-* When ``Ubuntu`` starts connect computer to Internet. Can be done from WiFi menu in top right corner.
+* When ``Ubuntu`` starts connect computer to the Internet. This can be done from the WiFi menu in the top right corner.
 
 ![Ubuntu_Show_Applications](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Show_Applications.png)
 
-* Click on bottom left button and type ``Terminal`` and press ``Enter``.
+* Click on the bottom left button and type ``Terminal`` and press ``Enter``.
 
 ![Ubuntu_Terminal](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Terminal.png)
 
@@ -553,7 +553,7 @@ sudo apt -y install nvme-cli
 
 ![Ubuntu_Install_nvme_cli_fail](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_fail.png)
 
-* If previous command fail with error ``E: Unable to locate package nvme-cli`` use this URL [http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli\_0.5-1\_amd64.deb](http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli_0.5-1_amd64.deb) to install ``nvme-cli`` on Ubuntu.
+* If previous command fails with error ``E: Unable to locate package nvme-cli`` use this URL [http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli\_0.5-1\_amd64.deb](http://mirrors.kernel.org/ubuntu/pool/universe/n/nvme-cli/nvme-cli_0.5-1_amd64.deb) to install ``nvme-cli`` on Ubuntu.
 
 ![Ubuntu_Install_nvme_cli_url](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url.png)
 
@@ -565,13 +565,13 @@ sudo apt -y install nvme-cli
 
 ![Ubuntu_Install_nvme_cli_url_open_with4](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_url_open_with4.png)
 
-* Click on download button on top right ``Firefox`` window corner.
-* Click on downloaded package and click ``Open``.
-* In installer window click ``Install`` button.
+* Click on a download button on the top right ``Firefox`` window corner.
+* Click on the downloaded package and click ``Open``.
+* In the installer window click ``Install`` button.
 
 ![Ubuntu_Install_nvme_cli_window](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_cli_window.png)
 
-* Verify your NVMe is recognized and manage 4K blocs by typing this command in ``Terminal`` window
+* Verify your NVMe to be recognized and manage 4K blocs by typing this command in ``Terminal`` window
 
 ```
 sudo smartctl -a /dev/nvme0
@@ -586,7 +586,7 @@ one with data ``4K`` starting with ID ``1``.
 
 ![Ubuntu_Run_smartctl_result](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Run_smartctl_result.png)
 
-* If ``4K`` is absent NVMe do not supports 4k blocks. Reboot computer and follow to **macOS install media preparation**.
+* If ``4K`` is absent, NVMe does not support 4k blocks. Reboot computer and follow **macOS install media preparation**.
 * Usually NVMe formatted to ``512B``. And this ``512B`` will be marked with asterix ``*``.
 * Format the NVME with ``4K`` blocs with the command
 
@@ -598,7 +598,7 @@ sudo nvme format -l 1 /dev/nvme0
 
 ![Ubuntu_Install_nvme_format](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Install_nvme_format.png)
 
-* This command will erase all information on NVMe drive.
+* This command will erase all the information on the NVMe drive.
 * To verify that the LBA 4K size is properly selected re-type the ``smartctl`` command
 
 ```
@@ -618,7 +618,7 @@ sudo smartctl -a /dev/nvme0
 
 **Be very careful and do this at your OWN RISK!**
 
-This step is not necessary and can be recommended only for hardcore gamers with experience building own rigs. Razer already using very good thermal paste so re-paste thermal paste is not very useful until liquid metal will be used. And Grizzly Conductonaut Thermal Grease Paste maybe the best one. Read more about liquid metal thermal paste and all issues he can cause before make decision and go forward.
+This step is not necessary and can be recommended only for hardcore gamers with experience of building their own rigs. Razer is already using very good thermal paste, so re-pasting thermal paste is not very useful until liquid metal is used. The Grizzly Conductonaut Thermal Grease Paste may be the best one. Read more about liquid metal thermal paste and all the issues it can cause before making the decision to proceed.
 
 **Useful information**
 
@@ -633,10 +633,10 @@ macOS
 
 Use you own OR borrow some friend Mac computer.
 
-* On macOS download ``UniBeast`` OR ``TINU`` up to your preferences.
+* On macOS, download ``UniBeast`` OR ``TINU`` up to your preferences.
 * Run ``UniBeast`` OR ``TINU`` application.
-* Follow instruction and build macOS installation media macOS 10.14 Mojave. Very important to build media with latest available version of Mojave.
-* Copy this applications and files to USB installation media
+* Follow the instruction and build macOS installation media macOS 10.14 Mojave. It is very important to build media with the latest available version of Mojave.
+* Copy this applications and the files to the USB installation media
 	* ``Clover Configurator``
 	* ``KextBeast``
 	* ``MaciASL``
@@ -651,21 +651,21 @@ Use you own OR borrow some friend Mac computer.
 
 ### macOS installation
 
-* Insert macOS USB install media.
+* Insert the macOS USB install media.
 * Boot/Reboot computer.
 * Press repeatedly ``F12`` until you ``Boot Menu`` will show.
-* Select macOS USB install media.
+* Select the macOS USB install media.
 * Open ``Disk Utility`` from ``Tools`` menu.
 * Format NVMe to ``APFS``.
 * Follow usual macOS installation procedure.
 * After reboot repeatedly tap ``F12`` again until get ``Boot Menu``.
 * Select macOS USB install media again to boot in ``Clover``.
-* In ``Clover`` select NVMe drive to continue installation.
-* Repeat this procedure again when macOS will reboot computer.
-* Follow usual macOS installation procedure.
+* In ``Clover``, select NVMe drive to continue installation.
+* Repeat this procedure again when macOS reboots the computer.
+* Follow the usual macOS installation procedure.
 * You can use TimeMachine Backup restore procedure during macOS installation.
 
-**Note: Do not try connect computer with iCloud before you will generate proper SMBIOS! This step will explained in 'iCloud. iMessages and FaceTime' step.**
+**Note: Do not try to connect the computer with iCloud before you generate proper SMBIOS! This step is explained in the 'iCloud. iMessages and FaceTime' step.**
 
 **Useful information**
 
@@ -674,24 +674,24 @@ Use you own OR borrow some friend Mac computer.
 
 ### Install EFI and Extensions
 
-Once when macOS installation will be finished
+Once the macOS installation is finished:
 
-* Login with user with admin privileges. Usually first one created during installation procedure.
-* Run ``Clover Configurator`` application from USB installation media.
-* From ``Mount EFI`` on left side mount NVMe EFI partition.
+* Login with the user with admin privileges: usually, the first one created during the installation procedure.
+* Run ``Clover Configurator`` application from the USB installation media.
+* From ``Mount EFI`` on the left side mount NVMe EFI partition.
 * Copy this repository ZIP archive file to ``~/Desktop/``.
 * Unarchive this repository Zip archive file on ``~/Desktop/``.
-* Copy folder ``EFI`` from unpacked archive to previously mounted ``EFI`` partition.
-* If you have different version of Razer Blade please remove files listed below from ``EFI`` partition otherwise this can cause kernel panic or other issues
+* Copy the folder ``EFI`` from unpacked archive to previously mounted ``EFI`` partition.
+* If you have different version of Razer Blade, please remove files listed below from ``EFI`` partition, otherwise this can cause kernel panic or other issues
 	* ``EFI/CLOVER/ACPI/patched/DSDT.aml``
 	* ``EFI/CLOVER/ACPI/patched/SSDT-12-OptTabl.aml``
 	* ``EFI/CLOVER/ACPI/patched/SSDT-USBX.aml``
-* Copy all ``.kext`` files from folder ``Extensions`` from previously unpacked archive to ``~/Desktop/`` folder. Do not copy ``CPUFriendDataProvider.kext`` if you have different version of Razer Blade! 
-* Run ``KextBeast.pkg`` application from USB installation media.
+* Copy all ``.kext`` files from the folder ``Extensions`` from previously unpacked archive to the ``~/Desktop/`` folder. Do not copy ``CPUFriendDataProvider.kext`` if you have different version of Razer Blade! 
+* Run ``KextBeast.pkg`` application from the USB installation media.
 * Click ``Continue`` and click ``Agree``.
 * Select ``/Library/Extensions`` and click ``Continue``.
 * Click ``Install``.
-* If extensions installed without any issues run ``Terminal`` application from ``/Applications/Utilities`` folder.
+* If extensions are installed without any issues run ``Terminal`` application from the ``/Applications/Utilities`` folder.
 * In ``Terminal`` application window type
 
 ```
@@ -699,9 +699,9 @@ sudo kextcache -i /
 ```
 
 * and press ``Enter``.
-* When command ``kextcache`` finish execution unmount and detach macOS USB installation media and reboot computer to apply new configuration.
+* When command ``kextcache`` finish execution, unmount and detach the macOS USB installation media, and reboot computer to apply new configuration.
 * Repeatedly press ``DEL`` key to enter BIOS configuration menu.
-* In BIOS navigate to menu
+* In BIOS, navigate to menu
 	* ``Boot``
 		* Set ``Boot Option #1`` to ``UEFI OS (drive_name)``
 		* Set ``Boot Option #2`` and all next ``Boot Option #`` to ``Disabled``
@@ -712,12 +712,12 @@ sudo kextcache -i /
 * If you have same Razer Blade Model trackpad, battery status, audio should become available.
 
 
-In case if you have same Razer Blade model you safe to jump to step **iCloud. iMessages and FaceTime**. Otherwise you need to generate custom ACPI hot patches and USB mapping specific to your Razer Blade model.
+If you have the same Razer Blade model, you are safe to jump to step **iCloud. iMessages and FaceTime**. Otherwise, you need to generate custom ACPI hot patches and USB mapping specific to your Razer Blade model.
 
 
 ### Disable Hibernation
 
-Hibernation do not work correctly with most hackintosh notebooks anyway.
+Hibernation does not work correctly with the majority of hackintosh notebooks anyway.
 
 * Run ``Terminal`` application from ``/Applications/Utilities/`` folder.
 * To disable ``hibernation`` type and execute this command in ``Terminal`` application window
@@ -754,29 +754,29 @@ sudo mkdir /var/vm/sleepimage
 
 ### ACPI patching
 
-In case if have a little bit different version of Razer Blade just like mid 2019 Model OR Base Model OR different version of BIOS my ACPI and USB patches will be not compatible with you Razer Blade!
+If you have a little bit different version of Razer Blade (just like mid 2019 Model OR Base Model OR different version of BIOS) the ACPI and USB patches will not be compatible with you Razer Blade!
 
-In case like this ACPI hot patches should be created from scratch.
+In this case, ACPI hot patches should be created from scratch.
 
-Again, very important to apply all BIOS patches, firmware updates before this step (!).
+Again, it is very important to apply all BIOS patches, firmware updates before this step (!).
 
 
 **ACPI export**
 
 * Reboot computer.
 * In ``Clover Boot Menu`` press ``F2`` and ``F4``.
-* Do so again with ``fn``+``F2`` and ``fn``+``F4``.
+* Repeat again with ``fn``+``F2`` and ``fn``+``F4``.
 * Select normal macOS boot.
 
 
 **DSDT patching for battery, trackpad**
 
-* Login with user with admin privileges. Usually first one created during installation procedure.
+* Login with the user with admin privileges: usually the first one created during installation procedure.
 * Run ``Clover Configurator`` and mount NVMe ``EFI`` partition.
 * Navigate to folder ``/Volumes/EFI/EFI/CLOVER/ACPI/``.
 * Copy folder ``origin`` to ``Desktop`` folder.
-* Copy ``MaciASL`` from macOS USB installation media or re-download from Internet to ``~/Applications/`` folder.
-* Copy ``iasl`` from macOS USB installation media or re-download from Internet to.
+* Copy ``MaciASL`` from the macOS USB installation media or re-download from Internet to ``~/Applications/`` folder.
+* Copy ``iasl`` from the macOS USB installation media or re-download from Internet to.
 * Unpack ``iasl.zip`` if required.
 * Run ``Terminal`` application from ``/Applications/Utilities/`` folder.
 * Copy ``iasl`` from ``~/Downloads/`` folder to ``/usr/local/bin/`` folder with command in ``Terminal`` application
@@ -795,9 +795,9 @@ sudo cp ~/Downloads/iasl /usr/local/bin/
 * Run ``MaciASL`` application and open file ``~/Desktop/origin/DSDT.dsl``.
 * Click ``Patch`` button in ``toolbar``.
 * In ``Patch`` window on left panel scroll and find ``[bat] Razer Blade (2014)`` and click ``Apply``. Do not close window!
-* In ``Patch`` window on left panel scroll and find ``[gfx0] Disable/Enable on _WAK/_PTS (DSDT)`` and click ``Apply``. Do not close window!
+* In ``Patch`` window on the left panel, scroll and find ``[gfx0] Disable/Enable on _WAK/_PTS (DSDT)`` and click ``Apply``. Do not close the window!
 * Click ``Close`` in ``Patch`` window.
-* Click ``Compile`` button in ``toolbar``. ``DSDT`` should complied without any issues.
+* Click ``Compile`` button in ``toolbar``. ``DSDT`` should be compiled without any issues.
 * Next step is hot patch DSDT for trackpad.
 * Hit ``Command+F`` for ``Search`` and search for method ``SSCN`` in scope ``Scope (_SB.PCI0.I2C0)`` lines like below.
 
@@ -814,7 +814,7 @@ Method (FMCN, 0, NotSerialized)
 ```
 
 * Copy this block
-* Rename this methods to something like this
+* Rename this methods to something like this:
 
 ```
 Method (_SCN, 0, NotSerialized)
@@ -828,7 +828,7 @@ Method (_MCN, 0, NotSerialized)
 }
 ```
 
-* Find code like this
+* Find a code like this:
 
 ```
 Scope (_SB.PCI0.I2C0)
@@ -844,7 +844,7 @@ Scope (_SB.PCI0.I2C0)
         Device (TPD0)
 ```
 
-* Above line ``Device (TPD0)`` paste code copied before. Result should looks like this
+* Above line ``Device (TPD0)`` paste the previously copied code. The result should look like this:
 
 ```
 Scope (_SB.PCI0.I2C0)
@@ -870,7 +870,7 @@ Scope (_SB.PCI0.I2C0)
         Device (TPD0)
 ```
 
-* Scroll down to method ``_CRS`` for scope ``_SB.PCI0.I2C0``. It should looks like this
+* Scroll down to method ``_CRS`` for scope ``_SB.PCI0.I2C0``. It should look like this:
 
 ```
 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
@@ -889,7 +889,7 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 }
 ```
 
-* And replace with
+* And replace with:
 
 ```
 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
@@ -898,39 +898,39 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 }
 ```
 
-* Click ``Compile`` button in ``toolbar``. ``SSDT-12-OptTabl`` should complied without any issues.
+* Click ``Compile`` button in ``toolbar``. ``SSDT-12-OptTabl`` should be complied without any issues.
 * Choose ``Save`` from ``File`` menu.
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
-* Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend this file name automatically.
-* Copy newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
+* Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend the file name automatically.
+* Copy the newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
 
-Next step is hot patch ACPI to disable Nvidia GPU in macOS for save battery and decrease overall heat.
+Next step is hot patch ACPI to disable Nvidia GPU in macOS for saving battery and decreasing the overall heat.
 
 **Nvidia GPU disable**
 
 * Open ``SSDT-12-OptTabl.dsl`` with ``MaciASL`` application.
 
-* Find this header
+* Find this header:
 
 ```
 \_SB.PCI0.PEG0.PEGP and expand it, click on _OFF
 ```
 
-* Find this line of code
+* Find this line of code:
 
 ```
 Method (_OFF, 0, Serialized) // _OFF: Power Off
 ```
 
-* Above this code, paste this line of code
+* Above the code, paste this line of code:
 
 ```
 Method (_INI) {_OFF() } // added to call _OFF
 ```
 
-* Once that is pasted in, click on the ``Patch`` button in ``toolbar`` and copy and paste this code into the ``Patch`` window
+* Once that is pasted in, click on the ``Patch`` button in ``toolbar`` and copy and paste this code into the ``Patch`` window:
 
 ```
 into method label _INI parent_label \_SB.PCI0.GFX0 insert
@@ -946,24 +946,24 @@ External(\_SB.PCI0.PEG0.PEGP._OFF, MethodObj)\n
 end;
 ```
 
-* Close ``Patch`` window.
+* Close the ``Patch`` window.
 * Click ``Compile`` button in ``toolbar``.
-* If ``SSDT-12-OptTabl.dsl`` compiled without any issues skip to next patch. If compilation failed with error
+* If ``SSDT-12-OptTabl.dsl`` is compiled without any issues skip to next patch. If compilation failed with error:
 
 ```
 [Unknown ASL Compiler exception ID] (TGPC [Integer])
 ```
 
-* Hit ``Command+F`` for ``Search`` and search for line like below and delete this line.
+* Hit ``Command+F`` for ``Search``, search for a line like below and delete this line.
 
 ```
 External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 ```
 
-* Now ``SSDT-12-OptTabl.dsl`` should compile without issues.
+* Now, ``SSDT-12-OptTabl.dsl`` should be compiled without any issues.
 * Click ``Patch`` button in ``toolbar``.
 * Click ``Close`` in ``Patch`` window.
-* Click ``Compile`` button in ``toolbar``. ``SSDT-12-OptTabl.dsl`` should complied without any issues.
+* Click ``Compile`` button in ``toolbar``. ``SSDT-12-OptTabl.dsl`` should be compiled without any issues.
 * Choose ``Save`` from ``File`` menu.
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
@@ -995,7 +995,7 @@ External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 	* Read [USBMap README](https://github.com/corpnewt/USBMap/blob/master/README.md) carefully.
 * Open ``USBMap`` folder in Terminal.app OR iTerm.app if you prefer this one.
 * Make ``USBMap.command`` executable with ``chmod +x USBMap.command``.
-* Detach all USB devices from the Razer Blade.
+* Detach all the USB devices from the Razer Blade.
 * Run ``USBMap.command`` with ``./USBMap.command``.
 
 ```
@@ -1025,7 +1025,7 @@ Please select an option:
 ```
 
 * Press ``U`` to ``Validate USB Power Settings``.
-* Command will show something like this.
+* Command will show something like this:
 
 ```
   #######################################################
@@ -1044,10 +1044,10 @@ USBX Setup Properly: True
 Press [enter] to return
 ```
 
-* If command will ask required confirm to install ``USBX``.
-* Press ``Q`` to back main screen.
-* Press ``P`` to get to ``Edit Plist & Create SSDT/Kext`` screen.
-* Press ``T`` to get list of USB types. It will be useful.
+* If command asks required confirm to install ``USBX``.
+* Press ``Q`` to go back to the main screen.
+* Press ``P`` to get to the ``Edit Plist & Create SSDT/Kext`` screen.
+* Press ``T`` to get the list of USB types. It will be useful.
 
 ```
   #######################################################
@@ -1073,10 +1073,10 @@ Per the ACPI 6.2 Spec.
 Press [enter] to return
 ```
 
-* Press ``Enter`` to return to ``Edit Plist & Create SSDT/Kext`` screen.
-* Press ``M`` to return ``Main`` screen.
+* Press ``Enter`` to return to the ``Edit Plist & Create SSDT/Kext`` screen.
+* Press ``M`` to return to the ``Main`` screen.
 * Press ``D`` to ``Discover Ports``.
-* If all USB devices removed and detached properly ``USBMap`` will show list of internal USB devices such as Bluetooth, Integrated Camera, Razer Blade.
+* If all USB devices are removed and detached properly, ``USBMap`` will show the list of internal USB devices such as Bluetooth, Integrated Camera, Razer Blade.
 
 ```
  #######################################################
@@ -1109,27 +1109,27 @@ Press Q then [enter] to stop
 Waiting 5 seconds:
 ```
 
-* Write down USB port identifications for this internal USB devices. It will be required later to properly setup USB type to properly enable sleep mode. For RBA early 2019 it will be like this:
+* Write down the USB port identifications for the internal USB devices. This information will be required later to properly setup the USB type to properly enable a sleep mode. For RBA early 2019, it will be like this:
 	* HS05 - Controller XHC - Bluetooth
 	* HS07 - Controller XHC - Integrated Camera
 	* HS08 - Controller XHC - Razer Blade
-* You will need to mark this ports like ``255`` later.
+* You will need to mark these ports like ``255`` later.
 * Detect properly ``USB 2.0`` ports.
-	* Insert in every ``USB-A`` port for 15-20sec and detach ``USB 2.0`` (!) device. Command will highlight with color new detected ports.
-	* Write down this ports number.
+	* Insert in every ``USB-A`` port for 15-20sec and detach ``USB 2.0`` (!) device. Command will highlight the newly detected ports with colour.
+	* Write down the ports number.
 * Detect properly ``USB 3.0`` ports.
-	* Insert in every ``USB-A`` port for 15-20sec and detach ``USB 3.0 or 3.1`` (!) device. Command will highlight with color new detected ports.
-	* Write down this ports number.
+	* Insert in every ``USB-A`` port for 15-20sec and detach ``USB 3.0 or 3.1`` (!) device. Command will highlight the newly detected ports with colour.
+	* Write down the ports number.
 * Detect properly ``USB-C`` ports.
-	* Insert ``USB-C`` device into ``USB-C`` port for 15-20sec and detach. Command will highlight with color new detected port.
-	* Write down this ports number.
-	* Insert ``USB-A 2.0`` device into ``USB-C`` port with ``USB-A to USB-C`` cable for 15-20sec and detach. Command will highlight with color new detected port.
-	* Write down this ports number.
-* When ports will detected press ``Q`` to back to ``Main`` screen.
-* In ``Main`` screen press ``P`` to open ``Edit Plist & Create SSDT/Kext`` screen.
+	* Insert ``USB-C`` device into ``USB-C`` port for 15-20sec and detach. Command will highlight the newly detected ports with colour.
+	* Write down the ports number.
+	* Insert ``USB-A 2.0`` device into ``USB-C`` port with ``USB-A to USB-C`` cable for 15-20sec and detach. Command will highlight the newly detected ports with colour.
+	* Write down the ports number.
+* When ports are detected, press ``Q`` to go back to the ``Main`` screen.
+* In the ``Main`` screen, press ``P`` to open ``Edit Plist & Create SSDT/Kext`` screen.
 * All ports will be automatically marked like ``Type 3`` ports.
-* Mark internal ports like ``Type 255``. This is very important to enable sleep mode. Without this computer will wake up every 20-40secs even with closed lid.
-* Very bellow in screen will be tips how-to do this.
+* Mark internal ports like ``Type 255``. This is very important to enable a sleep mode. Without this computer will wake up every 20-40secs even with the lid closed.
+* Here, there are tips how to do this:
 
 ```
 Select ports to toggle with comma-delimited lists (eg. 1,2,3,4,5)
@@ -1137,7 +1137,7 @@ Change types using this formula T:1,2,3,4,5:t where t is the type
 Set custom names using this formula C:1:Name - Name = None to clear
 ```
 
-* You can do this with command like this example:
+* You can do this with a command. For example:
 
 ```
 T:4,6,7:255
@@ -1175,7 +1175,7 @@ Copy automatically to booted EFI? (y/n):
 * Press ``Q`` to ``Quit`` command.
 * Reboot computer.
 
-Verify configuration by inserting ``USB 2.0`` and ``USB 3.0`` and ``USB-C`` devices just like during detecting procedure. Also close lid and turn over notebook. After 20-60sec depends on current load fan should stop rotating. Wait for another 3-5min. They shouldn't start spinning again. If they start and stops after 10-20sec you done something wrong and need to start procedure again.
+Verify configuration by inserting ``USB 2.0`` and ``USB 3.0`` and ``USB-C`` devices just like during detecting procedure. Also, close the lid and turn over notebook. After 20-60sec, depending on the current load, fans should stop rotating. Wait for another 3-5min. They shouldn't start spinning again. If they start and stop after 10-20sec, you have done something wrong and need to start the procedure again.
 
 **Useful information**
 
@@ -1187,7 +1187,7 @@ Verify configuration by inserting ``USB 2.0`` and ``USB 3.0`` and ``USB-C`` devi
 ### iCloud. iMessages and FaceTime
 
 
-Follow instruction in article [An iDiot's Guide To iMessage](https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/).
+Follow the instruction in the article [An iDiot's Guide To iMessage](https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/).
 
 **Useful information**
 
@@ -1196,29 +1196,29 @@ Follow instruction in article [An iDiot's Guide To iMessage](https://www.tonymac
 
 ### FileVault
 
-This step is optional but highly recommended from security standpoint.
+This step is optional, but highly recommended from the security standpoint.
 
-* Make sure you have full TimeMachine or clone backup. Some mistakes done during this procedure can make you drive and data inaccessible!
-* Make sure you have prepared macOS installation media for worst case.
+* Make sure you have full TimeMachine or clone backup. Some mistakes done during this procedure can make your drive and the data inaccessible!
+* Make sure you have prepared macOS installation media in the worst case scenario.
 * Do recommend to use
 	* [Apple TimeMachine](https://support.apple.com/en-us/HT201250) backup or
 	* [SuperDuper](https://www.shirt-pocket.com/SuperDuper/SuperDuperDescription.html)
-* Make sure required ``drivers`` installed.
+* Make sure the required ``drivers`` are installed.
 	* ``AptioInputFix-64`` for Bluetooth keyboard and mouse.
 	* ``AppleKeyAggregator-64`` for PS/2 keyboard and mouse.
-* Make sure ``Preboot`` volume is not hidden in ``Clover Configurator``.
+* Make sure the ``Preboot`` volume is not hidden in ``Clover Configurator``.
 	* Open ``/Volumes/EFI/EFI/CLOVER/config.plist`` with ``Clover configurator`` application.
 	* Open ``Gui`` section.
-	* Remove ``Preboot`` volume from ``Hide Volume`` in top right corner.
+	* Remove ``Preboot`` volume from ``Hide Volume`` in the top right corner.
 	* Hit ``Command+S`` to save configuration.
 	* Open ``System Preferences…`` and ``Security & Privacy`` and ``FileVault`` tab.
 	* Click ``Turn On FileVault…``
-	* It will take a time… Depends on drive size and number of files this can take up to 12h. So be patience.
+	* It will take time… Depending on the drive size and a number of files, this can take up to 12h. So, be patient.
 	* Reboot computer.
-	* At ``Clover`` screen, make sure you select the ``FileVault`` ``Preboot`` option of NVMe drive.
+	* At the ``Clover`` screen, make sure you select the ``FileVault`` ``Preboot`` option of NVMe drive.
 	* Login prompt should appear.
-	* Keyboard should work without issues.
-	* If keyboard do not work maybe additional drivers required. Boot from macOS USB installation media and fix ``Clover`` boot configuration.
+	* Keyboard should work without any issues.
+	* If keyboard does not work, maybe, additional drivers are required. Boot from macOS USB installation media and fix ``Clover`` boot configuration.
 	* Enter credentials.
 	* macOS should continue to boot.
 
@@ -1252,23 +1252,23 @@ Power Management
 
 **CPUFriendDataProvider**
 
-* Login with user with admin privileges. Usually first one created during installation procedure.
+* Login with the user with admin privileges: usually, the first one created during the installation procedure.
 * Download [One Key CPUFriend](https://github.com/stevezhengshiqi/one-key-cpufriend) Github repository ZIP archive.
 * Unpack downloaded ZIP archive.
 * Run ``Terminal`` application.
-* Changes folder in ``Terminal`` application to unpacked ZIP archive folder with command like this
+* Change folder in ``Terminal`` application to unpack ZIP archive folder with command like this:
 
 ```
 cd ~/Download/one-key-cpufriend-master
 ```
 
-* In ``Terminal`` applications window type execute command
+* In ``Terminal`` applications window, type the execute command:
 
 ```
 ./one-key-cpufriend.sh
 ```
 
-* Command will show something like this
+* Command will show something like this:
 
 ```
 -----------------------------------------
@@ -1280,8 +1280,8 @@ cd ~/Download/one-key-cpufriend-master
 Which option you want to choose? (1/2/3)
 ```
 
-* For most cases option ``2`` will be optional. Type ``2`` and press ``Enter``.
-* Command will show something like this
+* For most cases, option ``2`` will be optional. Type ``2`` and press ``Enter``.
+* Command will show something like this:
 
 ```
 ----------------------------------------
@@ -1296,21 +1296,21 @@ Which mode is your favourite? (1/2/3/4)
 
 * Option ``2`` is recommended for most cases.
 * Type your option and press ``Enter``
-* Command will ask for password. Type password and press ``Enter``.
+* Command will ask for password. Type your password and press ``Enter``.
 * Command will generate two customised macOS Extensions (kext's) on ``Desktop`` folder.
 * Run ``KextBeast.pkg`` application.
 * Click ``Continue`` and click ``Agree``.
 * Select ``/Library/Extensions`` and click ``Continue``.
 * Click ``Install``.
-* If extensions installed without any issues run ``Terminal`` application from ``/Applications/Utilities`` folder.
-* In ``Terminal`` application window type
+* If extensions are installed without any issues, run ``Terminal`` application from ``/Applications/Utilities`` folder.
+* In ``Terminal`` application window, type:
 
 ```
 sudo kextcache -i /
 ```
 
 * And press ``Enter``.
-* When command ``kextcache`` finish execution unmount and detach macOS USB installation media and reboot computer to apply new configuration.
+* When command ``kextcache`` finish the execution unmount, detach the macOS USB installation media and reboot computer to apply new configuration.
 * Reboot computer.
 * With next boot macOS will enable granular and precise power management.
 
@@ -1324,22 +1324,22 @@ sudo kextcache -i /
 Undervolting
 ---
 
-There are several tools for Windows for undervolting and overclocking CPU and GPU. Just like
+There are several tools for Windows for undervolting and overclocking CPU and GPU. Just like:
 
 * [Intel Extreme Tuning Utility](https://downloadcenter.intel.com/download/24075/Intel-Extreme-Tuning-Utility-Intel-XTU-)
 * [MSI Afterburner](https://www.msi.com/page/afterburner)
 * [ThrottleStop](https://www.techpowerup.com/download/techpowerup-throttlestop/)
 
-With macOS a different story. There are few tools for macOS for undervolting but they requires additional macOS Extensions (kext's) or not free or not very well supported.
+With macOS, it is a different story. There are a few tools for macOS for undervolting, but they require additional macOS Extensions (kext's). Often, they are not free or not very well supported.
 
 * [Volta](https://volta.garymathews.com)
 * [VoltageShift](https://github.com/sicreative/VoltageShift)
 
-So I decide gone Rogue and do undervolt with BIOS. Tools like ``XTU`` provides better control but I need solution that will work both in Windows and Debian Linux and macOS.
+So, I decided to go Rogue and do undervolt with BIOS. Tools like ``XTU`` provide better control, but I need a solution that will work both in Windows and Debian Linux and macOS.
 
-AMI BIOS provides a lot different tools for undervolting and overclocking.
+AMI BIOS provides a lot of different tools for undervolting and overclocking.
 
-Most interesting and easy to use is
+The most interesting and easy to use are:
 
 * ``Processor``
 	* ``Core Voltage Offset``
@@ -1349,7 +1349,7 @@ Most interesting and easy to use is
 * ``Uncore``
 	* ``Uncore Voltage Offset``
 
-To apply configuration
+To apply configuration:
 
 * Reboot computer.
 * Repeatedly press ``DEL`` key to enter BIOS configuration menu.
@@ -1374,7 +1374,7 @@ To apply configuration
 * Boot in macOS or Windows.
 * Download [Prime95](https://www.mersenne.org/download/) application.
 * Run ``Torture Test...`` from ``Options`` menu for at least 1h.
-* If system works stable repeat all steps and incremental increase undervolting for -5. Better to keep undervolting for ``Processor`` and ``GT/GTU`` on same level. And repeat again ``Torture Test...``. If system is unstable under ``Torture Test...``, freezes or reboots revert back to previous working configuration.
+* If the system works stably, repeat all the steps and incremental increase undervolting for -5. It is better to keep undervolting for ``Processor`` and ``GT/GTU`` on the same level. Repeat again ``Torture Test...``. If the system is unstable under ``Torture Test...``, freezes or reboots, revert back to the previous working configuration.
 
 | Option | Configuration start undervolting | Recommended step | My stable working configuration |
 | ---: | ---: | ---: | ---: |
@@ -1383,11 +1383,11 @@ To apply configuration
 | GTU Core Voltage Offset | -100 | -5 | -140 |
 | Uncore Voltage Offset | -60 | -5 | -120 |
 
-CPU limitations can be very different even in same series. So, do not use blindly my configuration.
+CPU limitations can be very different even in same series. So, do not use my configuration blindly.
 
-BIOS have a lot additional configurations for undervolting and overclocking just like TDP (Thermal Design Power) but this requires extensive knowledge in CPU/Chipset/etc. power management and not a part of this documentation. For more information check links provided below.
+BIOS has many additional configurations for undervolting and overclocking, just like TDP (Thermal Design Power), but this requires extensive knowledge in CPU/Chipset/etc. and power management. This is not a part of this documentation. For more information, check the links provided at the end of the document.
 
-**Note: Looks like mid 2019 Razer Blade Advanced undervolted from factory!**
+**Note: It looks like the mid 2019 Razer Blade Advanced has been undervolted from factory!**
 
 **Useful information**
 
@@ -1400,12 +1400,12 @@ BIOS have a lot additional configurations for undervolting and overclocking just
 Nvidia BIOS flashing
 ---
 
-Razer Blade Advanced mid 2019 have very little changes compare to previous early 2019 model.
+Razer Blade Advanced mid 2019 has very few changes in comparison to the previous early 2019 model.
 
-* Better refresh rate.
+* Better screen refresh rate.
 * Can be packed with i7 9750H CPU for extra money.
 
-And most disadvantage is 80w 2080 Max-Q instead of 90w in previous model. This is a huge difference for general performance. Check articles [Comparison: 80w vs 90w RTX 2080 Max-Q](https://www.theeverydayenthusiast.com/home/comparison-80w-vs-90w-2080-max-q).
+The biggest disadvantage is 80w 2080 Max-Q instead of 90w in the previous model. This is a huge difference for general performance. Check article [Comparison: 80w vs 90w RTX 2080 Max-Q](https://www.theeverydayenthusiast.com/home/comparison-80w-vs-90w-2080-max-q).
 
 * Reboot computer.
 * Select Windows 10 partition in ``Clover``.
@@ -1436,9 +1436,9 @@ nvflash64.exe -6 Nvidia_2080_Max-Q_90w.rom
 Razer Chroma
 ---
 
-Razer Chroma support for Razer Blade notebooks and most latest Razer devices is not implemented for macOS yet. And suppose never will be implemented.
+Razer Chroma support for Razer Blade notebooks and the latest Razer devices has not been implemented for macOS yet. I suppose, it will never be implemented.
 
-Thanks to [osx-razer-blade](https://github.com/boo-dev/osx-razer-blade) project I'm already have enough information and working already on cli tool to control Razer Blade keyboard and logo Chroma lighting.
+Thanks to [osx-razer-blade](https://github.com/boo-dev/osx-razer-blade) project, I've already had enough information, so I am working on cli tool to control Razer Blade keyboard and logo Chroma lighting.
 
 
 Windows
@@ -1461,7 +1461,7 @@ Windows
 
 * Download Windows 10 ISO image.
 * Open [Download Windows 10 Disc Image (ISO File) URL](https://www.microsoft.com/en-us/software-download/windows10ISO) in Safari. It better to download ISO image on macOS. Microsoft detects OS and prevent download ISO image on Windows machine. It can be override by browser ``User-Agent`` replacement but still easier todo this on macOS.
-* From ``Select Edition`` menu select ``Windows 10 May 2019 Update`` (!). ``Windows 10 October 2019 Update`` ISO image have issues Microsoft still not fixed.
+* From ``Select Edition`` menu select ``Windows 10 May 2019 Update`` (!). ``Windows 10 October 2019 Update`` ISO image have issues Microsoft still have not fixed.
 
 ![Windows_Download1](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_Download1.png)
 
@@ -1484,13 +1484,13 @@ Windows
 * Download [UNetbootin](https://unetbootin.github.io) tool.
 * Plug a USB media into Mac.
 * Open ``Disk Utility``.
-* Select USB media from the left panel and click on ``Info`` button. Write down the device name.
+* Select the USB media from the left panel and click on ``Info`` button. Write down the device name.
 * Run ``UNetbootin``
 * Select the ``Diskimage`` radio button, click ``…`` to select a Windows 10 ISO image.
 
 ![Windows_unetbootin1](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_unetbootin1.png)
 
-* Choose ``Type`` as USB media and select the device name of USB media.
+* Choose ``Type`` as the USB media and select the device name of USB media.
 
 ![Windows_unetbootin2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_unetbootin2.png)
 
@@ -1504,12 +1504,12 @@ Windows
 ### Windows installation
 
 * Insert Windows 10 USB installation media.
-* Reboot computer.
+* Reboot the computer.
 * Press repeatedly ``F12`` until you ``Boot Menu`` will show.
-* Select USB installation media with Windows 10.
-* Follow usual Windows 10 installation procedure.
+* Select the USB installation media with Windows 10.
+* Follow the usual Windows 10 installation procedure.
 
-**Note: Be careful and select right partition created before for Windows 10. Otherwise you can destroy macOS installation.**
+**Note: Be careful and select right partition created before for Windows 10. Otherwise, you can destroy the macOS installation.**
 
 **Useful information**
 
@@ -1518,14 +1518,14 @@ Windows
 
 ### Clover Boot fix
 
-To fix dual-booting hackintosh rename bootmgfw.efi to bootmgfw-orig.efi causing Clover to become unblocked. Add the tag ``-orig`` to the name so that it’s still recognizable file and will show the Windows EFI partition for booting in the Clover Boot loader Menu.
+To fix dual-booting hackintosh, rename bootmgfw.efi to bootmgfw-orig.efi causing Clover to become unblocked. Add the tag ``-orig`` to the name so that it’s still a recognizable file and is shown in the Windows EFI partition for booting in the ``Clover Boot`` loader menu.
 
 To rename ``bootmgfw.efi``
 
 * Boot off macOS installation media.
 * Boot macOS.
 * Open ``Clover Configurator`` application.
-* Select ``Mount EFI`` on left column.
+* Select ``Mount EFI`` on the left column.
 * Click ``Mount Partition`` for the drive where macOS and Windows is installed on.
 * Click ``Open Partition``.
 * Navigate to ``EFI/Microsoft/Boot/``.
@@ -1536,7 +1536,7 @@ To rename ``bootmgfw.efi``
 
 #### (Optional) Override Windows Boot Manager
 
-If for some reason UEFI OS (drive_name) isn’t showing as an available boot device there is a way to override Windows Boot Manager and have it redirect to Clover.
+If for some reason the UEFI OS (drive_name) isn’t shown as an available boot device, there is a way to override ``Windows Boot Manager`` and have it redirected to ``Clover``.
 
 * Boot off macOS installation media.
 * Boot macOS.
@@ -1552,44 +1552,44 @@ If for some reason UEFI OS (drive_name) isn’t showing as an available boot dev
 * Restart.
 * Now ``Windows Boot Manager`` will redirects to ``Clover`` instead of booting Windows.
 
-**Note: Very often with cumulative and security updates Windows 10 will place new ``bootmgfw.efi`` in ``EFI/Microsoft/Boot/``. You can notice this by two Windows boot options in ``Clover`` boot screen. Just remove old ``bootmgfw-orig.efi`` and rename new ``bootmgfw.efi`` to  ``bootmgfw-orig.efi``.**
+**Note: Very often, with cumulative and security updates Windows 10 will place new ``bootmgfw.efi`` in ``EFI/Microsoft/Boot/``. You can notice this by two Windows boot options in ``Clover`` boot screen. Just remove old ``bootmgfw-orig.efi`` and rename new ``bootmgfw.efi`` to  ``bootmgfw-orig.efi``.**
 
 **Useful information**
 
 [Hackintosh Dual Boot Windows 10 and macOS High Sierra](https://hackintosher.com/guides/hackintosh-dual-boot-windows-10-and-macos-high-sierra/)
 
 
-Know Issues and Limitations
+Known Issues and Limitations
 ---
 
 **Limitations**
 
-* Nvidia Web Drivers is not available for macOS 10.14 Mojave. Nvidia do not want to implement support for Apple 2D/3D rendering framework Metal and do not want to share access for Nvidia drivers source code for Apple. So, currently no support for Nvidia GPU for macOS 10.14 Mojave. It's not a problem for me because I'm using Windows 10 partition for gaming and Debian Linux partition to run ML tasks overnight.
-	* HDMI and DisplayPort ports both connected directly to Nvidia GPU and will not work in macOS 10.14 Mojave.
+* Nvidia Web Drivers are not available for macOS 10.14 Mojave. Nvidia does not want to implement support for Apple 2D/3D rendering framework Metal and does not want to share access for Nvidia drivers source code for Apple. So, currently no support for Nvidia GPU for macOS 10.14 Mojave is available. It's not a problem for me because I'm using Windows 10 partition for gaming and Debian Linux partition to run the ML tasks overnight.
+	* HDMI and DisplayPort ports both are connected directly to Nvidia GPU and will not work in macOS 10.14 Mojave.
 	* USB-C to HDMI should work without any issues.
 
 ![HDMI_DP](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/HDMI_DP.png)
 
-* Windows Hello camera not supported in macOS.
+* Windows Hello camera is not supported in macOS.
 * Not all sensors are supported by VirtualSMC.
 
 
 **Issues**
 
-* Sometimes screen do not wake up after first lid open from sleep. You need to close and open lid again. This issue introduced after latest BIOS update. Annoying but not important.
+* Sometimes, the screen does not wake up when you open the lid after the computer was in a sleep mode. You need to close and open the lid again. This issue has appeared after the latest BIOS update. Although annoying, it is not that important.
 
 
 Conclusion
 ---
 
-It's a pretty good laptop with way better keyboard than 2016-2019y MacBook Pro. Solid workstation and extremely good gaming machine. And easy to upgrade NVMe and RAM and WiFi modules. This Model supports NVMe up to 2Tb and RAM up to 64Gb.
+It's a pretty good laptop with a way better keyboard than 2016-2019y MacBook Pro. It is a solid workstation and an extremely good gaming machine. It has easy to upgrade NVMe and RAM and WiFi modules. This Model supports NVMe up to 2Tb and RAM up to 64Gb.
 
-Major disadvantages is
+Major disadvantages are:
 
-* PC trackpads still cannot match with MacBook Pro. This one is good. Much better than most PC notebooks have. But still not even close to MacBook Pro.
-* Screen rather mediocre compare to MacBook Pro. 144Hz is good for gaming. If you working with text a lot just like me maybe it will be better to get 4K panel. For content creators is mandatory to get 4K panel.
+* PC trackpads still cannot match with MacBook Pro. This one is good. It is much better than most PC notebooks have, but still not even close to MacBook Pro.
+* The screen is rather mediocre in comparison to MacBook Pro. 144Hz is good for gaming. If you are working with text a lot just like me, maybe, it will be better to get 4K panel. For content creators, it is mandatory to get the 4K panel.
 
-P.S. Apple, please fix keyboard and release real Pro MacBook. Just take a look on Razer Blade Advanced. Good place to start to design new MacBook Pro.
+P.S. Apple, please fix the keyboard and release a real Pro MacBook. Just take a look on Razer Blade Advanced as that is a good place for starting to design a new MacBook Pro.
 
 Additional Information
 ---
@@ -1616,7 +1616,7 @@ Additional Information
 Credits
 ---
 
-* [Apple](https://www.apple.com) for macOS. Still the best OS
+* [Apple](https://www.apple.com) for macOS. It is still the best OS
 * [netkas](http://netkas.org) for the original idea of creating a software SMC emulator
 * [RehabMan](https://github.com/RehabMan) for Laptop-DSDT-Patch, OS-X-Clover-Laptop-Config, OS-X-MaciASL-patchmatic, and more. You are a legend!
 * [Acidanthera](https://github.com/acidanthera) for VirtualSMC
@@ -1624,6 +1624,6 @@ Credits
 * [Ben Raz](https://github.com/ben9923) for help with VoodooI2C and trackpad
 * [Bat.bat](https://github.com/williambj1) for help with VoodooI2C and trackpad
 * [Steve Zheng](https://github.com/stevezhengshiqi) for one-key-cpufriend
-* [vettz500](https://www.tonymacx86.com/members/vettz500.291395/) for incredible useful information about RBA 2018
+* [vettz500](https://www.tonymacx86.com/members/vettz500.291395/) for the incredibly useful information about RBA 2018
 * [Kishor Prins](https://github.com/kprinssu) and [Boo](https://github.com/boo-dev) for osx-razer-blade
 * Additional big thanks go to all the contributors and researchers involved in Hackintosh development!
