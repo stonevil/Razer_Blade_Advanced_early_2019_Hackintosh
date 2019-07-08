@@ -75,9 +75,10 @@ The bundled ``WiFI`` and ``NVMe`` is not compatible with macOS and should be rep
 
 **WiFi**
 
-| WiFi module | Description | eBay URL |
+| WiFi module | Description | eBay or AliExpress URL |
 | ---: | :--- | :--- |
-| ``BCM94352Z (DW-1560)`` | Easily to find for $24-60 on | [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1) |
+| ``BCM94352Z (DW-1560)`` | Recommended. 2 antennas. No issues. Additional kext's are required. Easily to find for \$24-60 on | [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=BCM94352Z+DW-1560&_sacat=0&rt=nc&LH_BIN=1) |
+| ``BCM943602BAED (DW1830)`` | 3 antennas. RBA have only 2. Works out of the box. About \$60-120 on AliExpress | [AliExpress](https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20190707194727&SearchText=BCM943602BAED+DW1830&switch_new_app=y) |
 
 
 **Storage**
@@ -112,7 +113,7 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 
 | Accessories | Description | Amazon URL |
 | ---: | :--- | :--- |
-| Advancing Gene NVMe M.2 Heatsink | Passive cooling for NVMe. Decreased temperature for about 10-12° C on heave load | [Amazon](https://www.amazon.com/gp/product/B074Y5DZ4N/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1) |
+| ``Advancing Gene NVMe M.2 Heatsink`` | Passive cooling for NVMe. Decreased temperature for about 10-12° C on heave load | [Amazon](https://www.amazon.com/gp/product/B074Y5DZ4N/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1) |
 
 
 **Recommended Tools**
@@ -126,9 +127,9 @@ Performance tested with [Blackmagic Disk Speed Test](https://apps.apple.com/us/a
 
 | Accessories | Description | Amazon URL |
 | ---: | :--- | :--- |
-| Thermal Grizzly Conductonaut Thermal Grease Paste | Liquid metal thermal paste | [Amazon](https://www.amazon.com/gp/product/B01A9KIGSI/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) |
-| MG Chemicals 422B Silicone Modified Conformal Coating | Coating | [Amazon](https://www.amazon.com/gp/product/B008O9YIV6/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1) |
-| 3M Scotch Super 88 Vinyl Electrical Tape | Electrical tape | [Amazon](https://www.amazon.com/3M-Scotch-Electrical-Dielectric-Strength/dp/B001DPXGSE/ref=sr_1_2_sspa?ie=UTF8&qid=1538036249&sr=8-2-spons&keywords=super+88&psc=1) |
+| ``Thermal Grizzly Conductonaut Thermal Grease Paste`` | Liquid metal thermal paste | [Amazon](https://www.amazon.com/gp/product/B01A9KIGSI/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) |
+| ``MG Chemicals 422B Silicone Modified Conformal Coating`` | Coating | [Amazon](https://www.amazon.com/gp/product/B008O9YIV6/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1) |
+| ``3M Scotch Super 88 Vinyl Electrical Tape`` | Electrical tape | [Amazon](https://www.amazon.com/3M-Scotch-Electrical-Dielectric-Strength/dp/B001DPXGSE/ref=sr_1_2_sspa?ie=UTF8&qid=1538036249&sr=8-2-spons&keywords=super+88&psc=1) |
 
 
 **Useful information**
@@ -145,9 +146,9 @@ This BIOS mod is actual only for Razer Blade Advanced early 2019 with
 
 | | Version |
 | ---: | :--- |
-| System BIOS | 1.04 |
-| EC FW | 1.03 |
-| MCU FW | 1.00.00.00 |
+| ``System BIOS`` | 1.04 |
+| ``EC FW`` | 1.03 |
+| ``MCU FW`` | 1.00.00.00 |
 
 Do not use this mod if your system is different! Please check with BIOS.
 
@@ -240,9 +241,9 @@ If the BIOS is upgraded to the latest version and
 
 | | Version |
 | ---: | :--- |
-| System BIOS | 1.04 |
-| EC FW | 1.03 |
-| MCU FW | 1.00.00.00 |
+| ``System BIOS`` | 1.04 |
+| ``EC FW`` | 1.03 |
+| ``MCU FW`` | 1.00.00.00 |
 
 it's safely to use already modded dump from ``BIOS_mod/`` folder and jump to **BIOS flashing**.
 
@@ -618,7 +619,7 @@ sudo smartctl -a /dev/nvme0
 
 **Be very careful and do this at your OWN RISK!**
 
-This step is not necessary and can be recommended only for hardcore gamers with experience of building their own rigs. Razer is already using very good thermal paste, so re-pasting thermal paste is not very useful until liquid metal is used. The Grizzly Conductonaut Thermal Grease Paste may be the best one. Read more about liquid metal thermal paste and all the issues it can cause before making the decision to proceed.
+This step is not necessary and can be recommended only for hardcore gamers with experience of building their own rigs. Razer is already using very good thermal paste, so re-pasting thermal paste is not very useful until liquid metal is used. The ``Grizzly Conductonaut Thermal Grease Paste`` may be the best one. Read more about liquid metal thermal paste and all the issues it can cause before making the decision to proceed.
 
 **Useful information**
 
@@ -1186,7 +1187,6 @@ Verify configuration by inserting ``USB 2.0`` and ``USB 3.0`` and ``USB-C`` devi
 
 ### iCloud. iMessages and FaceTime
 
-
 Follow the instruction in the article [An iDiot's Guide To iMessage](https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/).
 
 **Useful information**
@@ -1211,16 +1211,25 @@ This step is optional, but highly recommended from the security standpoint.
 	* Open ``Gui`` section.
 	* Remove ``Preboot`` volume from ``Hide Volume`` in the top right corner.
 	* Hit ``Command+S`` to save configuration.
-	* Open ``System Preferences…`` and ``Security & Privacy`` and ``FileVault`` tab.
-	* Click ``Turn On FileVault…``
+
+![Clover_Preboot](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Clover_Preboot.png)
+
+* Open ``System Preferences…`` and ``Security & Privacy`` and ``FileVault`` tab.
+	* Click lock to unlock ``System Preferences``.
+	* Click ``Turn On FileVault…``.
 	* It will take time… Depending on the drive size and a number of files, this can take up to 12h. So, be patient.
-	* Reboot computer.
-	* At the ``Clover`` screen, make sure you select the ``FileVault`` ``Preboot`` option of NVMe drive.
-	* Login prompt should appear.
-	* Keyboard should work without any issues.
-	* If keyboard does not work, maybe, additional drivers are required. Boot from macOS USB installation media and fix ``Clover`` boot configuration.
-	* Enter credentials.
-	* macOS should continue to boot.
+
+![System_Preferences_FileVault_Locked](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/System_Preferences_FileVault_Locked.png)
+
+![System_Preferences_FileVault_Unlocked](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/System_Preferences_FileVault_Unlocked.png)
+
+* Reboot computer.
+* At the ``Clover`` screen, make sure you select the ``FileVault`` ``Preboot`` option of NVMe drive.
+* Login prompt should appear.
+* Keyboard should work without any issues.
+* If keyboard does not work, maybe, additional drivers are required. Boot from macOS USB installation media and fix ``Clover`` boot configuration.
+* Enter credentials.
+* macOS should continue to boot.
 
 **Useful information**
 
@@ -1378,10 +1387,10 @@ To apply configuration:
 
 | Option | Configuration start undervolting | Recommended step | My stable working configuration |
 | ---: | ---: | ---: | ---: |
-| Processor Core Voltage Offset | -100 | -5 | -140 |
-| GT Core Voltage Offset | -100 | -5 | -140 |
-| GTU Core Voltage Offset | -100 | -5 | -140 |
-| Uncore Voltage Offset | -60 | -5 | -120 |
+| ``Processor Core Voltage Offset`` | -100 | -5 | -140 |
+| ``GT Core Voltage Offset`` | -100 | -5 | -140 |
+| ``GTU Core Voltage Offset`` | -100 | -5 | -140 |
+| ``Uncore Voltage Offset`` | -60 | -5 | -120 |
 
 CPU limitations can be very different even in same series. So, do not use my configuration blindly.
 
