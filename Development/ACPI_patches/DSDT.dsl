@@ -5,7 +5,7 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of DSDT.aml, Thu May 23 21:33:16 2019
+ * Disassembly of DSDT.aml, Sun Jul 21 05:12:11 2019
  *
  * Original Table Header:
  *     Signature        "DSDT"
@@ -48793,7 +48793,7 @@ Return (AM00)
             Store (SDS0, I2CN)
             Store (Zero, I2CX)
         }
-        
+
         Method (SSCN, 0, NotSerialized)
         {
             Return (PKG3 (SSH0, SSL0, SSD0))
@@ -48946,7 +48946,7 @@ Return (AM00)
 
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                Return (ConcatenateResTemplate (I2CM (I2CX, BADR, SPED), SBFG))
+               Return (ConcatenateResTemplate (I2CM (I2CX, BADR, SPED), SBFG))
             }
         }
 
