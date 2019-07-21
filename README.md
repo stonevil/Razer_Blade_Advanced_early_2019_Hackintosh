@@ -2,7 +2,6 @@
 
 **Note: I'AM NOT RESPONSIBLE IF YOU MESS UP YOUR COMPUTER USING THIS GUIDE!**
 
-
 Intro
 ---
 
@@ -146,7 +145,7 @@ This BIOS mod is actual only for Razer Blade Advanced early 2019 with
 
 | | Version |
 | ---: | :--- |
-| ``System BIOS`` | 1.04 |
+| ``System BIOS`` | 1.05 |
 | ``EC FW`` | 1.03 |
 | ``MCU FW`` | 1.00.00.00 |
 
@@ -241,7 +240,7 @@ If the BIOS is upgraded to the latest version and
 
 | | Version |
 | ---: | :--- |
-| ``System BIOS`` | 1.04 |
+| ``System BIOS`` | 1.05 |
 | ``EC FW`` | 1.03 |
 | ``MCU FW`` | 1.00.00.00 |
 
@@ -1636,3 +1635,9 @@ Credits
 * [vettz500](https://www.tonymacx86.com/members/vettz500.291395/) for the incredibly useful information about RBA 2018
 * [Kishor Prins](https://github.com/kprinssu) and [Boo](https://github.com/boo-dev) for osx-razer-blade
 * Additional big thanks go to all the contributors and researchers involved in Hackintosh development!
+
+
+TODO
+---
+
+- [ ] Add BIOS pre and post update procedure
