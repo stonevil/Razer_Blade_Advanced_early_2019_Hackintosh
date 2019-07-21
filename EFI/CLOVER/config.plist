@@ -268,7 +268,7 @@
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
-		<string>dart=0 slide=0 keepsyms=1 kext-dev-mode=1 nv_disable=1 igfxcflbklt=1 alcid=29 shikigva=40 -v</string>
+		<string>dart=0 slide=0 keepsyms=1 kext-dev-mode=1 nv_disable=1 igfxcflbklt=1 shikigva=40 -v</string>
 		<key>DefaultLoader</key>
 		<string></string>
 		<key>DefaultVolume</key>
@@ -588,8 +588,6 @@
 		<string>MBP152.88Z.F000.B00.1809171524</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
-		<key>BoardSerialNumber</key>
-		<string>C028239024NJH4R8C</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
