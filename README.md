@@ -904,8 +904,8 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 * Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend the file name automatically.
 * Copy the newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
-** GPIO Pinning (Optional) (Must Restart after previous DSDT patches) **
-
+**GPIO Pinning (Optional) (Must Restart after previous DSDT patches)**
+* Before you begin make sure you computer's Platform Controller Hub is Cannon Point-H (Coffee Lake CPU)
 * Finding hexadecimal APIC pin number
 * Download [IORegistryExplorer](https://www.tonymacx86.com/threads/guide-how-to-make-a-copy-of-ioreg.58368/)
 * Open IORegExplorer and search for TPD0
