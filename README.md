@@ -904,6 +904,25 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 * Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend the file name automatically.
 * Copy the newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
+** GPIO Pinning (Optional) (Must Restart after previous DSDT patches) **
+
+* Finding hexadecimal APIC pin number
+* Download [IORegistryExplorer](https://www.tonymacx86.com/threads/guide-how-to-make-a-copy-of-ioreg.58368/)
+* Open IORegExplorer and search for TPD0
+* Open IOInterruptSpecifiers (If you don't see a IOInterruptSpecifiers you didn't reboot after previous DSDT patches)
+![IORegExplorer](https://github.com/Pauldg7/Razer_Blade_Advanced_early_2019_Hackintosh/blob/master/images/ioreg_pin_situation.png)
+* Write down the first two numbers from the Value column as 0xXX (in the example the APIC Pin number is 0x33)
+* Write down the label of form GPP_XYY_IRQ by searching up the APIC pin number on [Cannon Point-H Labels](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_defs_cnp_h.h#L42)
+* Write down the decimal GPIO pin number by searching the label on [Cannon Point-H Decimal Pin Numbers](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_soc_defs_cnp_h.h#L40)
+
+* Find the method ``_CRS`` from before and change to
+
+```
+Method (_CRS, 0, NotSerialized) // _CRS: Current Resource Settings
+{
+    Return (ConcatenateResTemplate(SBFB, SBFG))
+}
+```
 
 Next step is hot patch ACPI to disable Nvidia GPU in macOS for saving battery and decreasing the overall heat.
 
