@@ -908,7 +908,7 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 * Before you begin make sure you computer's Platform Controller Hub is Cannon Point-H (Coffee Lake CPU)
 * Finding hexadecimal APIC pin number
 * Download [IORegistryExplorer](https://www.tonymacx86.com/threads/guide-how-to-make-a-copy-of-ioreg.58368/)
-* Open IORegExplorer and search for TPD0
+* Open IORegExplorer and search for TPD0 (Example shows TPD1 just ignore that, you want TPD0)
 * Open IOInterruptSpecifiers (If you don't see a IOInterruptSpecifiers you didn't reboot after previous DSDT patches)
 ![IORegExplorer](https://github.com/Pauldg7/Razer_Blade_Advanced_early_2019_Hackintosh/blob/master/images/ioreg_pin_situation.png)
 * Write down the first two numbers from the Value column as 0xXX (in the example the APIC Pin number is 0x33)
