@@ -904,6 +904,60 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 * Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend the file name automatically.
 * Copy the newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
+**GPIO Pinning (Optional) (Must Restart after previous DSDT patches)**
+* Before you begin make sure you computer's Platform Controller Hub is Cannon Point-H (Coffee Lake CPU)
+* Finding hexadecimal APIC pin number
+* Download [IORegistryExplorer](https://www.tonymacx86.com/threads/guide-how-to-make-a-copy-of-ioreg.58368/)
+* Open IORegExplorer and search for TPD0 (Example shows TPD1 just ignore that, you want TPD0)
+* Open IOInterruptSpecifiers (If you don't see a IOInterruptSpecifiers you didn't reboot after previous DSDT patches)
+![IORegExplorer](https://github.com/Pauldg7/Razer_Blade_Advanced_early_2019_Hackintosh/blob/master/images/ioreg_pin_situation.png)
+* Write down the first two numbers from the Value column as 0xXX (in the example the APIC Pin number is 0x33)
+* Write down the label of form GPP_XYY_IRQ by searching up the APIC pin number on [Cannon Point-H Labels](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_defs_cnp_h.h#L42)
+* Write down the decimal GPIO pin number by searching the label on [Cannon Point-H Decimal Pin Numbers](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_soc_defs_cnp_h.h#L40)
+* Write down the chipset_gpp by searching the label on [Cannon Point-H Chipset GPP](https://github.com/coolstar/VoodooGPIO/blob/master/VoodooGPIO/CannonLake-H/VoodooGPIOCannonLakeH.hpp#L414)
+* Note the Chipset_GPP will be in the form CHIPSET_GPP(num, base, end, gpio_base)
+* Calculate a usable GPIO pin by taking the decimal pin number - base + gpio_base
+* Now find something that looks like this under Device(TPD0)
+```
+Name (SBFG, ResourceTemplate ()
+{
+GpioInt (Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
+    "\\_SB.PCI0.GPI0", 0x00, ResourceConsumer, ,
+    )
+    {   // Pin list
+	0x0000
+    }
+})
+```
+
+* And replace the pin with the calculated GPIO pin XX
+```
+Name (SBFG, ResourceTemplate ()
+{
+GpioInt (Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
+    "\\_SB.PCI0.GPI0", 0x00, ResourceConsumer, ,
+    )
+    {   // Pin list
+	0xXX
+    }
+})
+```
+
+* Find the method ``_CRS`` from before and change to
+
+```
+Method (_CRS, 0, NotSerialized) // _CRS: Current Resource Settings
+{
+    Return (ConcatenateResTemplate(SBFB, SBFG))
+}
+```
+
+* Click ``Compile`` button in ``toolbar``. ``DSDT`` should be complied without any issues.
+* Choose ``Save`` from ``File`` menu.
+* Choose ``Save As…`` from ``File`` menu.
+* Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
+* Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend the file name automatically.
+* Copy the newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
 Next step is hot patch ACPI to disable Nvidia GPU in macOS for saving battery and decreasing the overall heat.
 
