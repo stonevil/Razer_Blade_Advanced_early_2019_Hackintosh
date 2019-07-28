@@ -797,7 +797,24 @@ sudo cp ~/Downloads/iasl /usr/local/bin/
 * In ``Patch`` window on the left panel, scroll and find ``[gfx0] Disable/Enable on _WAK/_PTS (DSDT)`` and click ``Apply``. Do not close the window!
 * Click ``Close`` in ``Patch`` window.
 * Click ``Compile`` button in ``toolbar``. ``DSDT`` should be compiled without any issues.
+* Do not close this window.
+
+
 * Next step is hot patch DSDT for trackpad.
+* Mount ``IORegistryExplorer.dmg`` from folder ``Tools``.
+* Right click on ``IORegistryExplorer.app`` application icon.
+
+![IORegistryExplorer_Open_Right_Click](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/IORegistryExplorer_Open_Right_Click.png)
+
+* Open ``IORegistryExplorer.app`` application with ``Open`` option in right click menu.
+* Thera are possibility macOS will ask for admin password.
+* Search for ``TPD0``. It can be very different for different computer but for Razer Blade notebooks is ``TPD0``.
+
+![IORegistryExplorer_TPD0](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/IORegistryExplorer_TPD0.png)
+
+* Open IOInterruptSpecifiers.
+* Write down the first two numbers from the ``Value`` column as ``0xXX`` (In this case for Razer Blade Advanced early 2019 ``APIC`` pin number is ``0x5a``). This ``APIC`` pin number will be required during ``Trackpad GPIO Pinning`` procedure.
+* Switch back to ``MaciASL`` application with opened file ``~/Desktop/origin/DSDT.dsl``.
 * Hit ``Command+F`` for ``Search`` and search for method ``SSCN`` in scope ``Scope (_SB.PCI0.I2C0)`` lines like below.
 
 ```
@@ -903,14 +920,80 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
 * Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend the file name automatically.
 * Copy the newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
+* Restart computer. After restart you will get working trackpad in ``Polling Mode``.
 
+
+**Trackpad GPIO Pinning (Optional)**
+
+* Before you begin make sure you computer's Platform Controller Hub is Cannon Point-H (Coffee Lake CPU).
+* Check with ``APIC`` pin number saved in previous procedure (In this case for Razer Blade Advanced early 2019 ``APIC`` pin number is ``0x5a``).
+* Write down the label of form ``GPP_XYY_IRQ`` by searching up the ``APIC`` pin number on [Cannon Point-H Labels](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_defs_cnp_h.h#L42). For ``0x5a`` it will be ``GPP_C18_IRQ``. (GPP_H18_IRQ or GPP_K18_IRQ)
+* Write down the decimal ``GPIO`` pin number by searching the label on [Cannon Point-H Decimal Pin Numbers](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_soc_defs_cnp_h.h#L40). For ``GPP_C18`` it will be ``69``.
+* Write down the ``CHIPSET_GPP`` by searching the label ``GPP_X`` on [Cannon Point-H Chipset GPP](https://github.com/coolstar/VoodooGPIO/blob/master/VoodooGPIO/CannonLake-H/VoodooGPIOCannonLakeH.hpp#L414). For ``GPP_C18`` label will be ``GPP_C`` and ``CHIPSET_GPP`` will be:
+
+```
+CNL_GPP(0, 51, 74, 64),             /* GPP_C */
+```
+
+* ``Chipset_GPP`` format is ``CHIPSET_GPP(num, base, end, gpio_base)``
+* Calculate a usable GPIO pin by taking the ``decimal pin number - base + gpio_base``.
+* For Razer Blade Advanced early 2019 is:
+
+```
+69-51+64 = 82
+```
+
+* Use [Decimal to Hexadecimal Converter](https://www.binaryhexconverter.com/decimal-to-hex-converter) to convert decimal to hexadecimal. In this case it will be ``52``.
+* Now find something that looks like this under ``Device(TPD0)``
+
+```
+Name (SBFG, ResourceTemplate ()
+{
+GpioInt (Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
+    "\\_SB.PCI0.GPI0", 0x00, ResourceConsumer, ,
+    )
+    {   // Pin list
+	0x0000
+    }
+})
+```
+
+* And replace the pin with the calculated GPIO pin XX. In this case it will be ``52``.
+
+```
+Name (SBFG, ResourceTemplate ()
+{
+GpioInt (Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
+    "\\_SB.PCI0.GPI0", 0x00, ResourceConsumer, ,
+    )
+    {   // Pin list
+	0x52
+    }
+})
+```
+
+* Find the method ``_CRS`` from before and change to
+
+```
+Method (_CRS, 0, NotSerialized) // _CRS: Current Resource Settings
+{
+    Return (ConcatenateResTemplate(SBFB, SBFG))
+}
+```
+
+* Click ``Compile`` button in ``toolbar``. ``DSDT`` should be complied without any issues.
+* Choose ``Save`` from ``File`` menu.
+* Choose ``Save As…`` from ``File`` menu.
+* Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
+* Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend the file name automatically.
+* Copy the newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
 Next step is hot patch ACPI to disable Nvidia GPU in macOS for saving battery and decreasing the overall heat.
+
 
 **Nvidia GPU disable**
 
 * Open ``SSDT-12-OptTabl.dsl`` with ``MaciASL`` application.
-
 * Find this header:
 
 ```
@@ -976,6 +1059,10 @@ External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 * [Native Power Management for Laptops](https://www.tonymacx86.com/threads/guide-native-power-management-for-laptops.175801/)
 * [Quick Guide to Generate a SSDT for CPU Power Management](https://www.tonymacx86.com/threads/quick-guide-to-generate-a-ssdt-for-cpu-power-management.177456/)
 * [Generate SSDT For Coffee Lake CPU](https://www.tonymacx86.com/threads/guide-generate-ssdt-for-coffee-lake-cpu.238311/)
+* [IORegistryExplorer](https://www.tonymacx86.com/threads/guide-how-to-make-a-copy-of-ioreg.58368/)
+* [Cannon Point-H Labels](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_defs_cnp_h.h)
+* [Cannon Point-H Decimal Pin Numbers](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_soc_defs_cnp_h.h)
+* [Cannon Point-H Chipset GPP](https://github.com/coolstar/VoodooGPIO/blob/master/VoodooGPIO/CannonLake-H/VoodooGPIOCannonLakeH.hpp)
 
 
 ### USB mapping
