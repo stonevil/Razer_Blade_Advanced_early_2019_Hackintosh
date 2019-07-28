@@ -794,13 +794,19 @@ sudo cp ~/Downloads/iasl /usr/local/bin/
 * Run ``MaciASL`` application and open file ``~/Desktop/origin/DSDT.dsl``.
 * Click ``Patch`` button in ``toolbar``.
 * In ``Patch`` window on left panel scroll and find ``[bat] Razer Blade (2014)`` and click ``Apply``. Do not close window!
+
+![DSDT_01_BAT](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_01_BAT.png)
+
 * In ``Patch`` window on the left panel, scroll and find ``[gfx0] Disable/Enable on _WAK/_PTS (DSDT)`` and click ``Apply``. Do not close the window!
+
+![DSDT_05_GFX](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_05_GFX.png)
+
 * Click ``Close`` in ``Patch`` window.
 * Click ``Compile`` button in ``toolbar``. ``DSDT`` should be compiled without any issues.
 * Do not close this window.
 
+Next step is hot patch DSDT for trackpad.
 
-* Next step is hot patch DSDT for trackpad.
 * Mount ``IORegistryExplorer.dmg`` from folder ``Tools``.
 * Right click on ``IORegistryExplorer.app`` application icon.
 
@@ -844,6 +850,8 @@ Method (_MCN, 0, NotSerialized)
 }
 ```
 
+![DSDT_11_SSCN_FMCN](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_11_SSCN_FMCN.png)
+
 * Find a code like this:
 
 ```
@@ -886,6 +894,8 @@ Scope (_SB.PCI0.I2C0)
         Device (TPD0)
 ```
 
+![DSDT_12_SSCN_FMCN](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_12_SSCN_FMCN.png)
+
 * Scroll down to method ``_CRS`` for scope ``_SB.PCI0.I2C0``. It should look like this:
 
 ```
@@ -914,7 +924,9 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 }
 ```
 
-* Click ``Compile`` button in ``toolbar``. ``SSDT-12-OptTabl`` should be complied without any issues.
+![DSDT_13__CRS](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_13__CRS.png)
+
+* Click ``Compile`` button in ``toolbar``. ``DSDT`` should be complied without any issues.
 * Choose ``Save`` from ``File`` menu.
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
@@ -923,17 +935,28 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 * Restart computer. After restart you will get working trackpad in ``Polling Mode``.
 
 
-**Trackpad GPIO Pinning (Optional)**
+**(Optional) Trackpad GPIO Pinning**
 
-* Before you begin make sure you computer's Platform Controller Hub is Cannon Point-H (Coffee Lake CPU).
+This step is optional but highly recommended.
+
+Before you begin make sure you computer's Platform Controller Hub is Cannon Point-H (Coffee Lake CPU). For other platforms tables will be different. In this case please check with [GPIO Pinning](https://voodooi2c.github.io/#GPIO%20Pinning/GPIO%20Pinning) documentation.
+
 * Check with ``APIC`` pin number saved in previous procedure (In this case for Razer Blade Advanced early 2019 ``APIC`` pin number is ``0x5a``).
-* Write down the label of form ``GPP_XYY_IRQ`` by searching up the ``APIC`` pin number on [Cannon Point-H Labels](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_defs_cnp_h.h#L42). For ``0x5a`` it will be ``GPP_C18_IRQ``. (GPP_H18_IRQ or GPP_K18_IRQ)
+* Write down the label of form ``GPP_XYY_IRQ`` by searching up the ``APIC`` pin number on [Cannon Point-H Labels](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_defs_cnp_h.h#L42). For ``0x5a`` it will be ``GPP_C18_IRQ``.
+
+![DSDT_GPIO_Pin_01](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_GPIO_Pin_01.png)
+
 * Write down the decimal ``GPIO`` pin number by searching the label on [Cannon Point-H Decimal Pin Numbers](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_soc_defs_cnp_h.h#L40). For ``GPP_C18`` it will be ``69``.
+
+![DSDT_GPIO_Pin_02](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_GPIO_Pin_02.png)
+
 * Write down the ``CHIPSET_GPP`` by searching the label ``GPP_X`` on [Cannon Point-H Chipset GPP](https://github.com/coolstar/VoodooGPIO/blob/master/VoodooGPIO/CannonLake-H/VoodooGPIOCannonLakeH.hpp#L414). For ``GPP_C18`` label will be ``GPP_C`` and ``CHIPSET_GPP`` will be:
 
 ```
 CNL_GPP(0, 51, 74, 64),             /* GPP_C */
 ```
+
+![DSDT_GPIO_Pin_03](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_GPIO_Pin_03.png)
 
 * ``Chipset_GPP`` format is ``CHIPSET_GPP(num, base, end, gpio_base)``
 * Calculate a usable GPIO pin by taking the ``decimal pin number - base + gpio_base``.
@@ -944,7 +967,10 @@ CNL_GPP(0, 51, 74, 64),             /* GPP_C */
 ```
 
 * Use [Decimal to Hexadecimal Converter](https://www.binaryhexconverter.com/decimal-to-hex-converter) to convert decimal to hexadecimal. In this case it will be ``52``.
-* Now find something that looks like this under ``Device(TPD0)``
+
+![DSDT_GPIO_Pin_10_Decimal_to_Hexadecimal_Converter](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_GPIO_Pin_10_Decimal_to_Hexadecimal_Converter.png)
+
+* Now find something that looks like this under ``Device (TPD0)``
 
 ```
 Name (SBFG, ResourceTemplate ()
@@ -972,6 +998,9 @@ GpioInt (Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
 })
 ```
 
+![DSDT_GPIO_Pin_11](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_GPIO_Pin_11.png)
+
+
 * Find the method ``_CRS`` from before and change to
 
 ```
@@ -981,11 +1010,16 @@ Method (_CRS, 0, NotSerialized) // _CRS: Current Resource Settings
 }
 ```
 
+![DSDT_GPIO_Pin_05__CRS](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_GPIO_Pin_05__CRS.png)
+
 * Click ``Compile`` button in ``toolbar``. ``DSDT`` should be complied without any issues.
 * Choose ``Save`` from ``File`` menu.
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
 * Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend the file name automatically.
+
+![DSDT_Save_As_2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_Save_As_2.png)
+
 * Copy the newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 
 Next step is hot patch ACPI to disable Nvidia GPU in macOS for saving battery and decreasing the overall heat.
@@ -1006,11 +1040,15 @@ Next step is hot patch ACPI to disable Nvidia GPU in macOS for saving battery an
 Method (_OFF, 0, Serialized) // _OFF: Power Off
 ```
 
+![SSDT-12-OptTabl_01](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/SSDT-12-OptTabl_01.png)
+
 * Above the code, paste this line of code:
 
 ```
 Method (_INI) {_OFF() } // added to call _OFF
 ```
+
+![SSDT-12-OptTabl_02](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/SSDT-12-OptTabl_02.png)
 
 * Once that is pasted in, click on the ``Patch`` button in ``toolbar`` and copy and paste this code into the ``Patch`` window:
 
@@ -1028,6 +1066,8 @@ External(\_SB.PCI0.PEG0.PEGP._OFF, MethodObj)\n
 end;
 ```
 
+![SSDT-12-OptTabl_03](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/SSDT-12-OptTabl_03.png)
+
 * Close the ``Patch`` window.
 * Click ``Compile`` button in ``toolbar``.
 * If ``SSDT-12-OptTabl.dsl`` is compiled without any issues skip to next patch. If compilation failed with error:
@@ -1036,11 +1076,15 @@ end;
 [Unknown ASL Compiler exception ID] (TGPC [Integer])
 ```
 
+![SSDT-12-OptTabl_04](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/SSDT-12-OptTabl_04.png)
+
 * Hit ``Command+F`` for ``Search``, search for a line like below and delete this line.
 
 ```
 External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 ```
+
+![SSDT-12-OptTabl_05](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/SSDT-12-OptTabl_05.png)
 
 * Now, ``SSDT-12-OptTabl.dsl`` should be compiled without any issues.
 * Click ``Patch`` button in ``toolbar``.
@@ -1050,6 +1094,9 @@ External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
 * Save this file as ``SSDT-12-OptTabl.aml``. ``MaciASL`` application will recommend this file name automatically.
+
+![SSDT-12-OptTabl_Save_As_2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/SSDT-12-OptTabl_Save_As_2.png)
+
 * Copy newly created file ``SSDT-12-OptTabl.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/`` 
 
 **Useful information**
@@ -1060,6 +1107,7 @@ External (_SB_.PCI0.PEG0.TGPC, IntObj)    // (from opcode)
 * [Quick Guide to Generate a SSDT for CPU Power Management](https://www.tonymacx86.com/threads/quick-guide-to-generate-a-ssdt-for-cpu-power-management.177456/)
 * [Generate SSDT For Coffee Lake CPU](https://www.tonymacx86.com/threads/guide-generate-ssdt-for-coffee-lake-cpu.238311/)
 * [IORegistryExplorer](https://www.tonymacx86.com/threads/guide-how-to-make-a-copy-of-ioreg.58368/)
+* [GPIO Pinning](https://voodooi2c.github.io/#GPIO%20Pinning/GPIO%20Pinning)
 * [Cannon Point-H Labels](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_defs_cnp_h.h)
 * [Cannon Point-H Decimal Pin Numbers](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_soc_defs_cnp_h.h)
 * [Cannon Point-H Chipset GPP](https://github.com/coolstar/VoodooGPIO/blob/master/VoodooGPIO/CannonLake-H/VoodooGPIOCannonLakeH.hpp)
