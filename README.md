@@ -931,6 +931,9 @@ Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
 * Choose ``Save As…`` from ``File`` menu.
 * Down below in ``Save`` window select ``ACPI Machine Language Binary`` from ``File Format:`` menu.
 * Save this file as ``DSDT.aml``. ``MaciASL`` application will recommend the file name automatically.
+
+![DSDT_Save_As_2](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_Save_As_2.png)
+
 * Copy the newly created file ``DSDT.aml`` to ``/Volumes/EFI/EFI/CLOVER/ACPI/patched/``
 * Restart computer. After restart you will get working trackpad in ``Polling Mode``.
 
