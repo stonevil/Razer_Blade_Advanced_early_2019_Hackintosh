@@ -819,7 +819,7 @@ Next step is hot patch DSDT for trackpad.
 ![IORegistryExplorer_TPD0](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/IORegistryExplorer_TPD0.png)
 
 * Open IOInterruptSpecifiers.
-* Write down the first two numbers from the ``Value`` column as ``0xXX`` (In this case for Razer Blade Advanced early 2019 ``APIC`` pin number is ``0x5a``). This ``APIC`` pin number will be required during ``Trackpad GPIO Pinning`` procedure.
+* Write down the first two numbers from the ``Value`` column as ``0xXX`` (In this case for Razer Blade Advanced early 2019 ``APIC`` pin number is ``0x5a``. This ``APIC`` pin number will be required during ``Trackpad GPIO Pinning`` procedure.
 * Switch back to ``MaciASL`` application with opened file ``~/Desktop/origin/DSDT.dsl``.
 * Hit ``Command+F`` for ``Search`` and search for method ``SSCN`` in scope ``Scope (_SB.PCI0.I2C0)`` lines like below.
 
@@ -941,7 +941,7 @@ This step is optional but highly recommended.
 
 Before you begin make sure you computer's Platform Controller Hub is Cannon Point-H (Coffee Lake CPU). For other platforms tables will be different. In this case please check with [GPIO Pinning](https://voodooi2c.github.io/#GPIO%20Pinning/GPIO%20Pinning) documentation.
 
-* Check with ``APIC`` pin number saved in previous procedure (In this case for Razer Blade Advanced early 2019 ``APIC`` pin number is ``0x5a``).
+* Check with ``APIC`` pin number saved in previous procedure (In this case for Razer Blade Advanced early 2019 ``APIC`` pin number is ``0x5a``.
 * Write down the label of form ``GPP_XYY_IRQ`` by searching up the ``APIC`` pin number on [Cannon Point-H Labels](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/cannonlake/include/soc/gpio_defs_cnp_h.h#L42). For ``0x5a`` it will be ``GPP_C18_IRQ``.
 
 ![DSDT_GPIO_Pin_01](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_GPIO_Pin_01.png)
