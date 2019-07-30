@@ -47,7 +47,7 @@ Hardware
 | ``Input & Output`` | USB 3.1 Gen 1 (USB-A) x3 | No issues |
 | | Thunderbolt 3 (USB-C) | No issues |
 | | HDMI 2.0B | HDMI connected directly to Nvidia GPU and will not work in macOS |
-| | Mini DisplayPort 1.4 | Not tested |
+| | Mini DisplayPort 1.4 | Mini DisplayPort connected directly to Nvidia GPU and will not work in macOS |
 | ``Soundboard`` | Realtek ALC298 | No issues. ACPI patch should be added to solve sleep issue |
 | ``Battery`` | 80Wh | About 3-5h after proper Power Management configuration.  ACPI should be patched to enable battery stats |
 | ``Keyboard`` | Per-key RGB powered by Razer Chroma N-Key rollover backlit | No issues. Razer Chroma software absent for macOS |
@@ -1425,7 +1425,7 @@ cd ~/Download/one-key-cpufriend-master
 Which option you want to choose? (1/2/3)
 ```
 
-* For most cases, option ``2`` will be optional. Type ``2`` and press ``Enter``.
+* For most cases, option ``2`` will be optimal. Type ``2`` and press ``Enter``.
 * Command will show something like this:
 
 ```
