@@ -506,14 +506,16 @@ The best way to format NVMe drive is to boot from Linux Live USB media and use `
 
 **Note: Ubuntu lacks the support by default drivers for most Broadcom WiFi modules.**
 
-There are 3 way to overcome this issue:
+There are 2 way to overcome this issue:
 
 * Use ``USB to Ethernet`` cable.
-* Install proprietary WiFi drivers installation. Follow this instruction [WifiDocs/Driver/bcm43xx](https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx)
+* Install proprietary WiFi drivers. Follow this instruction [WifiDocs/Driver/bcm43xx](https://help.ubuntu.com/community/WifiDocs/Driver/bcm43xx)
 
 | Accessories | Description | Amazon URL |
 | ---: | :--- | :--- |
 | ``USB to Ethernet`` | Internet access | [AmazonBasics USB 3.0 to 10/100/1000 Gigabit Ethernet](https://www.amazon.com/AmazonBasics-1000-Gigabit-Ethernet-Adapter/dp/B00M77HMU0/ref=sr_1_8?crid=3KJ7TSXIVKNO6&keywords=apple+usb+to+ethernet+adapter&qid=1561713591&s=gateway&sprefix=Apple+USB+to+Eth%2Caps%2C247&sr=8-8) |
+
+To change NVMe drive block size
 
 * Install a new NVMe drive in the target Razer Blade.
 * Insert USB media with ``Ubuntu Desktop``.
@@ -586,7 +588,7 @@ one with data ``4K`` starting with ID ``1``.
 ![Ubuntu_Run_smartctl_result](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Ubuntu_Run_smartctl_result.png)
 
 * If ``4K`` is absent, NVMe does not support 4k blocks. Reboot computer and follow **macOS install media preparation**.
-* Usually NVMe formatted to ``512B``. And this ``512B`` will be marked with asterix ``*``.
+* Usually NVMe formatted to ``512B``. And this ``512B`` will be marked with asterix ``*`` or ``+``.
 * Format the NVME with ``4K`` blocs with the command
 
 ```
@@ -804,6 +806,83 @@ sudo cp ~/Downloads/iasl /usr/local/bin/
 * Click ``Close`` in ``Patch`` window.
 * Click ``Compile`` button in ``toolbar``. ``DSDT`` should be compiled without any issues.
 * Do not close this window.
+
+Next step is hot patch DSDT for brightness settings between reboots.
+
+* Hit ``Command+F`` for ``Search`` and search for device ``Device (ALSD)``. It should look like this:
+
+```
+    Device (ALSD)
+    {
+        Name (_HID, "ACPI0008")  // _HID: Hardware ID
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (LEqual (ALSE, 0x02))
+            {
+                Return (0x0B)
+            }
+
+            Return (Zero)
+        }
+
+        Method (_ALI, 0, NotSerialized)  // _ALI: Ambient Light Illuminance
+        {
+            Return (Or (ShiftLeft (LHIH, 0x08), LLOW))
+        }
+
+        Name (_ALR, Package (0x05)  // _ALR: Ambient Light Response
+        {
+            Package (0x02)
+            {
+                0x46, 
+                Zero
+            }, 
+
+            Package (0x02)
+            {
+                0x49, 
+                0x0A
+            }, 
+
+            Package (0x02)
+            {
+                0x55, 
+                0x50
+            }, 
+
+            Package (0x02)
+            {
+                0x64, 
+                0x012C
+            }, 
+
+            Package (0x02)
+            {
+                0x96, 
+                0x03E8
+            }
+        })
+    }
+```
+
+![DSDT_ALS0_01](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_ALS0_01.png)
+
+* And replace this device ``Device (ALSD)`` description with:
+
+```
+    Device (_SB.ALS0)
+    {
+        Name (_HID, "ACPI0008")  // _HID: Hardware ID
+        Name (_CID, "smc-als")  // _STA: Status
+        Name (_ALI, 300)  // _ALI: Ambient Light Illuminance
+        Name (_ALR, Package ()  // _ALR: Ambient Light Response
+        {
+            Package () { 100, 300 },
+        })
+    }
+```
+
+![DSDT_ALS0_02](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/DSDT_ALS0_02.png)
 
 Next step is hot patch DSDT for trackpad.
 
