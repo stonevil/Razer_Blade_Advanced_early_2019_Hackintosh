@@ -1,6 +1,10 @@
-# Razer Blade Advanced early 2019 macOS 10.14 Hackintosh
+# Razer Blade Advanced early 2019 macOS 10.14/10.15 Hackintosh
 
 **Note: I'AM NOT RESPONSIBLE IF YOU MESS UP YOUR COMPUTER USING THIS GUIDE!**
+
+SUPPORT
+---
+**I have no access anymore to Razer Blade notebooks and not be able to test properly and update documentation. I open for any cooperation and will try maintain this repository as much as possible. Please fill free to create Pull Requests.**
 
 Intro
 ---
