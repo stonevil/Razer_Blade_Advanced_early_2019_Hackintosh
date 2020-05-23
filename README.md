@@ -1868,3 +1868,4 @@ TODO
 - [ ] Add BIOS pre and post update procedure
 - [ ] Update Extensions and Drivers
 - [ ] Update for Catalina
+- [ ] Add documentation how-to mount EFI in Windows 10
