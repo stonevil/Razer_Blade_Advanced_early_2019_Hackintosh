@@ -16,6 +16,9 @@ But, I'm really dissatisfied with the latest MacBook Pro 2017 as it has a useles
 
 So, finally, I made a decision to go to the dark side and to switch to the hackintosh notebook. After doing some research, I selected Razer Blade Advanced. This has, perhaps, the best combo of design (!), performance and upgradability.
 
+**Apple finally has updated the MacBook Pro with the proper Magic Keyboard and up to 64Gb RAM and decent enough dGPU! Alleluya!**
+
+
 **Purpose**
 
 * UNIX/Linux backend software development. C, Go, Python.
@@ -54,7 +57,7 @@ Hardware
 | | Mini DisplayPort 1.4 | Mini DisplayPort connected directly to Nvidia GPU and will not work in macOS |
 | ``Soundboard`` | Realtek ALC298 | No issues. ACPI patch should be added to solve sleep issue |
 | ``Battery`` | 80Wh | About 3-5h after proper Power Management configuration.  ACPI should be patched to enable battery stats |
-| ``Keyboard`` | Per-key RGB powered by Razer Chroma N-Key rollover backlit | No issues. Razer Chroma software absent for macOS |
+| ``Keyboard`` | Per-key RGB powered by Razer Chroma N-Key rollover backlit | No issues. Original Razer Chroma software absent for macOS. Many thanks to [BlvckBytes](https://github.com/BlvckBytes) for [MenuBar app](https://github.com/BlvckBytes/RazerControl/releases) to control Razer Blade keyboard and logo RGB lighting |
 | ``Touchpad`` | Precision Glass | No issues. ACPI should be patched to enable trackpad |
 | ``Dimensions`` | 17.8mm x 235mm x 355mm | |
 | ``Weight`` | 2.21 kg | ACPI patches will not help with this. /sarcasm |
@@ -1666,7 +1669,7 @@ Razer Chroma
 
 Razer Chroma support for Razer Blade notebooks and the latest Razer devices has not been implemented for macOS yet. I suppose, it will never be implemented.
 
-Thanks to [osx-razer-blade](https://github.com/boo-dev/osx-razer-blade) project, I've already had enough information, so I am working on cli tool to control Razer Blade keyboard and logo Chroma lighting.
+Many thanks to [BlvckBytes](https://github.com/BlvckBytes) for [MenuBar app](https://github.com/BlvckBytes/RazerControl/releases) to control Razer Blade keyboard and logo RGB lighting.
 
 
 Windows
@@ -1689,7 +1692,7 @@ Windows
 
 * Download Windows 10 ISO image.
 * Open [Download Windows 10 Disc Image (ISO File) URL](https://www.microsoft.com/en-us/software-download/windows10ISO) in Safari. It better to download ISO image on macOS. Microsoft detects OS and prevent download ISO image on Windows machine. It can be override by browser ``User-Agent`` replacement but still easier todo this on macOS.
-* From ``Select Edition`` menu select ``Windows 10 May 2019 Update`` (!). ``Windows 10 October 2019 Update`` ISO image have issues Microsoft still have not fixed.
+* From ``Select Edition`` menu select ``Windows 10 May 2019 Update`` (!). ``Windows 10 October 2019 Update`` and later ISO image have issues Microsoft still have not fixed.
 
 ![Windows_Download1](https://github.com/stonevil/Razer_Blade_Advanced_early_2019_Hackintosh/raw/master/images/Windows_Download1.png)
 
@@ -1817,7 +1820,8 @@ Major disadvantages are:
 * PC trackpads still cannot match with MacBook Pro. This one is good. It is much better than most PC notebooks have, but still not even close to MacBook Pro.
 * The screen is rather mediocre in comparison to MacBook Pro. 144Hz is good for gaming. If you are working with text a lot just like me, maybe, it will be better to get 4K panel. For content creators, it is mandatory to get the 4K panel.
 
-P.S. Apple, please fix the keyboard and release a real Pro MacBook. Just take a look on Razer Blade Advanced as that is a good place for starting to design a new MacBook Pro.
+~~P.S. Apple, please fix the keyboard and release a real Pro MacBook. Just take a look on Razer Blade Advanced as that is a good place for starting to design a new MacBook Pro.~~
+
 
 Additional Information
 ---
@@ -1862,3 +1866,5 @@ TODO
 ---
 
 - [ ] Add BIOS pre and post update procedure
+- [ ] Update Extensions and Drivers
+- [ ] Update for Catalina
